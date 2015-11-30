@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+        <meta name="author" content="Extending Markowitz" />
+            <title>Asset management:</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+            <link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+            <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = '../reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+            <style type="text/css">
+    p { text-align: left; }
+    .reveal ul {
+        width: 900px;
+    }
+    
+    .reveal strong { color: lawngreen;
+                     font-style: normal;
+                     font-weight: bold;
+                   }
+    
+    /* all headers are transformed to h1 by reveal.js, */
+    /* even individual slide headers. */
+    /* hence, h1 font size should not be too large */
+    .reveal h1 { 
+        font-style: normal;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    </style>
+        
+    <!-- include local MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      "HTML-CSS": {
+      scale: 80,
+      },
+      extensions: ["tex2jax.js"],
+      TeX: { equationNumbers: { autoNumber: "AMS" } },
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}});
+    </script>
+    <script type="text/javascript" src="../MathJax/MathJax.js"></script>
+    
+  </head>
+  <body>
+        <div class="reveal">
+      <div class="slides">
+        
+                <section>
+          <h1 class="title">Asset management:</h1>
+                              <h2 class="author">Extending Markowitz</h2>
+                    <h3 class="date">Christian Groll</h3>
+        </section>
+                        <section id="TOC">
+          <ul>
+          <li><a href="#/contents">Contents</a></li>
+          <li><a href="#/single-period-investment">Single period investment</a></li>
+          <li><a href="#/multi-period-investment">Multi-period investment</a></li>
+          </ul>
+        </section>
+                
+        <section><section id="contents" class="titleslide slide level1"><h1>Contents</h1></section><section id="manual-list-of-contents" class="slide level3">
+        <h1>Manual list of contents</h1>
+        <ul>
+        <li>single period investment
+        <ul>
+        <li>optimal portfolio: risk target
+        <ul>
+        <li>volatility</li>
+        <li>VaR</li>
+        </ul></li>
+        <li>estimation risk
+        <ul>
+        <li>possible estimators</li>
+        <li>adapting for estimation risk</li>
+        </ul></li>
+        </ul></li>
+        <li>multi-period investment
+        <ul>
+        <li>risk target
+        <ul>
+        <li>multiple ways to achieve required target
+        <ul>
+        <li>single asset joined with fixed income security</li>
+        </ul></li>
+        <li>multi-period return distribution
+        <ul>
+        <li>constant weights not possible</li>
+        </ul></li>
+        </ul></li>
+        </ul></li>
+        <li>multi-period investment with time-varying asset moments
+        <ul>
+        <li>turnover</li>
+        </ul></li>
+        </ul>
+        </section></section>
+        <section><section id="single-period-investment" class="titleslide slide level1"><h1>Single period investment</h1></section><section id="markowitz" class="slide level3">
+        <h1>Markowitz</h1>
+        <p>For any <strong>given</strong> expected portfolio return <strong><span class="math"><em>μ</em><sup> * </sup></span></strong>, <strong>minimize</strong> portfolio <strong>variance</strong>:</p>
+         <br /><span class="math">$$\begin{align*}
+        \underset{\xi}{\min}\, \quad\sigma_{P}^{2}&amp;=\xi'\Sigma\xi \\
+        \text{ subject to } \quad\mu_{P}&amp;=\xi'\mu =\mu^{*},\\
+        \xi'\bf{1} &amp;=1
+        \end{align*}$$</span><br />
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> assets with <strong>low volatility</strong> and <strong>low correlations</strong> to other assets are preferred</p>
+        </div>
+        </section><section id="portfolio-optimality" class="slide level3">
+        <h1>Portfolio optimality</h1>
+        <ul>
+        <li><strong>assumption:</strong> optimal portfolio can be described through <span class="math"><em>μ</em> − <em>σ</em></span> tradeoff</li>
+        </ul>
+        <div class="fragment">
+        <p>Common strategies:</p>
+        </div>
+        <div class="fragment">
+        <ul>
+        <li>for given <span class="math"><em>μ</em><sub><em>P</em></sub></span> <strong>minimize <span class="math"><em>σ</em><sub><em>P</em></sub></span></strong></li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <ul>
+        <li>for given <span class="math"><em>σ</em><sub><em>P</em></sub></span> <strong>maximize <span class="math"><em>μ</em><sub><em>P</em></sub></span></strong></li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <ul>
+        <li>maximize Sharpe ratio:</li>
+        </ul>
+        <p><br /><span class="math">$$SR_{P}=\frac{\mu_{P}}{\sigma_{P}}$$</span><br /></p>
+        </div>
+        </section><section id="section" class="slide level3">
+        <h1></h1>
+        <ul>
+        <li>other utility functions could require different metrics</li>
+        </ul>
+        <div class="fragment">
+        <ul>
+        <li><em>VaR</em></li>
+        </ul>
+        </div>
+        </section><section id="markowitz-1" class="slide level3">
+        <h1>Markowitz</h1>
+        <ul>
+        <li>assumption: volatility is good risk measure</li>
+        <li>extension: different risk measure
+        <ul>
+        <li>VaR: is it proportional</li>
+        <li>asset pricing: how correlated is risk measure to risk factors? (to German stock market?)</li>
+        <li>multi-period risk target: how can it be translated to single period optimization?</li>
+        </ul></li>
+        </ul>
+        </section><section id="skewness" class="slide level3">
+        <h1>Skewness</h1>
+        <ul>
+        <li>linear portfolio formula only holds for discrete returns</li>
+        <li>discrete returns not symmetric</li>
+        <li>how asymmetric are returns?
+        <ul>
+        <li>single unconditional Markowitz setting</li>
+        <li>bootstrap portfolio returns</li>
+        <li>conditional model for given point in time: copula-GARCH</li>
+        </ul></li>
+        </ul>
+        </section><section id="assume-markowitz-with-sigma-risk-target" class="slide level3">
+        <h1>Assume Markowitz with sigma risk target</h1>
+        <ul>
+        <li>how does mu-sigma area behave?</li>
+        </ul>
+        </section><section id="target" class="slide level3">
+        <h1>Target</h1>
+        <ul>
+        <li>there usually exists a difference between the time horizon of the target and the data frequency:
+        <ul>
+        <li>the portfolio target might be defined on a yearly basis</li>
+        <li>asset moments are estimated on a weekly / monthly basis in order to have sufficient data</li>
+        </ul></li>
+        </ul>
+        </section><section id="aligning-long-and-short-term-optimization-targets" class="slide level3">
+        <h1>Aligning long and short term optimization targets</h1>
+        <ul>
+        <li>how does a yearly target translate into a weekly target?</li>
+        </ul>
+        <p>Example: MSCI World and fixed income security - multiple possibilities: - one constant weight that creates the required long term risk target - smoothing risk over time: keep short term risk constant by constant rebalancing</p>
+        </section><section id="section-1" class="slide level3">
+        <h1></h1>
+        <p>Calculating long term risk: - due to price changes weights change over time: fixed weights strategy not possible without rebalancing - univariate GARCH modeling for portfolio returns not correct - correct simulation algorithm: - multivariate modeling and simulation - simulate weight changes - problematic: - square-root-of-time scaling with given conditional moments - example: high-volatility sigmas and square-root-of-time scaling will pretend that sigmas will stay high for the whole period</p>
+        </section><section id="research-questions" class="slide level3">
+        <h1>Research questions</h1>
+        <ul>
+        <li>how do univariate and multivariate yearly return distributions change?</li>
+        <li>how much do weights change over time?
+        <ul>
+        <li>simulated data (copula GARCH?!)</li>
+        <li>real data</li>
+        </ul></li>
+        </ul>
+        </section><section id="portfolio-return-distributions" class="slide level3">
+        <h1>Portfolio return distributions</h1>
+        <ul>
+        <li>standard deviation vs VaR as risk measure:</li>
+        <li>how do weekly return distributions look like?
+        <ul>
+        <li>with discrete returns (that are not symmetric)</li>
+        </ul></li>
+        </ul>
+        </section></section>
+        <section><section id="multi-period-investment" class="titleslide slide level1 unnumbered"><h1>Multi-period investment</h1></section></section>
+      </div>
+    </div>
+    
+    
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,         // Display controls in the bottom right corner
+      progress: true,         // Display a presentation progress bar
+      history: true,          // Push each slide change to the browser history
+      center: true,                       // Vertical centering of slides
+      maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+      slideNumber: true,                // Display the page number of the current slide
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+      { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      //          { src: '../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+      //          { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]});
+    </script>
+      </body>
+</html>
