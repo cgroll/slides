@@ -21,7 +21,7 @@
 	- how much do weights change over time?
 - adapt for estimation risk: bootstrapping
 
-# Portfolio selection
+# Introduction
 
 ###
 
@@ -104,9 +104,11 @@ $\Rightarrow$ asset pricing
 - focusing on distribution at single point in future: **no explicit
   path dependence**
 
-# Single period optimization
+# Optimization
 
-## Portfolio return
+## Single period optimization
+
+### Portfolio return
 
 - portfolio return calculation (with **discrete returns**):
 
@@ -118,25 +120,22 @@ r_{P}=w_{1}r_{1}+...+w_{n}r_{n}
 
 - future **$r_{P}$ unknown** $\Rightarrow$ estimate distribution
 
-### Univariate estimation
-
-- changing weights requires reestimation of model
-
-### Multivariate estimation
-
-- changing weights does not require reestimation of model
-
 ### With $\bf{\mu / \sigma}$ optimality
 
-- **vastly simplifies** if optimality is just a function of portfolio
-  return moments
+- **vastly simplifies** optimal portfolio selection
 
 . . .
+
+- utility as **function of** portfolio return **moments**
 
 \begin{align*}
 \mathbb{U}(r_{P}) &= g\left(\mathbb{E}[r_{P}], \mathbb{V}(r_{P})\right)\\
 &=g(\mu_{P},\sigma_{P}^{2})
 \end{align*}
+
+. . .
+
+$\Rightarrow$ portfolio moments easy to derive from asset moments
 
 ### Portfolio moments
 
@@ -163,56 +162,98 @@ r_{P}=w_{1}r_{1}+...+w_{n}r_{n}
 &= \bf{w}'\Sigma\bf{w}
 \end{align*}
 
-### Estimation
-
-- simplified multivariate estimation
-- estimate $\bf{\mu},\bf{\Sigma}$ only
-- no distribution required for $r_{1},...,r_{n}$
-
 ### 
 
-Popular optimality criterions:
+Popular optimality criterions for given $\bf{\mu}$ and $\bf{\Sigma}$ 
 
 . . .
 
-- for given $\mu_{P}$ **minimize $\sigma_{P}$**
+- for given $\mu_{P}$ **minimize $\sigma_{P}$** *(1)*
 
 . . .
 
-- for given $\sigma_{P}$ **maximize $\mu_{P}$**
+- for given $\sigma_{P}$ **maximize $\mu_{P}$** *(2)*
 
 . . .
 
-- maximize **Sharpe ratio**:
+- **globally minimize $\sigma_{P}$** *(3)*
+
+. . .
+
+- maximize **Sharpe ratio** *(4)*
 
 $$SR_{P}=\frac{\mu_{P}}{\sigma_{P}}$$
 
-### Optimization
+### Optimization challenges
 
-- analytical solution without short-selling constraints
-- quadratic objective, linear constraints
+Without short-selling constraints:
+
+- analytical solution for 1, 2 and 3 (4)?
+
+### Constraints
+
+- single asset constraints (**no short-selling**)
+
+. . .
+
+- group constraints (**asset class**, asset region)
+
+### Optimization challenges
+
+With constraints, we have to rely on numerical optimization:
+
+1. quadratic objective, linear constraints
+
+1. linear objective, quadratic constraints
+
+1. ?
+
+1. ?
+
+### Unclear yet
+
+How are μ and σ derived? $\Rightarrow$ see estimation part
 
 ### Criticism
 
-- return distribution: sum of non-symmetric discrete asset returns 
+- **asymmetric** return distribution of **$r_{P}$**: sum of asymmetric
+  discrete asset returns
 
-- $\sigma$ to capture risk of non-symmetric portfolio returns
+. . .
 
-### Employing VaR
+$\Rightarrow$ **symmetric measure $\sigma_{P}$** to quantify risk of
+asymmetric portfolio returns
 
-- portfolio return distribution required
-	- univariate: multiple models to be estimated
-	- multivariate: simulation
+### First alternative: logarithmic returns
 
-### Logarithmic returns
+- logarithmic returns are almost symmetric
 
-- portfolio return is not a linear function anymore:
+. . .
+
+- but: portfolio return is not a linear function anymore
 
 \begin{align*}
 \mu_{P}&=\mathbb{E}[r_{P}]\\
 &=\mathbb{E}[g(r_{1}, \ldots, r_{n})]\\
 &=?
 \end{align*}
+
+
+### Second alternative: employing VaR
+
+- **distribution** of portfolio return $r_{P}$ **required**
+
+
+### Why *VaR*
+
+- more meaningful to private investors
+
+- no symmetry for discrete returns
+
+- focusing on downside risk
+
+- coinciding with financial regulation
+
 
 ### desired
 
@@ -221,27 +262,50 @@ $$SR_{P}=\frac{\mu_{P}}{\sigma_{P}}$$
 
 - maybe: translate VaR to $\sigma_{P}$, hold $\sigma_{P}$ fixed 
 
-# Multi-period optimization
+## Repeated single period optimization
 
 ###
 
-Assumption: optimality criterion given in each period
+Assumption: **optimality** criterion given **in each period**
 
 . . .
 
-$\Rightarrow$ sequence of single period optimizations
+$\Rightarrow$ **sequence** of single period optimizations
 
-### Turnover
+### New challenge: turnover
 
 - $\bf{\mu}$ and $\bf{\Sigma}$ change over time
-- optimal portfolio changes over time (portfolio rebalancing)
-- trading costs: reduce / minimize turnover
-- tradeoff:
-	- benefits of rebalancing
-	- costs of rebalancing
+
+. . .
+
+$\Rightarrow$ optimal portfolio changes over time (**portfolio
+rebalancing**)
+
+. . .
+
+$\Rightarrow$ **trading costs** occur 
+
+### Minimize turnover
+
+- tradeoff: rebalancing **costs vs benefits**
+
+. . .
+
+- **benefits** depend on all **future periods**
+
+. . .
+
 - extreme example: 
 	- changing distribution only in single period
 	- rebalancing twice might not be worthwhile
+
+### Turnover incentives
+
+**incentives** on turnover become **asymmetric** with **all-in-fee**:
+
+. . .
+
+$\Rightarrow$ customers prefer optimal portfolio at each time
 
 ### TODO: plain Markowitz real world example
 
@@ -254,6 +318,8 @@ $\Rightarrow$ sequence of single period optimizations
 - benefits:
 	- reduced drawdown
 	- less volatility
+
+## Multi-period optimization
 
 ### Crucial tradeoff
 
@@ -268,37 +334,86 @@ $\Rightarrow$ sequence of single period optimizations
 ### TODO: MSCI world + EONIA
 
 - show two extreme cases fulfilling multi-period optimality:
-	- fixed weights
-	- fixed volatility
-- which is better for taxes?
+	- fixed weights: one constant weight that creates the required long
+     term risk target
+	- fixed volatility: smoothing risk over time: keep short term risk
+     constant by constant rebalancing
 
-- top-down approach: given long-term optimality, derive short-term
-  optimality 
+- which is better for 
+	- taxes
+	- customer
+	- company
 
-### Different approach
+### Top-down approach
 
-- bottom-up approach: derive long-term properties for given short-term
-  portfolio 
+given long-term optimality, derive short-term optimality
 
-- without changing moments
-- with changing moments
+### Bottom-up approach
 
-### TODO: changing weights for buy-and-hold strategy
+for given short-term portfolio derive long-term properties
+
+### Univariate 
+
+- in reality not possible: weights change
+- TODO: how much do weights change
+- adapt for turnover?
+
+### Multivariate
+
+- changing weights can be taken into account
+- without changing distributions: can be done
+- with changing distributions: how do multivariate distributions
+  change? 
+
+### Aligning long and short term optimization targets
+
+- how does a yearly target translate into a weekly target?
+
+### 
+
+Calculating long term risk:
+
+- due to price changes weights change over time: fixed weights
+  strategy not possible without rebalancing
+- univariate GARCH modeling for portfolio returns not correct
+- correct simulation algorithm:
+	- multivariate modeling and simulation
+	- simulate weight changes
+- problematic:
+	- square-root-of-time scaling with given conditional moments
+	- example: high-volatility sigmas and square-root-of-time scaling
+     will pretend that sigmas will stay high for the whole period
 
 
+# Estimation
 
-# Basics
+###
 
-## Utility theory
+When should estimation be tackled?!
 
-- Assumption A1: the utility of any given payoff distribution can be
-  derived by knowing the first two moments
+- in plain Markowitz example with moments only?
+- in single period VaR example?
+- in part on bootstrapping?
 
-- Assumption A2: the utility of two equal payoff distributions is
-  equal
+### Univariate estimation
 
+- changing weights requires reestimation of model
 
-# Single period investment
+### Multivariate estimation
+
+- changing weights does not require reestimation of model
+
+### Plain Markowitz estimation:
+
+- simplified multivariate estimation
+- estimate $\bf{\mu},\bf{\Sigma}$ only
+- no distribution required for $r_{1},...,r_{n}$
+
+### Bootstrap 
+
+When should bootstrap be tackled?!
+
+# Markowitz details
 
 ### Markowitz
 
@@ -316,30 +431,10 @@ For any **given** expected portfolio return **$\mu^{*}$**,
 $\Rightarrow$ assets with **low volatility** and **low correlations**
 to other assets are preferred
 
-### Portfolio optimality
 
-- **assumption:** optimal portfolio can be described through
-  $\mu-\sigma$ tradeoff
+### Assume Markowitz with sigma risk target
 
-. . .
-
-###
-
-- other utility functions could require different metrics
-
-. . .
-
-- **VaR**
-
-### Why *VaR*
-
-- more meaningful to private investors
-
-- no symmetry for discrete returns
-
-- focusing on downside risk
-
-- coinciding with financial regulation
+- how does mu-sigma area behave?
 
 ###
 
@@ -348,62 +443,6 @@ to other assets are preferred
 
 *CHECK*: asymmetry (on weekly data)
 
-
-### Markowitz
-
-- assumption: volatility is good risk measure
-- extension: different risk measure
-	- VaR: is it proportional
-	- asset pricing: how correlated is risk measure to risk factors?
-     (to German stock market?)
-	- multi-period risk target: how can it be translated to single
-     period optimization?
-
-### Skewness
-
-- linear portfolio formula only holds for discrete returns
-- discrete returns not symmetric
-- how asymmetric are returns?
-	- single unconditional Markowitz setting
-	- bootstrap portfolio returns
-	- conditional model for given point in time: copula-GARCH
-
-### Assume Markowitz with sigma risk target
-
-- how does mu-sigma area behave?
-
-### Target
-
-- there usually exists a difference between the time horizon of the
-  target and the data frequency:
-	- the portfolio target might be defined on a yearly basis
-	- asset moments are estimated on a weekly / monthly basis in order
-     to have sufficient data
-
-### Aligning long and short term optimization targets
-
-- how does a yearly target translate into a weekly target?
-
-Example: MSCI World and fixed income security
-- multiple possibilities: 
-	- one constant weight that creates the required long term risk
-     target
-	- smoothing risk over time: keep short term risk constant by
-     constant rebalancing
-
-### 
-
-Calculating long term risk:
-- due to price changes weights change over time: fixed weights
-  strategy not possible without rebalancing
-- univariate GARCH modeling for portfolio returns not correct
-- correct simulation algorithm:
-	- multivariate modeling and simulation
-	- simulate weight changes
-- problematic:
-	- square-root-of-time scaling with given conditional moments
-	- example: high-volatility sigmas and square-root-of-time scaling
-     will pretend that sigmas will stay high for the whole period
 
 ### Research questions
 - how do univariate and multivariate yearly return distributions
@@ -430,12 +469,15 @@ Calculating long term risk:
 
 # Alternative approach
 
+###
+
 - translate long-term VaR in single period $\sigma$
 - estimate single period with factor model
 - find optimal $\mu$ given $\sigma$ with brute force optimization 
 - find optimal single period portfolio using bootstrapping
 - reduce turnover?!
 - is highly fluctuating path better for tax optimization?!
-
+- different optimization horizon? Daily?
+- correspondence to whitepaper
 
 
