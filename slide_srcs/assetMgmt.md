@@ -10,6 +10,7 @@
 		- multi-period return distribution
 		- constant weights not possible
 - taxes
+- why Markowitz without risk-free asset?
 - integer optimization
 
 ### Empirical analysis to be done
@@ -184,6 +185,10 @@ Popular optimality criterions for given $\bf{\mu}$ and $\bf{\Sigma}$
 
 $$SR_{P}=\frac{\mu_{P}}{\sigma_{P}}$$
 
+### Show single period Markowitz
+
+- show strategies in usual Markowitz $\mu$-$\sigma$ graphics
+
 ### Optimization challenges
 
 Without short-selling constraints:
@@ -321,6 +326,10 @@ $\Rightarrow$ customers prefer optimal portfolio at each time
 
 ## Multi-period optimization
 
+### Aligning long and short term optimization targets
+
+- how does a yearly target translate into a weekly target?
+
 ### Crucial tradeoff
 
 - **long horizon** more meaningful when determining **optimality**
@@ -354,35 +363,31 @@ for given short-term portfolio derive long-term properties
 
 ### Univariate 
 
-- in reality not possible: weights change
+- univariate GARCH modeling for portfolio returns
+
+In reality not possible: 
+
+- due to price changes weights change over time: fixed weights
+  strategy not possible without rebalancing
+
 - TODO: how much do weights change
 - adapt for turnover?
 
 ### Multivariate
 
-- changing weights can be taken into account
+- correct simulation algorithm:
+	- multivariate modeling and simulation
+	- simulate weight changes
+
 - without changing distributions: can be done
 - with changing distributions: how do multivariate distributions
   change? 
 
-### Aligning long and short term optimization targets
+### Problems current approach
 
-- how does a yearly target translate into a weekly target?
-
-### 
-
-Calculating long term risk:
-
-- due to price changes weights change over time: fixed weights
-  strategy not possible without rebalancing
-- univariate GARCH modeling for portfolio returns not correct
-- correct simulation algorithm:
-	- multivariate modeling and simulation
-	- simulate weight changes
-- problematic:
-	- square-root-of-time scaling with given conditional moments
-	- example: high-volatility sigmas and square-root-of-time scaling
-     will pretend that sigmas will stay high for the whole period
+- square-root-of-time scaling with given conditional moments
+- example: high-volatility sigmas and square-root-of-time scaling will
+  pretend that sigmas will stay high for the whole period
 
 
 # Estimation
@@ -411,7 +416,9 @@ When should estimation be tackled?!
 
 ### Bootstrap 
 
-When should bootstrap be tackled?!
+- conduct bootstrap example for unchanging moments
+- bootstrapping time series is not easy!
+
 
 # Markowitz details
 

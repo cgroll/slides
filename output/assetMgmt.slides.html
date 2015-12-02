@@ -389,6 +389,11 @@
         </ul>
         </section><section class="slide level3">
         <h1>Multi-period optimization</h1>
+        </section><section id="aligning-long-and-short-term-optimization-targets" class="slide level3">
+        <h1>Aligning long and short term optimization targets</h1>
+        <ul>
+        <li>how does a yearly target translate into a weekly target?</li>
+        </ul>
         </section><section id="crucial-tradeoff" class="slide level3">
         <h1>Crucial tradeoff</h1>
         <ul>
@@ -425,41 +430,33 @@
         </section><section id="univariate" class="slide level3">
         <h1>Univariate</h1>
         <ul>
-        <li>in reality not possible: weights change</li>
+        <li>univariate GARCH modeling for portfolio returns</li>
+        </ul>
+        <p>In reality not possible:</p>
+        <ul>
+        <li><p>due to price changes weights change over time: fixed weights strategy not possible without rebalancing</p></li>
         <li>TODO: how much do weights change</li>
-        <li>adapt for turnover?</li>
+        <li><p>adapt for turnover?</p></li>
         </ul>
         </section><section id="multivariate" class="slide level3">
         <h1>Multivariate</h1>
         <ul>
-        <li>changing weights can be taken into account</li>
-        <li>without changing distributions: can be done</li>
-        <li>with changing distributions: how do multivariate distributions change?</li>
-        </ul>
-        </section><section id="aligning-long-and-short-term-optimization-targets" class="slide level3">
-        <h1>Aligning long and short term optimization targets</h1>
-        <ul>
-        <li>how does a yearly target translate into a weekly target?</li>
-        </ul>
-        </section><section id="section-5" class="slide level3">
-        <h1></h1>
-        <p>Calculating long term risk:</p>
-        <ul>
-        <li>due to price changes weights change over time: fixed weights strategy not possible without rebalancing</li>
-        <li>univariate GARCH modeling for portfolio returns not correct</li>
         <li>correct simulation algorithm:
         <ul>
         <li>multivariate modeling and simulation</li>
         <li>simulate weight changes</li>
         </ul></li>
-        <li>problematic:
+        <li>without changing distributions: can be done</li>
+        <li>with changing distributions: how do multivariate distributions change?</li>
+        </ul>
+        </section><section id="problems-current-approach" class="slide level3">
+        <h1>Problems current approach</h1>
         <ul>
         <li>square-root-of-time scaling with given conditional moments</li>
         <li>example: high-volatility sigmas and square-root-of-time scaling will pretend that sigmas will stay high for the whole period</li>
-        </ul></li>
         </ul>
         </section></section>
-        <section><section id="estimation" class="titleslide slide level1"><h1>Estimation</h1></section><section id="section-6" class="slide level3">
+        <section><section id="estimation" class="titleslide slide level1"><h1>Estimation</h1></section><section id="section-5" class="slide level3">
         <h1></h1>
         <p>When should estimation be tackled?!</p>
         <ul>
@@ -504,7 +501,7 @@
         <ul>
         <li>how does mu-sigma area behave?</li>
         </ul>
-        </section><section id="section-7" class="slide level3">
+        </section><section id="section-6" class="slide level3">
         <h1></h1>
         <ul>
         <li><em>VaR</em> portfolio differ from <span class="math"><em>μ</em> − <em>σ</em></span> portfolio?</li>
@@ -546,7 +543,7 @@
         </ul></li>
         </ul>
         </section></section>
-        <section><section id="alternative-approach" class="titleslide slide level1"><h1>Alternative approach</h1></section><section id="section-8" class="slide level3">
+        <section><section id="alternative-approach" class="titleslide slide level1"><h1>Alternative approach</h1></section><section id="section-7" class="slide level3">
         <h1></h1>
         <ul>
         <li>translate long-term VaR in single period <span class="math"><em>σ</em></span></li>
