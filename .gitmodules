@@ -1,0 +1,3 @@
+[submodule "AssetMgmtAnalysis"]
+	path = AssetMgmtAnalysis
+	url = https://github.com/cgroll/AssetMgmtAnalysis.git
