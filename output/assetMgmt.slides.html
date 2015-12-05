@@ -30,10 +30,12 @@
         width: 900px;
     }
     
-    .reveal strong { color: lawngreen;
+    .reveal strong { color: #00c5b7;
                      font-style: normal;
                      font-weight: bold;
                    }
+    
+    /* color: lawngreen; */
     
     /* all headers are transformed to h1 by reveal.js, */
     /* even individual slide headers. */
@@ -43,6 +45,21 @@
         font-size: 1.5em;
         font-weight: bold;
     }
+    
+    .reveal section img {
+        margin: 15px 0px;
+        background: rgba(255, 255, 255, 0);
+        border: 0px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+    
+    body:after {
+    content: url(../AssetMgmtAnalysis/unreplicatable_pics/jfinm_logo.png);
+    position: fixed;
+    bottom: -30.5em;
+    left: 70.5em;
+    transform: scale(.05);
+    box-shadow: 5px 5px 10px #000; }
     
     </style>
         
@@ -87,6 +104,7 @@
         <li>adapting for estimation risk (bootstrap)</li>
         <li>multi-period investment - multi-period return distribution - constant weights not possible</li>
         <li>taxes</li>
+        <li>why Markowitz without risk-free asset?</li>
         <li>integer optimization</li>
         </ul>
         </section><section id="empirical-analysis-to-be-done" class="slide level3">
@@ -101,26 +119,41 @@
         <li>adapt for estimation risk: bootstrapping</li>
         </ul>
         </section></section>
-        <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="section" class="slide level3">
-        <h1></h1>
-        <p>Two tasks:</p>
+        <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="two-tasks" class="slide level3">
+        <h1>Two tasks</h1>
+        <div class="fragment">
         <ol type="1">
         <li>with given weights, <strong>estimate</strong> associated <strong>portfolio return distribution</strong></li>
         </ol>
+        </div>
         <div class="fragment">
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </div>
+        </section><section id="section" class="slide level3">
+        <h1></h1>
         <ol start="2" type="1">
         <li>given different portfolio return distributions, <strong>find optimal</strong> return distribution</li>
         </ol>
-        </div>
         <div class="fragment">
-        <p>1b. also take <strong>confidence</strong> in estimated distributions into account (<strong>estimation error</strong>)</p>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/compareDistributions.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
         </div>
+        </section><section id="third-task" class="slide level3">
+        <h1>Third task</h1>
+        <ol start="3" type="1">
+        <li>also take <strong>confidence</strong> in estimated distributions into account (<strong>estimation error</strong>)</li>
+        </ol>
         </section></section>
         <section><section id="risk-aversion-and-optimality" class="titleslide slide level1"><h1>Risk aversion and optimality</h1></section><section id="section-1" class="slide level3">
         <h1></h1>
         <ul>
         <li><p>coin game</p></li>
-        <li>concave utility: induces
+        <li>concave utility implies:
         <ul>
         <li>increasing <span class="math"><em>μ</em></span> increases utility</li>
         <li>increasing <span class="math"><em>σ</em></span> decreases utility</li>
@@ -131,11 +164,16 @@
         <p>First two moments are sufficient to derive the utility of any given return distribution.</p>
         </section><section id="bfmu-sigma-deficiencies" class="slide level3">
         <h1><span class="math">$\bf{\mu / \sigma}$</span> deficiencies</h1>
-        <p><span class="math"><em>σ</em></span> inadequate to capture all kinds of risk:</p>
+        <p><span class="math"><em>σ</em></span> <strong>inadequate</strong> to capture all kinds of risk:</p>
+        <div class="fragment">
         <ul>
-        <li><span class="math"><em>σ</em></span> is a symmetric measure</li>
-        <li>reflection of asymmetric distributions at mean value does not change utility</li>
+        <li>as <strong>symmetric measure</strong> unaffected by reflection at mean value</li>
         </ul>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaDeficiency.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </div>
         </section><section id="other-metrics" class="slide level3">
         <h1>Other metrics</h1>
         <ul>
@@ -174,6 +212,10 @@
         <ul>
         <li>focusing on distribution at single point in future: <strong>no explicit path dependence</strong></li>
         </ul>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
         </section></section>
         <section><section id="optimization" class="titleslide slide level1"><h1>Optimization</h1></section><section class="slide level3">
         <h1>Single period optimization</h1>
@@ -256,6 +298,11 @@
         </ul>
         <p><br /><span class="math">$$SR_{P}=\frac{\mu_{P}}{\sigma_{P}}$$</span><br /></p>
         </div>
+        </section><section id="show-single-period-markowitz" class="slide level3">
+        <h1>Show single period Markowitz</h1>
+        <ul>
+        <li>show strategies in usual Markowitz <span class="math"><em>μ</em></span>-<span class="math"><em>σ</em></span> graphics</li>
+        </ul>
         </section><section id="optimization-challenges" class="slide level3">
         <h1>Optimization challenges</h1>
         <p>Without short-selling constraints:</p>
@@ -483,7 +530,10 @@
         </ul>
         </section><section id="bootstrap" class="slide level3">
         <h1>Bootstrap</h1>
-        <p>When should bootstrap be tackled?!</p>
+        <ul>
+        <li>conduct bootstrap example for unchanging moments</li>
+        <li>bootstrapping time series is not easy!</li>
+        </ul>
         </section></section>
         <section><section id="markowitz-details" class="titleslide slide level1"><h1>Markowitz details</h1></section><section id="markowitz" class="slide level3">
         <h1>Markowitz</h1>
@@ -577,7 +627,7 @@
       center: true,                       // Vertical centering of slides
       maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
       slideNumber: true,                // Display the page number of the current slide
-      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      theme: 'black', // available themes are in /css/theme
       transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
       
       // Optional libraries used to extend on reveal.js

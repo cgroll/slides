@@ -28,7 +28,7 @@ p { text-align: left; }
 }
 
 body:after {
-content: url(../pics/jfinm_logo.png);
+content: url(../AssetMgmtAnalysis/unreplicatable_pics/jfinm_logo.png);
 position: fixed;
 bottom: -30.5em;
 left: 70.5em;

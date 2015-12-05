@@ -24,22 +24,39 @@
 
 # Introduction
 
-###
+### Two tasks
 
-Two tasks:
+. . .
 
 1. with given weights, **estimate** associated **portfolio return
    distribution**
 
 . . .
 
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+
+###
+
+
 2. given different portfolio return distributions, **find optimal**
    return distribution
 
 . . .
 
-1b. also take **confidence** in estimated distributions into account
-(**estimation error**)
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/compareDistributions.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+
+### Third task
+
+3. also take **confidence** in estimated distributions into account
+   (**estimation error**)
 
 
 # Risk aversion and optimality
@@ -48,7 +65,7 @@ Two tasks:
 
 - coin game
 
-- concave utility: induces
+- concave utility implies:
 	- increasing $\mu$ increases utility
 	- increasing $\sigma$ decreases utility
 
@@ -60,11 +77,17 @@ return distribution.
 
 ### $\bf{\mu / \sigma}$ deficiencies
 
-$\sigma$ inadequate to capture all kinds of risk:
+$\sigma$ **inadequate** to capture all kinds of risk:
 
-- $\sigma$ is a symmetric measure
-- reflection of asymmetric distributions at mean value does not change
-  utility
+. . .
+
+- as **symmetric measure** unaffected by reflection at mean value
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaDeficiency.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
 
 ### Other metrics
 
@@ -104,6 +127,12 @@ $\Rightarrow$ asset pricing
 
 - focusing on distribution at single point in future: **no explicit
   path dependence**
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
 
 # Optimization
 
