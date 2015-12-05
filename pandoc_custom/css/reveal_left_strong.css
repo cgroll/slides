@@ -4,10 +4,12 @@ p { text-align: left; }
     width: 900px;
 }
 
-.reveal strong { color: lawngreen;
+.reveal strong { color: #00c5b7;
                  font-style: normal;
                  font-weight: bold;
                }
+
+/* color: lawngreen; */
 
 /* all headers are transformed to h1 by reveal.js, */
 /* even individual slide headers. */
@@ -17,5 +19,20 @@ p { text-align: left; }
     font-size: 1.5em;
     font-weight: bold;
 }
+
+.reveal section img {
+    margin: 15px 0px;
+    background: rgba(255, 255, 255, 0);
+    border: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+
+body:after {
+content: url(../pics/jfinm_logo.png);
+position: fixed;
+bottom: -30.5em;
+left: 70.5em;
+transform: scale(.05);
+box-shadow: 5px 5px 10px #000; }
 
 </style>
