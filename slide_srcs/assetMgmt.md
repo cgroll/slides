@@ -246,7 +246,7 @@ With constraints, we have to rely on numerical optimization:
 
 ### Unclear yet
 
-How are μ and σ derived? $\Rightarrow$ see estimation part
+How are $\mu$ and $\sigma$ derived? $\Rightarrow$ see estimation part
 
 ### Criticism
 
