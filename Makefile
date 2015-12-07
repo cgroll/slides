@@ -13,7 +13,7 @@ reveal: $(CURRENT_TARGET).slides.html
 pdf: $(CURRENT_TARGET).pdf
 
 # target to build all formats for current target
-all: reveal pdf
+all: $(OUTDIR)/assetMgmt.slides.html  $(OUTDIR)/assetMgmt.pdf $(OUTDIR)/pkgAssetMgmt.slides.html
 
 # target to build all files
 OUT := $(addprefix $(OUTDIR)/,$(FILES))
@@ -59,6 +59,21 @@ $(OUTDIR)/assetMgmt.tex: slide_srcs/assetMgmt.md Makefile refs.bib
 	--filter pandoc_custom/filters/skip_pause.hs \
 	--filter pandoc-citeproc --csl=pandoc_custom/csl/elsevier-harvard.csl \
 	--bibliography=refs.bib \
+	-o $@ $<
+
+#####################
+## Julia AssetMgmt ##
+#####################
+
+$(OUTDIR)/pkgAssetMgmt.slides.html: slide_srcs/pkgAssetMgmt.md Makefile
+	pandoc --template=$(TMPL) \
+	--slide-level=3 --toc --toc-depth=1 \
+	--filter pandoc_custom/filters/adaptHeaders.hs \
+	--filter pandoc_custom/filters/amsmath.hs \
+	--variable theme="black" \
+	-V slideNumber=true \
+	--include-in-header=pandoc_custom/css/reveal_left_strong.css \
+	-s -V revealjs-url=../reveal.js -t revealjs -f markdown \
 	-o $@ $<
 
 ################

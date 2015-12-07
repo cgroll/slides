@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+        <meta name="author" content="Christian Groll" />
+            <title>JFinMetriX: AssetMgmt</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+            <link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+            <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = '../reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+            <style type="text/css">
+    p { text-align: left; }
+    .reveal ul {
+        width: 900px;
+    }
+    
+    .reveal strong { color: #00c5b7;
+                     font-style: normal;
+                     font-weight: bold;
+                   }
+    
+    /* color: lawngreen; */
+    
+    /* all headers are transformed to h1 by reveal.js, */
+    /* even individual slide headers. */
+    /* hence, h1 font size should not be too large */
+    .reveal h1 { 
+        font-style: normal;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    .reveal section img {
+        margin: 15px 0px;
+        background: rgba(255, 255, 255, 0);
+        border: 0px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+    
+    body:after {
+    content: url(../AssetMgmtAnalysis/unreplicatable_pics/jfinm_logo.png);
+    position: fixed;
+    bottom: -30.5em;
+    left: 70.5em;
+    transform: scale(.05);
+    box-shadow: 5px 5px 10px #000; }
+    
+    </style>
+        
+    <!-- include local MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      "HTML-CSS": {
+      scale: 80,
+      },
+      extensions: ["tex2jax.js"],
+      TeX: { equationNumbers: { autoNumber: "AMS" } },
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}});
+    </script>
+    <script type="text/javascript" src="../MathJax/MathJax.js"></script>
+    
+  </head>
+  <body>
+        <div class="reveal">
+      <div class="slides">
+        
+                <section>
+          <h1 class="title">JFinMetriX: AssetMgmt</h1>
+                              <h2 class="author">Christian Groll</h2>
+                    <h3 class="date"></h3>
+        </section>
+                        <section id="TOC">
+          <ul>
+          <li><a href="#/type-hierarchy">Type hierarchy</a></li>
+          </ul>
+        </section>
+                
+        <section><section id="type-hierarchy" class="titleslide slide level1"><h1>Type hierarchy</h1></section><section id="type-hierarchy-for-return-models" class="slide level3">
+        <h1>Type hierarchy for return models</h1>
+        <p><code>RetModel</code>:</p>
+        <ul>
+        <li><code>MomentsModel</code></li>
+        <li><code>DistributionsModel</code></li>
+        <li><code>DynamicsModel</code></li>
+        </ul>
+        </section><section id="momentsmodel" class="slide level3">
+        <h1><code>MomentsModel</code></h1>
+        <p>Only moments of returns:</p>
+        <ul>
+        <li><span class="math"><em>μ</em></span>s</li>
+        <li><span class="math">Σ</span>s</li>
+        <li>date</li>
+        </ul>
+        </section><section id="distributionsmodel" class="slide level3">
+        <h1><code>DistributionsModel</code></h1>
+        <p>Complete conditional distribution:</p>
+        <ul>
+        <li>model for conditional distribution</li>
+        <li>date</li>
+        </ul>
+        <p>Functionality:</p>
+        <ul>
+        <li>simulate discrete returns (model could be defined on log-returns also)</li>
+        </ul>
+        </section><section id="dynamicsmodel" class="slide level3">
+        <h1><code>DynamicsModel</code></h1>
+        <p>Complete distribution with dynamics:</p>
+        <ul>
+        <li>model for conditional distribution</li>
+        <li>model for dynamics</li>
+        <li>date</li>
+        </ul>
+        <p><span class="math"> ⇒ </span> evolution over multiple periods can be simulated</p>
+        </section><section id="retmodel-input" class="slide level3">
+        <h1><code>RetModel</code> input</h1>
+        <p>In order to determine a <code>RetModel</code> for a given period the following inputs could be required:</p>
+        <ul>
+        <li>past data</li>
+        <li>window size (how much past data)</li>
+        <li>future data (estimating GARCH on complete sample)</li>
+        <li>data weighting </li>
+        <li>factor data (Fama / French)</li>
+        <li>additional tuning parameters?</li>
+        </ul>
+        </section><section id="desired-portfolio" class="slide level3">
+        <h1>Desired portfolio</h1>
+        <ul>
+        <li>there is a single best portfolio that one ideally wants to hold in each period (independent of the current portfolio weights)</li>
+        <li>the rule to derive a desired portfolio for a given period is called investment strategy</li>
+        <li>it depends on different input:
+        <ul>
+        <li><code>RetModel</code></li>
+        <li>past data (for non-parametric bootstrapping)</li>
+        </ul></li>
+        </ul>
+        </section><section id="optimal-portfolio" class="slide level3">
+        <h1>Optimal portfolio</h1>
+        <ul>
+        <li>the optimal portfolio should be chosen with regards to transaction costs</li>
+        <li>optimality has to solve the tradeoff between costs and benefits of portfolio re-balancing</li>
+        <li>the rule to determine optimal portfolios could depend on different inputs:
+        <ul>
+        <li><code>RetModel</code> (to estimate future benefits of re-balancing)</li>
+        <li>desired portfolio (without transaction costs)</li>
+        <li>current weights (to calculate transaction costs)</li>
+        <li>&quot;irrational input&quot; (tuning parameters: trading every two weeks)</li>
+        </ul></li>
+        </ul>
+        </section><section id="desired-vs-optimal-portfolio" class="slide level3">
+        <h1>Desired vs optimal portfolio</h1>
+        <p>The difference in desired and optimal portfolio is the additional current <code>weights</code> input for optimal portfolios.</p>
+        </section><section id="backtesting" class="slide level3">
+        <h1>Backtesting</h1>
+        <p><code>Investments</code>:</p>
+        <ul>
+        <li>for each strategy we get a history of portfolio weights
+        <ul>
+        <li>analyze turnover</li>
+        <li>analyze diversification</li>
+        </ul></li>
+        <li>for each history of portfolio weights we get series of portfolio returns</li>
+        </ul>
+        <p><span class="math"> ⇒ </span> analyze portfolio returns</p>
+        </section><section id="return-performance-statistics-metrics" class="slide level3">
+        <h1>Return performance statistics / metrics</h1>
+        <ul>
+        <li><span class="math"><em>μ</em></span></li>
+        <li><span class="math"><em>σ</em></span></li>
+        <li>VaR</li>
+        <li>min / max</li>
+        <li>annualized quantities</li>
+        <li>drawdown: amount, duration</li>
+        <li>net price evolution (with trading costs)</li>
+        </ul>
+        </section></section>
+      </div>
+    </div>
+    
+    
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,         // Display controls in the bottom right corner
+      progress: true,         // Display a presentation progress bar
+      history: true,          // Push each slide change to the browser history
+      center: true,                       // Vertical centering of slides
+      maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+      slideNumber: true,                // Display the page number of the current slide
+      theme: 'black', // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+      { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      //          { src: '../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+      //          { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]});
+    </script>
+      </body>
+</html>
