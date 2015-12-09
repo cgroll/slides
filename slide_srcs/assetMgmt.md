@@ -388,7 +388,14 @@ given long-term optimality, derive short-term optimality
 
 ### Bottom-up approach
 
-for given short-term portfolio derive long-term properties
+- for given short-term portfolio derive long-term properties
+- assumptions:
+	- moments are stable over time
+	- weights are stable over time
+	- independence over time
+- still: 
+	- no linear aggregation over time for discrete returns
+	- multi-period moments require complete shape of distribution
 
 ### Univariate 
 
