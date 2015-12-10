@@ -4,14 +4,27 @@
 
 # Notes
 
+### Topics Tech Lunch
+
+- Introduction (+ data pics: prices, returns)
+- Risk aversion and utility ($\sigma$ vs VaR, risk-return tradeoff)
+- Diversification (attainable portfolios, Markowitz, strategies -
+  given estimated mus and sigmas)
+- multi-period: varying moments -> turnover comes into play
+
 ### Missing content
-- adapting for estimation risk (bootstrap)
+
+- adapting for estimation risk (bootstrap / resampling methods)
 - multi-period investment
-		- multi-period return distribution
-		- constant weights not possible
+	- multi-period return distribution
+	- constant weights not possible
 - taxes
 - why Markowitz without risk-free asset?
+	- no short selling of risk-free asset allowed
 - integer optimization
+- trading time lag: changing prices 
+	- limit orders
+	- feedback loops
 
 ### Empirical analysis to be done
 
@@ -20,7 +33,8 @@
   risk target
 - evaluate multi-period risk for given single period strategy
 	- how much do weights change over time?
-- adapt for estimation risk: bootstrapping
+- adapt for estimation risk: bootstrapping (already should smooth
+  turnover)
 
 # Introduction
 
@@ -59,7 +73,7 @@ alt="Number of observations" width="1000px"/>
    (**estimation error**)
 
 
-# Risk aversion and optimality
+# Risk aversion and utility
 
 ### 
 
@@ -293,8 +307,8 @@ asymmetric portfolio returns
 
 - with given VaR, optimize $\mu_{P}$
 - not possible to hold VaR value fixed
-
 - maybe: translate VaR to $\sigma_{P}$, hold $\sigma_{P}$ fixed 
+- still: not all levels of risk attainable?
 
 ## Repeated single period optimization
 
@@ -426,6 +440,58 @@ In reality not possible:
   pretend that sigmas will stay high for the whole period
 
 
+# Data
+
+### Prices
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-1.svg"
+alt="Number of observations" style="background-color:white" width="1000px"/>
+</p>
+
+### Cumulative returns
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-2.svg"
+alt="Number of observations" style="background-color:white" width="1000px"/>
+</p>
+
+### Normed logarithmic prices
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-3.svg"
+alt="Number of observations" style="background-color:white" width="1000px"/>
+</p>
+
+### Colored asset class
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-4.svg"
+alt="Number of observations" style="background-color:white" width="1000px"/>
+</p>
+
+### Colored region
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-5.svg"
+alt="Number of observations" style="background-color:white" width="1000px"/>
+</p>
+
+### Colored risk class
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-6.svg"
+alt="Number of observations" style="background-color:white" width="1000px"/>
+</p>
+
+### Return series
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-7.svg"
+alt="Number of observations" style="background-color:white" width="1000px"/>
+</p>
+
+
 # Estimation
 
 ###
@@ -449,6 +515,12 @@ When should estimation be tackled?!
 - simplified multivariate estimation
 - estimate $\bf{\mu},\bf{\Sigma}$ only
 - no distribution required for $r_{1},...,r_{n}$
+
+### Markowitz insights
+
+- how concave is attainable set
+- how do underlying weights change locally
+- what is exact influence of correlation?
 
 ### Bootstrap 
 
