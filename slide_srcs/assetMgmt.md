@@ -582,6 +582,21 @@ to other assets are preferred
 	- factor model
 	- asset pricing model
 
+# Changing weights
+
+- even if asset moments were static, weights would still automatically
+  change over time due to price changes
+- the new weights also can be calculated without the actual prices:
+
+$$
+\begin{aligned}
+w_{t+1,j}&=\frac{S_{t,j}P_{t+1,j}}{P_{t+1,P}}\\
+&=\frac{S_{t,j}P_{t,j}(1+R_{t,j})}{P_{t,P}(1+R_{t,P})}\\
+&=w_{t,j}\frac{(1+R_{t,j})}{1+R_{t,P}}
+\end{aligned}
+$$
+
+
 # Alternative approach
 
 ###
