@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-        <meta name="author" content="Extending Markowitz" />
+        <meta name="author" content="Markowitz and beyond" />
             <title>Asset management:</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -83,42 +83,63 @@
         
                 <section>
           <h1 class="title">Asset management:</h1>
-                              <h2 class="author">Extending Markowitz</h2>
+                              <h2 class="author">Markowitz and beyond</h2>
                     <h3 class="date">Christian Groll</h3>
         </section>
                         <section id="TOC">
           <ul>
-          <li><a href="#/notes">Notes</a></li>
           <li><a href="#/introduction">Introduction</a></li>
-          <li><a href="#/risk-aversion-and-optimality">Risk aversion and optimality</a></li>
-          <li><a href="#/optimization">Optimization</a></li>
+          <li><a href="#/risk-aversion-and-utility">Risk aversion and utility</a></li>
+          <li><a href="#/single-period">Single period</a></li>
+          <li><a href="#/multi-period">Multi-period</a></li>
+          <li><a href="#/true-multi-period">True multi-period</a></li>
+          <li><a href="#/empirical-application">Empirical application</a></li>
           <li><a href="#/estimation">Estimation</a></li>
           <li><a href="#/markowitz-details">Markowitz details</a></li>
+          <li><a href="#/changing-weights">Changing weights</a></li>
           <li><a href="#/alternative-approach">Alternative approach</a></li>
           </ul>
         </section>
                 
-        <section><section id="notes" class="titleslide slide level1"><h1>Notes</h1></section><section id="missing-content" class="slide level3">
-        <h1>Missing content</h1>
-        <ul>
-        <li>adapting for estimation risk (bootstrap)</li>
-        <li>multi-period investment - multi-period return distribution - constant weights not possible</li>
-        <li>taxes</li>
-        <li>why Markowitz without risk-free asset?</li>
-        <li>integer optimization</li>
-        </ul>
-        </section><section id="empirical-analysis-to-be-done" class="slide level3">
-        <h1>Empirical analysis to be done</h1>
-        <ul>
-        <li>check return asymmetry (VaR required?)</li>
-        <li>multi-period risk target does not translate to unique single period risk target</li>
-        <li>evaluate multi-period risk for given single period strategy
-        <ul>
-        <li>how much do weights change over time?</li>
-        </ul></li>
-        <li>adapt for estimation risk: bootstrapping</li>
-        </ul>
-        </section></section>
+        <section class="slide level3">
+        
+        <!--
+        # Notes
+        
+        ### Topics Tech Lunch
+        
+        - Introduction (+ data pics: prices, returns)
+        - Risk aversion and utility ($\sigma$ vs VaR, risk-return tradeoff)
+        - Diversification (attainable portfolios, Markowitz, strategies -
+          given estimated mus and sigmas)
+        - multi-period: varying moments -> turnover comes into play
+        
+        ### Missing content
+        
+        - adapting for estimation risk (bootstrap / resampling methods)
+        - multi-period investment
+            - multi-period return distribution
+            - constant weights not possible
+        - taxes
+        - why Markowitz without risk-free asset?
+            - no short selling of risk-free asset allowed
+        - integer optimization
+        - trading time lag: changing prices 
+            - limit orders
+            - feedback loops
+        
+        ### Empirical analysis to be done
+        
+        - check return asymmetry (VaR required?)
+        - multi-period risk target does not translate to unique single period
+          risk target
+        - evaluate multi-period risk for given single period strategy
+            - how much do weights change over time?
+        - adapt for estimation risk: bootstrapping (already should smooth
+          turnover)
+        
+        -->
+        </section>
         <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="two-tasks" class="slide level3">
         <h1>Two tasks</h1>
         <div class="fragment">
@@ -149,7 +170,7 @@
         <li>also take <strong>confidence</strong> in estimated distributions into account (<strong>estimation error</strong>)</li>
         </ol>
         </section></section>
-        <section><section id="risk-aversion-and-optimality" class="titleslide slide level1"><h1>Risk aversion and optimality</h1></section><section id="section-1" class="slide level3">
+        <section><section id="risk-aversion-and-utility" class="titleslide slide level1"><h1>Risk aversion and utility</h1></section><section id="section-1" class="slide level3">
         <h1></h1>
         <ul>
         <li><p>coin game</p></li>
@@ -161,7 +182,9 @@
         </ul>
         </section><section id="bfmu-sigma-dogma" class="slide level3">
         <h1><span class="math">$\bf{\mu / \sigma}$</span> dogma</h1>
-        <p>First two moments are sufficient to derive the utility of any given return distribution.</p>
+        <blockquote>
+        <p>First two <strong>moments</strong> are <strong>sufficient</strong> to derive the <strong>utility</strong> of any given return distribution.</p>
+        </blockquote>
         </section><section id="bfmu-sigma-deficiencies" class="slide level3">
         <h1><span class="math">$\bf{\mu / \sigma}$</span> deficiencies</h1>
         <p><span class="math"><em>σ</em></span> <strong>inadequate</strong> to capture all kinds of risk:</p>
@@ -174,52 +197,103 @@
         alt="Number of observations" width="1000px"/>
         </p>
         </div>
-        </section><section id="other-metrics" class="slide level3">
-        <h1>Other metrics</h1>
+        </section><section id="alternative-measure-var" class="slide level3">
+        <h1>Alternative measure: VaR</h1>
         <ul>
-        <li>VaR</li>
-        <li>benefits: concentration on downside risk</li>
+        <li><strong>VaR</strong>: value exceeded with given probability <span class="math">$\bf{\alpha}$</span>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/var.svg"
+        alt="Number of observations" width="300px"/>
+        </p></li>
         </ul>
-        </section><section id="var-deficiencies" class="slide level3">
-        <h1>VaR deficiencies</h1>
+        </section><section id="benefits" class="slide level3">
+        <h1>Benefits</h1>
         <ul>
-        <li>returns beyond VaR are not taken into account</li>
+        <li>focusing on <strong>downside risk</strong></li>
         </ul>
-        </section><section id="general-remarks" class="slide level3">
-        <h1>General remarks</h1>
-        <ul>
-        <li>single value will always reduce information (equal for infinitely many distributions)</li>
-        <li>people simple can not rank all possible combinations of return distributions (indifference)</li>
-        </ul>
-        </section><section id="additional-implicit-assumptions" class="slide level3">
-        <h1>Additional implicit assumptions</h1>
-        <p>Two <strong>equal return</strong> distributions are always <strong>valued equally</strong></p>
+        <p><span class="math"> ⇒ </span> more appropriate for asymmetric discrete returns</p>
         <div class="fragment">
         <ul>
-        <li>portfolio is only one <strong>component of overall investment</strong> (rest with home bias)</li>
+        <li>more meaningful to private investors</li>
+        <li>aligned with financial regulation</li>
+        </ul>
+        </div>
+        </section><section id="nobodys-perfect" class="slide level3">
+        <h1>Nobody's perfect</h1>
+        <div class="fragment">
+        <ul>
+        <li>values beyond VaR are not taken into account
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/varDeficiency.svg"
+        alt="Number of observations" width="1000px"/>
+        </p></li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> reduction to single value causes <strong>loss of information</strong></p>
+        </div>
+        </section><section id="but" class="slide level3">
+        <h1>But</h1>
+        <p>Does single ranking of all possible return distributions exist?</p>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> <strong>indifference</strong></p>
+        </div>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> <strong>irrationality</strong></p>
+        </div>
+        <div class="fragment">
+        <blockquote>
+        <p><strong>A</strong> over <strong>B</strong>, <strong>B</strong> over <strong>C</strong></p>
+        </blockquote>
+        </div>
+        <div class="fragment">
+        <p>But:</p>
+        <blockquote>
+        <p><strong>C</strong> over <strong>A</strong></p>
+        </blockquote>
+        </div>
+        </section><section id="additional-optimality-criteria" class="slide level3">
+        <h1>Additional optimality criteria</h1>
+        <p>Two <strong>equal return</strong> distributions are not always <strong>valued equally</strong></p>
+        <div class="fragment">
+        <ul>
+        <li>portfolio is only one <strong>component of overall investment</strong>: <strong>diversification</strong> preferred</li>
         </ul>
         </div>
         <div class="fragment">
         <ul>
-        <li>financial investments only one <strong>component of overall wealth</strong> (home bias is irrational: losing job in Germany during recession)</li>
+        <li>financial investments only one <strong>component of overall wealth</strong>: avoid <strong>home bias</strong></li>
         </ul>
         </div>
         <div class="fragment">
         <p><span class="math"> ⇒ </span> asset pricing</p>
         </div>
-        </section><section id="additional-implicit-assumptions-1" class="slide level3">
-        <h1>Additional implicit assumptions</h1>
+        </section><section id="additional-optimality-criteria-1" class="slide level3">
+        <h1>Additional optimality criteria</h1>
         <ul>
-        <li>focusing on distribution at single point in future: <strong>no explicit path dependence</strong></li>
+        <li>focusing on distribution at single point in future insufficient: <strong>path dependence</strong></li>
         </ul>
+        <div class="fragment">
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
         alt="Number of observations" width="1000px"/>
         </p>
+        </div>
+        </section><section id="section-2" class="slide level3">
+        <h1></h1>
+        <p><strong>Example</strong>: portfolio of MSCI World and EONIA</p>
+        <div class="fragment">
+        <ul>
+        <li>keeping <strong>weights fixed</strong>: portfolio subject to volatility risk</li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <ul>
+        <li>keeping <strong>volatility fixed</strong>: depending on estimated market volatility <strong>adapt weights</strong></li>
+        </ul>
+        </div>
         </section></section>
-        <section><section id="optimization" class="titleslide slide level1"><h1>Optimization</h1></section><section class="slide level3">
-        <h1>Single period optimization</h1>
-        </section><section id="portfolio-return" class="slide level3">
+        <section><section id="single-period" class="titleslide slide level1"><h1>Single period</h1></section><section id="portfolio-return" class="slide level3">
         <h1>Portfolio return</h1>
         <ul>
         <li>portfolio return calculation (with <strong>discrete returns</strong>):</li>
@@ -227,253 +301,334 @@
          <br /><span class="math">$$\begin{equation*}
         r_{P}=w_{1}r_{1}+...+w_{n}r_{n}
         \end{equation*}$$</span><br />
-        <div class="fragment">
         <ul>
         <li>future <strong><span class="math"><em>r</em><sub><em>P</em></sub></span> unknown</strong> <span class="math"> ⇒ </span> estimate distribution</li>
         </ul>
-        </div>
+        </section>
+        <section data-transition="slide-in none-out">
+        <h2>
+        Univariate
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model1.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        Univariate
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model2.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        Univariate
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="slide-in none-out">
+        <h2>
+        Multivariate
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model1.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        Multivariate
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model2.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        Multivariate
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
         </section><section id="with-bfmu-sigma-optimality" class="slide level3">
         <h1>With <span class="math">$\bf{\mu / \sigma}$</span> optimality</h1>
-        <ul>
-        <li><strong>vastly simplifies</strong> optimal portfolio selection</li>
-        </ul>
-        <div class="fragment">
         <ul>
         <li>utility as <strong>function of</strong> portfolio return <strong>moments</strong></li>
         </ul>
          <br /><span class="math">$$\begin{align*}
         \mathbb{U}(r_{P}) &amp;= g\left(\mathbb{E}[r_{P}], \mathbb{V}(r_{P})\right)\\
-        &amp;=g(\mu_{P},\sigma_{P}^{2})
+        &amp;=g(\mu_{P},\sigma_{P}^{2})\\
+        &amp;=g(\bf{w}'\bf{\mu},\bf{w}'\Sigma\bf{w})
         \end{align*}$$</span><br />
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> portfolio moments easy to derive from asset moments</p>
-        </div>
-        </section><section id="portfolio-moments" class="slide level3">
-        <h1>Portfolio moments</h1>
-        <ul>
-        <li><strong>expected portfolio return</strong>:</li>
-        </ul>
-         <br /><span class="math">$$\begin{align*}
-        \mu_{P}&amp;=\mathbb{E}[r_{P}]\\
-        &amp;=\mathbb{E}[w_{1}r_{1}+...+w_{n}r_{n}]\\
-        &amp;=w_{1}\mathbb{E}[r_{1}]+...+w_{n}\mathbb{E}[r_{n}]\\
-        &amp;=\bf{w}'\bf{\mu}
-        \end{align*}$$</span><br />
-        </section><section id="section-2" class="slide level3">
-        <h1></h1>
-        <ul>
-        <li>portfolio <strong>variance</strong>:</li>
-        </ul>
-         <br /><span class="math">$$\begin{align*}
-        \sigma_{P}^{2}&amp;=\mathbb{V}(r_{P})\\
-        &amp;=\mathbb{V}(w_{1}r_{1}+...+w_{n}r_{n})\\
-        &amp;=\sum_{i=1}^{n}\mathbb{V}(w_{i}r_{i})+
-            2 \sum_{i=1}^{n}\sum_{j&lt;i}\text{Cov}(w_{i}r_{i},w_{j}r_{j})\\
-        &amp;=\sum_{i=1}^{n}w_{i}^{2}\mathbb{V}(r_{i})+
-            2 \sum_{i=1}^{n}\sum_{j&lt;i}w_{i}w_{j}\text{Cov}(r_{i},r_{j})\\
-        &amp;= \bf{w}'\Sigma\bf{w}
-        \end{align*}$$</span><br />
-        </section><section id="section-3" class="slide level3">
-        <h1></h1>
-        <p>Popular optimality criterions for given <span class="math">$\bf{\mu}$</span> and <span class="math">$\bf{\Sigma}$</span></p>
-        <div class="fragment">
-        <ul>
-        <li>for given <span class="math"><em>μ</em><sub><em>P</em></sub></span> <strong>minimize <span class="math"><em>σ</em><sub><em>P</em></sub></span></strong> <em>(1)</em></li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>for given <span class="math"><em>σ</em><sub><em>P</em></sub></span> <strong>maximize <span class="math"><em>μ</em><sub><em>P</em></sub></span></strong> <em>(2)</em></li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li><strong>globally minimize <span class="math"><em>σ</em><sub><em>P</em></sub></span></strong> <em>(3)</em></li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>maximize <strong>Sharpe ratio</strong> <em>(4)</em></li>
-        </ul>
-        <p><br /><span class="math">$$SR_{P}=\frac{\mu_{P}}{\sigma_{P}}$$</span><br /></p>
-        </div>
-        </section><section id="show-single-period-markowitz" class="slide level3">
-        <h1>Show single period Markowitz</h1>
-        <ul>
-        <li>show strategies in usual Markowitz <span class="math"><em>μ</em></span>-<span class="math"><em>σ</em></span> graphics</li>
-        </ul>
-        </section><section id="optimization-challenges" class="slide level3">
-        <h1>Optimization challenges</h1>
-        <p>Without short-selling constraints:</p>
-        <ul>
-        <li>analytical solution for 1, 2 and 3 (4)?</li>
-        </ul>
-        </section><section id="constraints" class="slide level3">
-        <h1>Constraints</h1>
-        <ul>
-        <li>single asset constraints (<strong>no short-selling</strong>)</li>
-        </ul>
-        <div class="fragment">
-        <ul>
-        <li>group constraints (<strong>asset class</strong>, asset region)</li>
-        </ul>
-        </div>
-        </section><section id="optimization-challenges-1" class="slide level3">
-        <h1>Optimization challenges</h1>
-        <p>With constraints, we have to rely on numerical optimization:</p>
-        <ol type="1">
-        <li><p>quadratic objective, linear constraints</p></li>
-        <li><p>linear objective, quadratic constraints</p></li>
-        <li><p>?</p></li>
-        <li><p>?</p></li>
-        </ol>
-        </section><section id="unclear-yet" class="slide level3">
-        <h1>Unclear yet</h1>
-        <p>How are μ and σ derived? <span class="math"> ⇒ </span> see estimation part</p>
+        <p><span class="math"> ⇒ </span> <strong>vastly simplifies</strong> optimal portfolio selection</p>
+        </section>
+        <section data-transition="slide-in none-out">
+        <h2>
+        Simplification
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        Simplification
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/mu_sigma_model1.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="none-in slide-out">
+        <h2>
+        Simplification
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/mu_sigma_model.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        <!--
+        ### Portfolio moments
+        
+        - **expected portfolio return**:
+        
+        \begin{align*}
+        \mu_{P}&=\mathbb{E}[r_{P}]\\
+        &=\mathbb{E}[w_{1}r_{1}+...+w_{n}r_{n}]\\
+        &=w_{1}\mathbb{E}[r_{1}]+...+w_{n}\mathbb{E}[r_{n}]\\
+        &=\bf{w}'\bf{\mu}
+        \end{align*}
+        
+        ###
+        
+        - portfolio **variance**:
+        
+        \begin{align*}
+        \sigma_{P}^{2}&=\mathbb{V}(r_{P})\\
+        &=\mathbb{V}(w_{1}r_{1}+...+w_{n}r_{n})\\
+        &=\sum_{i=1}^{n}\mathbb{V}(w_{i}r_{i})+
+            2 \sum_{i=1}^{n}\sum_{j<i}\text{Cov}(w_{i}r_{i},w_{j}r_{j})\\
+        &=\sum_{i=1}^{n}w_{i}^{2}\mathbb{V}(r_{i})+
+            2 \sum_{i=1}^{n}\sum_{j<i}w_{i}w_{j}\text{Cov}(r_{i},r_{j})\\
+        &= \bf{w}'\Sigma\bf{w}
+        \end{align*}
+        
+        
+        ### 
+        
+        Popular optimality criterions for given $\bf{\mu}$ and $\bf{\Sigma}$ 
+        
+        . . .
+        
+        - for given $\mu_{P}$ **minimize $\sigma_{P}$** *(1)*
+        
+        . . .
+        
+        - for given $\sigma_{P}$ **maximize $\mu_{P}$** *(2)*
+        
+        . . .
+        
+        - **globally minimize $\sigma_{P}$** *(3)*
+        
+        . . .
+        
+        - maximize **Sharpe ratio** *(4)*
+        
+        $$SR_{P}=\frac{\mu_{P}}{\sigma_{P}}$$
+        
+        ### Show single period Markowitz
+        
+        - show strategies in usual Markowitz $\mu$-$\sigma$ graphics
+        
+        ### Optimization challenges
+        
+        Without short-selling constraints:
+        
+        - analytical solution for 1, 2 and 3 (4)?
+        
+        ### Constraints
+        
+        - single asset constraints (**no short-selling**)
+        
+        . . .
+        
+        - group constraints (**asset class**, asset region)
+        
+        ### Optimization challenges
+        
+        With constraints, we have to rely on numerical optimization:
+        
+        1. quadratic objective, linear constraints
+        
+        1. linear objective, quadratic constraints
+        
+        1. ?
+        
+        1. ?
+        
+        ### Unclear yet
+        
+        How are $\mu$ and $\sigma$ derived? $\Rightarrow$ see estimation part
+        
+        -->
         </section><section id="criticism" class="slide level3">
         <h1>Criticism</h1>
-        <ul>
-        <li><strong>asymmetric</strong> return distribution of <strong><span class="math"><em>r</em><sub><em>P</em></sub></span></strong>: sum of asymmetric discrete asset returns</li>
-        </ul>
+        <p><strong>Symmetric measure <span class="math"><em>σ</em><sub><em>P</em></sub></span></strong> inadequate to evaluate risk of <strong>asymmetric</strong> portfolio return distribution:</p>
         <div class="fragment">
-        <p><span class="math"> ⇒ </span> <strong>symmetric measure <span class="math"><em>σ</em><sub><em>P</em></sub></span></strong> to quantify risk of asymmetric portfolio returns</p>
+        <ul>
+        <li><strong><span class="math"><em>r</em><sub><em>P</em></sub></span></strong> sum of asymmetric discrete asset returns</li>
+        </ul>
         </div>
-        </section><section id="first-alternative-logarithmic-returns" class="slide level3">
-        <h1>First alternative: logarithmic returns</h1>
-        <ul>
-        <li>logarithmic returns are almost symmetric</li>
-        </ul>
+        </section><section id="alternative-i-logarithmic-returns" class="slide level3">
+        <h1>Alternative I: logarithmic returns</h1>
         <div class="fragment">
-        <ul>
-        <li>but: portfolio return is not a linear function anymore</li>
-        </ul>
+        <p><strong>Justification</strong>: logarithmic returns are almost symmetric</p>
+        </div>
+        </section><section id="problem-i" class="slide level3">
+        <h1>Problem I</h1>
+        <p>Portfolio return is <strong>not</strong> a <strong>linear</strong> function of asset returns anymore</p>
+        <div class="fragment">
          <br /><span class="math">$$\begin{align*}
         \mu_{P}&amp;=\mathbb{E}[r_{P}]\\
-        &amp;=\mathbb{E}[g(r_{1}, \ldots, r_{n})]\\
+        &amp;=\mathbb{E}\left[\ln\left(w_{1}\exp(r_{1}^{log})+ \ldots + w_{N}\exp(r_{N}^{log})\right)\right]\\
         &amp;=?
         \end{align*}$$</span><br />
         </div>
-        </section><section id="second-alternative-employing-var" class="slide level3">
-        <h1>Second alternative: employing VaR</h1>
+        </section><section id="problem-ii" class="slide level3">
+        <h1>Problem II</h1>
+        <p>Due to <strong>non-linear</strong> relation</p>
+         <br /><span class="math">$$\begin{equation*}
+        r_{P}=\exp(r^{log}) - 1
+        \end{equation*}$$</span><br />
+        <p>effect of <strong>increasing risk</strong> <span class="math"><em>σ</em><sub><em>P</em></sub><sup><em>l</em><em>o</em><em>g</em></sup></span> on utility becomes <strong>unambiguous</strong></p>
+        </section><section id="section-3" class="slide level3">
+        <h1></h1>
+        <p><strong>Example</strong>: with normally distributed log returns</p>
+        <p><br /><span class="math"><em>r</em><sub><em>P</em></sub><sup><em>l</em><em>o</em><em>g</em></sup> 𝒩(0, <em>σ</em><sup>2</sup>)</span><br /></p>
+        </section><section id="alternative-ii-var" class="slide level3">
+        <h1>Alternative II: VaR</h1>
         <ul>
         <li><strong>distribution</strong> of portfolio return <span class="math"><em>r</em><sub><em>P</em></sub></span> <strong>required</strong></li>
         </ul>
-        </section><section id="why-var" class="slide level3">
-        <h1>Why <em>VaR</em></h1>
-        <ul>
-        <li><p>more meaningful to private investors</p></li>
-        <li><p>no symmetry for discrete returns</p></li>
-        <li><p>focusing on downside risk</p></li>
-        <li><p>coinciding with financial regulation</p></li>
-        </ul>
-        </section><section id="desired" class="slide level3">
-        <h1>desired</h1>
-        <ul>
-        <li>with given VaR, optimize <span class="math"><em>μ</em><sub><em>P</em></sub></span></li>
-        <li><p>not possible to hold VaR value fixed</p></li>
-        <li><p>maybe: translate VaR to <span class="math"><em>σ</em><sub><em>P</em></sub></span>, hold <span class="math"><em>σ</em><sub><em>P</em></sub></span> fixed</p></li>
-        </ul>
-        </section><section class="slide level3">
-        <h1>Repeated single period optimization</h1>
-        </section><section id="section-4" class="slide level3">
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> evaluation <strong>costly</strong> for given weights</p>
+        </div>
+        </section></section>
+        <section><section id="multi-period" class="titleslide slide level1"><h1>Multi-period</h1></section><section id="section-4" class="slide level3">
         <h1></h1>
         <p>Assumption: <strong>optimality</strong> criterion given <strong>in each period</strong></p>
         <div class="fragment">
         <p><span class="math"> ⇒ </span> <strong>sequence</strong> of single period optimizations</p>
         </div>
-        </section><section id="new-challenge-turnover" class="slide level3">
-        <h1>New challenge: turnover</h1>
+        </section><section id="additional-challenge" class="slide level3">
+        <h1>Additional challenge</h1>
         <ul>
         <li><span class="math">$\bf{\mu}$</span> and <span class="math">$\bf{\Sigma}$</span> change over time</li>
         </ul>
         <div class="fragment">
-        <p><span class="math"> ⇒ </span> optimal portfolio changes over time (<strong>portfolio rebalancing</strong>)</p>
+        <p><span class="math"> ⇒ </span> optimal portfolio changes over time: <strong>rebalancing</strong></p>
         </div>
         <div class="fragment">
         <p><span class="math"> ⇒ </span> <strong>trading costs</strong> occur</p>
         </div>
-        </section><section id="minimize-turnover" class="slide level3">
-        <h1>Minimize turnover</h1>
+        </section><section id="tradeoff" class="slide level3">
+        <h1>Tradeoff</h1>
+        <p>Rebalancing <strong>costs vs benefits</strong>:</p>
+        <div class="fragment">
         <ul>
-        <li>tradeoff: rebalancing <strong>costs vs benefits</strong></li>
+        <li><strong>costs</strong> can easily be calculated as trading costs</li>
         </ul>
+        </div>
         <div class="fragment">
         <ul>
         <li><strong>benefits</strong> depend on all <strong>future periods</strong></li>
         </ul>
         </div>
+        </section><section id="example" class="slide level3">
+        <h1>Example</h1>
+        <p>Changing distribution in <strong>single period</strong> only</p>
         <div class="fragment">
-        <ul>
-        <li>extreme example:
-        <ul>
-        <li>changing distribution only in single period</li>
-        <li>rebalancing twice might not be worthwhile</li>
-        </ul></li>
-        </ul>
+        <p><span class="math"> ⇒ </span> rebalancing twice might not be worthwhile</p>
         </div>
-        </section><section id="turnover-incentives" class="slide level3">
-        <h1>Turnover incentives</h1>
-        <p><strong>incentives</strong> on turnover become <strong>asymmetric</strong> with <strong>all-in-fee</strong>:</p>
+        </section><section id="all-in-fee" class="slide level3">
+        <h1>All-in-fee</h1>
+        <p>Customer and investor <strong>incentives</strong> are not aligned with <strong>all-in-fee</strong>:</p>
         <div class="fragment">
         <p><span class="math"> ⇒ </span> customers prefer optimal portfolio at each time</p>
         </div>
-        </section><section id="todo-plain-markowitz-real-world-example" class="slide level3">
-        <h1>TODO: plain Markowitz real world example</h1>
-        <ul>
-        <li>plain Markowitz example:
-        <ul>
-        <li>simple estimation -&gt; show changes of moments over time</li>
-        <li>show changes of optimal portfolio over time</li>
-        <li>heuristics to reduce turnover</li>
-        <li>comparison to buy and hold / equally weighted</li>
-        </ul></li>
-        <li>benefits:
-        <ul>
-        <li>reduced drawdown</li>
-        <li>less volatility</li>
-        </ul></li>
-        </ul>
-        </section><section class="slide level3">
-        <h1>Multi-period optimization</h1>
-        </section><section id="aligning-long-and-short-term-optimization-targets" class="slide level3">
-        <h1>Aligning long and short term optimization targets</h1>
-        <ul>
-        <li>how does a yearly target translate into a weekly target?</li>
-        </ul>
-        </section><section id="crucial-tradeoff" class="slide level3">
-        <h1>Crucial tradeoff</h1>
+        </section></section>
+        <section><section id="true-multi-period" class="titleslide slide level1"><h1>True multi-period</h1></section><section class="slide level3">
+        <h1>Deviating horizons</h1>
         <ul>
         <li><strong>long horizon</strong> more meaningful when determining <strong>optimality</strong></li>
+        </ul>
+        <div class="fragment">
+        <ul>
         <li><strong>short horizon</strong> simplifies <strong>estimation</strong> of return distributions</li>
         </ul>
-        </section><section id="derive-single-period-optimality" class="slide level3">
-        <h1>Derive single period optimality</h1>
-        <ul>
-        <li>only long-term optimality given</li>
-        <li>translation to single term optimality not unique</li>
-        </ul>
-        </section><section id="todo-msci-world-eonia" class="slide level3">
-        <h1>TODO: MSCI world + EONIA</h1>
-        <ul>
-        <li>show two extreme cases fulfilling multi-period optimality:
-        <ul>
-        <li>fixed weights: one constant weight that creates the required long term risk target</li>
-        <li>fixed volatility: smoothing risk over time: keep short term risk constant by constant rebalancing</li>
-        </ul></li>
-        <li>which is better for
-        <ul>
-        <li>taxes</li>
-        <li>customer</li>
-        <li>company</li>
-        </ul></li>
-        </ul>
+        </div>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> how does <strong>yearly</strong> target <strong>translate</strong> into a <strong>weekly</strong> target?</p>
+        </div>
         </section><section id="top-down-approach" class="slide level3">
         <h1>Top-down approach</h1>
-        <p>given long-term optimality, derive short-term optimality</p>
+        <p>Non-unique short-term targets</p>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section><section id="preferences" class="slide level3">
+        <h1>Preferences</h1>
+        <div class="fragment">
+        <p><strong>Customer</strong></p>
+        <ul>
+        <li>risk aversion</li>
+        <li>tax harvesting</li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <p><strong>Company</strong></p>
+        <ul>
+        <li>trading costs</li>
+        </ul>
+        </div>
         </section><section id="bottom-up-approach" class="slide level3">
         <h1>Bottom-up approach</h1>
-        <p>for given short-term portfolio derive long-term properties</p>
+        <p>Does given short-term portfolio <strong>align</strong> with desired <strong>long-term target</strong>?</p>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> derive <strong>long-term properties</strong></p>
+        </div>
+        </section><section id="simplest-case" class="slide level3">
+        <h1>Simplest case</h1>
+        <p><strong>Long-term target</strong> defined in terms of <strong>moments only</strong></p>
+         <br /><span class="math">$$\begin{align*}
+        \min \quad\sigma_{T,P}^{2}\\
+        \text{ subject to } \quad\mu_{T,P}&amp;=\mu^{*}
+        \end{align*}$$</span><br />
+        </section><section id="section-5" class="slide level3">
+        <h1></h1>
+        <ul>
+        <li>assumptions:
+        <ul>
+        <li>moments are stable over time</li>
+        <li>weights are stable over time</li>
+        <li>independence over time</li>
+        </ul></li>
+        <li>still:
+        <ul>
+        <li>no linear aggregation over time for discrete returns</li>
+        <li>multi-period moments require complete shape of distribution</li>
+        </ul></li>
+        </ul>
         </section><section id="univariate" class="slide level3">
         <h1>Univariate</h1>
         <ul>
@@ -503,7 +658,66 @@
         <li>example: high-volatility sigmas and square-root-of-time scaling will pretend that sigmas will stay high for the whole period</li>
         </ul>
         </section></section>
-        <section><section id="estimation" class="titleslide slide level1"><h1>Estimation</h1></section><section id="section-5" class="slide level3">
+        <section><section id="empirical-application" class="titleslide slide level1"><h1>Empirical application</h1></section><section id="todo-plain-markowitz-real-world-example" class="slide level3">
+        <h1>TODO: plain Markowitz real world example</h1>
+        <ul>
+        <li>plain Markowitz example:
+        <ul>
+        <li>simple estimation -&gt; show changes of moments over time</li>
+        <li>show changes of optimal portfolio over time</li>
+        <li>heuristics to reduce turnover</li>
+        <li>comparison to buy and hold / equally weighted</li>
+        </ul></li>
+        <li>benefits:
+        <ul>
+        <li>reduced drawdown</li>
+        <li>less volatility</li>
+        </ul></li>
+        </ul>
+        </section><section id="prices" class="slide level3">
+        <h1>Prices</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-1.svg"
+        alt="Number of observations" style="background-color:white" width="1000px"/>
+        </p>
+        </section><section id="cumulative-returns" class="slide level3">
+        <h1>Cumulative returns</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-2.svg"
+        alt="Number of observations" style="background-color:white" width="1000px"/>
+        </p>
+        </section><section id="normed-logarithmic-prices" class="slide level3">
+        <h1>Normed logarithmic prices</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-3.svg"
+        alt="Number of observations" style="background-color:white" width="1000px"/>
+        </p>
+        </section><section id="colored-asset-class" class="slide level3">
+        <h1>Colored asset class</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-4.svg"
+        alt="Number of observations" style="background-color:white" width="1000px"/>
+        </p>
+        </section><section id="colored-region" class="slide level3">
+        <h1>Colored region</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-5.svg"
+        alt="Number of observations" style="background-color:white" width="1000px"/>
+        </p>
+        </section><section id="colored-risk-class" class="slide level3">
+        <h1>Colored risk class</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-6.svg"
+        alt="Number of observations" style="background-color:white" width="1000px"/>
+        </p>
+        </section><section id="return-series" class="slide level3">
+        <h1>Return series</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics/scacap_descriptive_pics-7.svg"
+        alt="Number of observations" style="background-color:white" width="1000px"/>
+        </p>
+        </section></section>
+        <section><section id="estimation" class="titleslide slide level1"><h1>Estimation</h1></section><section id="section-6" class="slide level3">
         <h1></h1>
         <p>When should estimation be tackled?!</p>
         <ul>
@@ -528,6 +742,13 @@
         <li>estimate <span class="math">$\bf{\mu},\bf{\Sigma}$</span> only</li>
         <li>no distribution required for <span class="math"><em>r</em><sub>1</sub>, ..., <em>r</em><sub><em>n</em></sub></span></li>
         </ul>
+        </section><section id="markowitz-insights" class="slide level3">
+        <h1>Markowitz insights</h1>
+        <ul>
+        <li>how concave is attainable set</li>
+        <li>how do underlying weights change locally</li>
+        <li>what is exact influence of correlation?</li>
+        </ul>
         </section><section id="bootstrap" class="slide level3">
         <h1>Bootstrap</h1>
         <ul>
@@ -551,7 +772,7 @@
         <ul>
         <li>how does mu-sigma area behave?</li>
         </ul>
-        </section><section id="section-6" class="slide level3">
+        </section><section id="section-7" class="slide level3">
         <h1></h1>
         <ul>
         <li><em>VaR</em> portfolio differ from <span class="math"><em>μ</em> − <em>σ</em></span> portfolio?</li>
@@ -593,7 +814,8 @@
         </ul></li>
         </ul>
         </section></section>
-        <section><section id="alternative-approach" class="titleslide slide level1"><h1>Alternative approach</h1></section><section id="section-7" class="slide level3">
+        <section><section id="changing-weights" class="titleslide slide level1"><h1>Changing weights</h1></section></section>
+        <section><section id="alternative-approach" class="titleslide slide level1"><h1>Alternative approach</h1></section><section id="section-8" class="slide level3">
         <h1></h1>
         <ul>
         <li>translate long-term VaR in single period <span class="math"><em>σ</em></span></li>

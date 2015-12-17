@@ -1,7 +1,8 @@
 % Asset management:
-% Extending Markowitz
+% Markowitz and beyond
 % Christian Groll
 
+<!--
 # Notes
 
 ### Topics Tech Lunch
@@ -35,6 +36,9 @@
 	- how much do weights change over time?
 - adapt for estimation risk: bootstrapping (already should smooth
   turnover)
+
+-->
+
 
 # Introduction
 
@@ -85,8 +89,8 @@ alt="Number of observations" width="1000px"/>
 
 ### $\bf{\mu / \sigma}$ dogma
 
-First two moments are sufficient to derive the utility of any given
-return distribution.
+> First two **moments** are **sufficient** to derive the **utility**
+of any given return distribution.
 
 
 ### $\bf{\mu / \sigma}$ deficiencies
@@ -103,44 +107,88 @@ alt="Number of observations" width="1000px"/>
 </p>
 
 
-### Other metrics
+### Alternative measure: VaR
 
-- VaR
-- benefits: concentration on downside risk
+- **VaR**: value exceeded with given probability $\bf{\alpha}$
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/var.svg"
+alt="Number of observations" width="300px"/>
+</p>
 
-### VaR deficiencies
 
-- returns beyond VaR are not taken into account
+### Benefits
 
-### General remarks
+- focusing on **downside risk**
 
-- single value will always reduce information (equal for infinitely
-  many distributions)
-- people simple can not rank all possible combinations of return
-  distributions (indifference)
-
-### Additional implicit assumptions
-
-Two **equal return** distributions are always **valued equally**
+$\Rightarrow$ more appropriate for asymmetric discrete returns
 
 . . .
 
-- portfolio is only one **component of overall investment** (rest with
-  home bias)
+- more meaningful to private investors
+- aligned with financial regulation
+
+
+### Nobody's perfect
 
 . . .
 
-- financial investments only one **component of overall wealth** (home
-  bias is irrational: losing job in Germany during recession)
+- values beyond VaR are not taken into account
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/varDeficiency.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+. . .
+
+$\Rightarrow$ reduction to single value causes **loss of information**
+
+### But
+
+Does single ranking of all possible return distributions exist?
+
+. . .
+
+$\Rightarrow$ **indifference**
+
+. . .
+
+$\Rightarrow$ **irrationality**
+
+. . .
+
+> **A** over **B**, **B** over **C**
+
+. . .
+
+But:
+
+> **C** over **A**
+
+
+### Additional optimality criteria
+
+Two **equal return** distributions are not always **valued equally**
+
+. . .
+
+- portfolio is only one **component of overall investment**:
+  **diversification** preferred
+
+. . .
+
+- financial investments only one **component of overall wealth**:
+  avoid **home bias**
 
 . . .
 
 $\Rightarrow$ asset pricing
 
-### Additional implicit assumptions
+### Additional optimality criteria
 
-- focusing on distribution at single point in future: **no explicit
-  path dependence**
+- focusing on distribution at single point in future insufficient:
+  **path dependence**
+
+. . .
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
@@ -148,9 +196,20 @@ alt="Number of observations" width="1000px"/>
 </p>
 
 
-# Optimization
+###
 
-## Single period optimization
+**Example**: portfolio of MSCI World and EONIA
+
+. . .
+
+- keeping **weights fixed**: portfolio subject to volatility risk
+
+. . .
+
+- keeping **volatility fixed**: depending on estimated market
+  volatility **adapt weights**
+
+# Single period
 
 ### Portfolio return
 
@@ -160,27 +219,98 @@ alt="Number of observations" width="1000px"/>
 r_{P}=w_{1}r_{1}+...+w_{n}r_{n}
 \end{equation*}
 
-. . .
-
 - future **$r_{P}$ unknown** $\Rightarrow$ estimate distribution
 
+
+</section>
+<section data-transition="slide-in none-out">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model1.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model2.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="slide-in none-out">
+<h2>Multivariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model1.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Multivariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model2.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Multivariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+
 ### With $\bf{\mu / \sigma}$ optimality
-
-- **vastly simplifies** optimal portfolio selection
-
-. . .
 
 - utility as **function of** portfolio return **moments**
 
 \begin{align*}
 \mathbb{U}(r_{P}) &= g\left(\mathbb{E}[r_{P}], \mathbb{V}(r_{P})\right)\\
-&=g(\mu_{P},\sigma_{P}^{2})
+&=g(\mu_{P},\sigma_{P}^{2})\\
+&=g(\bf{w}'\bf{\mu},\bf{w}'\Sigma\bf{w})
 \end{align*}
 
-. . .
 
-$\Rightarrow$ portfolio moments easy to derive from asset moments
+$\Rightarrow$ **vastly simplifies** optimal portfolio selection
 
+</section>
+<section data-transition="slide-in none-out">
+<h2>Simplification</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Simplification</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/mu_sigma_model1.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none-in slide-out">
+<h2>Simplification</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/mu_sigma_model.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+
+
+<!--
 ### Portfolio moments
 
 - **expected portfolio return**:
@@ -205,6 +335,7 @@ $\Rightarrow$ portfolio moments easy to derive from asset moments
 	2 \sum_{i=1}^{n}\sum_{j<i}w_{i}w_{j}\text{Cov}(r_{i},r_{j})\\
 &= \bf{w}'\Sigma\bf{w}
 \end{align*}
+
 
 ### 
 
@@ -262,55 +393,64 @@ With constraints, we have to rely on numerical optimization:
 
 How are $\mu$ and $\sigma$ derived? $\Rightarrow$ see estimation part
 
+-->
+
 ### Criticism
 
-- **asymmetric** return distribution of **$r_{P}$**: sum of asymmetric
-  discrete asset returns
+**Symmetric measure $\sigma_{P}$** inadequate to evaluate risk of
+**asymmetric** portfolio return distribution:
 
 . . .
 
-$\Rightarrow$ **symmetric measure $\sigma_{P}$** to quantify risk of
-asymmetric portfolio returns
+- **$r_{P}$** sum of asymmetric discrete asset returns
 
-### First alternative: logarithmic returns
-
-- logarithmic returns are almost symmetric
+### Alternative I: logarithmic returns
 
 . . .
 
-- but: portfolio return is not a linear function anymore
+**Justification**: logarithmic returns are almost symmetric
+
+### Problem I
+
+Portfolio return is **not** a **linear** function of asset returns
+anymore 
+
+. . .
 
 \begin{align*}
 \mu_{P}&=\mathbb{E}[r_{P}]\\
-&=\mathbb{E}[g(r_{1}, \ldots, r_{n})]\\
+&=\mathbb{E}\left[\ln\left(w_{1}\exp(r_{1}^{log})+ \ldots + w_{N}\exp(r_{N}^{log})\right)\right]\\
 &=?
 \end{align*}
 
+### Problem II
 
-### Second alternative: employing VaR
+Due to **non-linear** relation
+
+\begin{equation*}
+r_{P}=\exp(r^{log}) - 1
+\end{equation*}
+
+effect of **increasing risk** $\sigma^{log}_{P}$ on utility becomes
+**unambiguous**
+
+###
+
+**Example**: with normally distributed log returns
+
+$$r_{P}^{log}~\mathcal{N}(0, \sigma^{2})$$
+
+
+### Alternative II: VaR
 
 - **distribution** of portfolio return $r_{P}$ **required**
 
+. . .
 
-### Why *VaR*
-
-- more meaningful to private investors
-
-- no symmetry for discrete returns
-
-- focusing on downside risk
-
-- coinciding with financial regulation
+$\Rightarrow$ evaluation **costly** for given weights 
 
 
-### desired
-
-- with given VaR, optimize $\mu_{P}$
-- not possible to hold VaR value fixed
-- maybe: translate VaR to $\sigma_{P}$, hold $\sigma_{P}$ fixed 
-- still: not all levels of risk attainable?
-
-## Repeated single period optimization
+# Multi-period
 
 ###
 
@@ -320,89 +460,111 @@ Assumption: **optimality** criterion given **in each period**
 
 $\Rightarrow$ **sequence** of single period optimizations
 
-### New challenge: turnover
+### Additional challenge
 
 - $\bf{\mu}$ and $\bf{\Sigma}$ change over time
 
 . . .
 
-$\Rightarrow$ optimal portfolio changes over time (**portfolio
-rebalancing**)
+$\Rightarrow$ optimal portfolio changes over time: **rebalancing**
 
 . . .
 
 $\Rightarrow$ **trading costs** occur 
 
-### Minimize turnover
+### Tradeoff
 
-- tradeoff: rebalancing **costs vs benefits**
+Rebalancing **costs vs benefits**:
+
+. . .
+
+- **costs** can easily be calculated as trading costs
 
 . . .
 
 - **benefits** depend on all **future periods**
 
+
+### Example
+
+Changing distribution in **single period** only
+
 . . .
 
-- extreme example: 
-	- changing distribution only in single period
-	- rebalancing twice might not be worthwhile
+$\Rightarrow$ rebalancing twice might not be worthwhile
 
-### Turnover incentives
+### All-in-fee
 
-**incentives** on turnover become **asymmetric** with **all-in-fee**:
+Customer and investor **incentives** are not aligned with
+**all-in-fee**:
 
 . . .
 
 $\Rightarrow$ customers prefer optimal portfolio at each time
 
-### TODO: plain Markowitz real world example
 
-- plain Markowitz example: 
-	- simple estimation -> show changes of moments over time
-	- show changes of optimal portfolio over time
-	- heuristics to reduce turnover
-	- comparison to buy and hold / equally weighted
+# True multi-period
 
-- benefits:
-	- reduced drawdown
-	- less volatility
-
-## Multi-period optimization
-
-### Aligning long and short term optimization targets
-
-- how does a yearly target translate into a weekly target?
-
-### Crucial tradeoff
+## Deviating horizons
 
 - **long horizon** more meaningful when determining **optimality**
+
+. . .
+
 - **short horizon** simplifies **estimation** of return distributions
 
-### Derive single period optimality
+. . .
 
-- only long-term optimality given
-- translation to single term optimality not unique
 
-### TODO: MSCI world + EONIA
+$\Rightarrow$ how does **yearly** target **translate** into a
+**weekly** target? 
 
-- show two extreme cases fulfilling multi-period optimality:
-	- fixed weights: one constant weight that creates the required long
-     term risk target
-	- fixed volatility: smoothing risk over time: keep short term risk
-     constant by constant rebalancing
-
-- which is better for 
-	- taxes
-	- customer
-	- company
 
 ### Top-down approach
 
-given long-term optimality, derive short-term optimality
+Non-unique short-term targets
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+### Preferences
+
+. . .
+
+**Customer**
+
+- risk aversion
+- tax harvesting
+
+. . .
+
+**Company**
+
+-  trading costs
 
 ### Bottom-up approach
 
-- for given short-term portfolio derive long-term properties
+Does given short-term portfolio **align** with desired **long-term
+target**?
+
+. . .
+
+$\Rightarrow$ derive **long-term properties**
+
+### Simplest case
+
+**Long-term target** defined in terms of **moments only**
+
+\begin{align*}
+\min \quad\sigma_{T,P}^{2}\\
+\text{ subject to } \quad\mu_{T,P}&=\mu^{*}
+\end{align*}
+
+###
+
+
 - assumptions:
 	- moments are stable over time
 	- weights are stable over time
@@ -440,7 +602,20 @@ In reality not possible:
   pretend that sigmas will stay high for the whole period
 
 
-# Data
+# Empirical application
+
+### TODO: plain Markowitz real world example
+
+- plain Markowitz example: 
+	- simple estimation -> show changes of moments over time
+	- show changes of optimal portfolio over time
+	- heuristics to reduce turnover
+	- comparison to buy and hold / equally weighted
+
+- benefits:
+	- reduced drawdown
+	- less volatility
+
 
 ### Prices
 
