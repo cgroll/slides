@@ -558,20 +558,88 @@ $\Rightarrow$ derive **long-term properties**
 **Long-term target** defined in terms of **moments only**
 
 \begin{align*}
-\min \quad\sigma_{T,P}^{2}\\
-\text{ subject to } \quad\mu_{T,P}&=\mu^{*}
+\min \quad\sigma_{1:T,P}^{2}\\
+\text{ subject to } \quad\mu_{1:T,P}&=\mu^{*}
 \end{align*}
 
-###
+### Annualization
+
+What are **long-term** portfolio **moments**
+
+\begin{equation*}
+(\mu_{1:T,P},\sigma_{1:T,P})
+\end{equation*}
+**associated with** given
+
+- current weights $\bf{w}$
+- current short-term asset moments 
+
+\begin{equation*}
+(\mu_{1,i},\sigma_{1,i})
+\end{equation*}
 
 
-- assumptions:
-	- moments are stable over time
-	- weights are stable over time
-	- independence over time
-- still: 
-	- no linear aggregation over time for discrete returns
-	- multi-period moments require complete shape of distribution
+### Square-root-of-time
+
+First guess:
+
+- get single-period portfolio moments
+
+\begin{align*}
+\mu_{1,P}&=\bf{w}'\bf{\mu_{1}}\\
+\sigma_{1,P}&=\sqrt{\bf{w}'\Sigma_{1}\bf{w}}
+\end{align*}
+
+. . .
+
+- scaling:
+
+\begin{equation*}
+\mu_{1:T,P}=T\mu_{1,P}
+\sigma_{1:T,P}=\sqrt{T}\sigma_{1,P}
+\end{equation*}
+
+### Problem 1
+
+- multi-period returns are **product** of single-period returns in the
+  **discrete return** case
+
+### Annualization
+
+"Correct" formula if willing to use certain assumptions
+
+But: multi-period moments require complete shape of distribution
+
+### Problem 2
+
+- asset moments are changing over time
+
+-> square-root-of-time formula not correct
+
+### Problem 3
+
+- weights changing over time due to prices
+
+-> univariate approach wrong
+
+### Changing weights
+
+- even if asset moments were static, weights would still automatically
+  change over time due to price changes
+- the new weights also can be calculated without the actual prices:
+
+$$
+\begin{aligned}
+w_{t+1,j}&=\frac{S_{t,j}P_{t+1,j}}{P_{t+1,P}}\\
+&=\frac{S_{t,j}P_{t,j}(1+R_{t,j})}{P_{t,P}(1+R_{t,P})}\\
+&=w_{t,j}\frac{(1+R_{t,j})}{1+R_{t,P}}
+\end{aligned}
+$$
+
+
+### Problem 4
+
+- dynamic strategy: weights are changing anyways
 
 ### Univariate 
 
@@ -669,6 +737,11 @@ alt="Number of observations" style="background-color:white" width="1000px"/>
 
 # Estimation
 
+### Bootstrap 
+
+- conduct bootstrap example for unchanging moments
+- bootstrapping time series is not easy!
+
 ###
 
 When should estimation be tackled?!
@@ -676,14 +749,6 @@ When should estimation be tackled?!
 - in plain Markowitz example with moments only?
 - in single period VaR example?
 - in part on bootstrapping?
-
-### Univariate estimation
-
-- changing weights requires reestimation of model
-
-### Multivariate estimation
-
-- changing weights does not require reestimation of model
 
 ### Plain Markowitz estimation:
 
@@ -697,13 +762,6 @@ When should estimation be tackled?!
 - how do underlying weights change locally
 - what is exact influence of correlation?
 
-### Bootstrap 
-
-- conduct bootstrap example for unchanging moments
-- bootstrapping time series is not easy!
-
-
-# Markowitz details
 
 ### Markowitz
 
@@ -757,19 +815,11 @@ to other assets are preferred
 	- factor model
 	- asset pricing model
 
-# Changing weights
 
-- even if asset moments were static, weights would still automatically
-  change over time due to price changes
-- the new weights also can be calculated without the actual prices:
+# Further problems
 
-$$
-\begin{aligned}
-w_{t+1,j}&=\frac{S_{t,j}P_{t+1,j}}{P_{t+1,P}}\\
-&=\frac{S_{t,j}P_{t,j}(1+R_{t,j})}{P_{t,P}(1+R_{t,P})}\\
-&=w_{t,j}\frac{(1+R_{t,j})}{1+R_{t,P}}
-\end{aligned}
-$$
+- taxes
+
 
 
 # Alternative approach
