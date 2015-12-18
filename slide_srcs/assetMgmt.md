@@ -87,6 +87,42 @@ alt="Number of observations" width="1000px"/>
 	- increasing $\mu$ increases utility
 	- increasing $\sigma$ decreases utility
 
+
+</section>
+<section data-transition="slide-in none-out">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/muIncrease.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none-in slide-out">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/muIncrease2.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+
+<section data-transition="slide-in none-out">
+<h2>Volatility increase</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaIncrease.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none-in slide-out">
+<h2>Volatility increase</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaIncrease2.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+
+
 ### $\bf{\mu / \sigma}$ dogma
 
 > First two **moments** are **sufficient** to derive the **utility**
@@ -428,17 +464,71 @@ anymore
 Due to **non-linear** relation
 
 \begin{equation*}
-r_{P}=\exp(r^{log}) - 1
+r_{P}=\exp(r_{P}^{log}) - 1
 \end{equation*}
 
 effect of **increasing risk** $\sigma^{log}_{P}$ on utility becomes
 **unambiguous**
 
+</section>
+<section data-transition="slide-in none-out">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease1.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease2.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease3.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease5.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease6.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
 ###
 
-**Example**: with normally distributed log returns
+**Example** 
 
-$$r_{P}^{log}~\mathcal{N}(0, \sigma^{2})$$
+With normally distributed log returns
+
+\begin{equation*}
+r_{P}^{log}\sim\mathcal{N}(0, \sigma^{2})
+\end{equation*}
+
+. . .
+
+we get
+
+$$\begin{aligned}
+\mu(r)&=\exp\left( \mu(r^{log}) + \frac{\sigma^{2}(r^{log})}{2}\right)-1\\
+\sigma^{2}(r)&=\left( \exp\left( \sigma^{2}(r^{log}) \right)-1\right)
+\exp\left( 2\mu(r^{log})+\sigma^{2}(r^{log}) \right)
+\end{aligned}$$
 
 
 ### Alternative II: VaR
@@ -450,7 +540,7 @@ $$r_{P}^{log}~\mathcal{N}(0, \sigma^{2})$$
 $\Rightarrow$ evaluation **costly** for given weights 
 
 
-# Multi-period
+# Iterated single period
 
 ###
 
@@ -495,7 +585,7 @@ $\Rightarrow$ rebalancing twice might not be worthwhile
 
 ### All-in-fee
 
-Customer and investor **incentives** are not aligned with
+Customer and asset manager **incentives** are not aligned with
 **all-in-fee**:
 
 . . .
@@ -564,7 +654,7 @@ $\Rightarrow$ derive **long-term properties**
 
 ### Annualization
 
-What are **long-term** portfolio **moments**
+Finding **long-term** portfolio **moments**
 
 \begin{equation*}
 (\mu_{1:T,P},\sigma_{1:T,P})
@@ -581,9 +671,9 @@ What are **long-term** portfolio **moments**
 
 ### Square-root-of-time
 
-First guess:
+**First guess**:
 
-- get single-period portfolio moments
+- get single period portfolio moments
 
 \begin{align*}
 \mu_{1,P}&=\bf{w}'\bf{\mu_{1}}\\
@@ -592,31 +682,89 @@ First guess:
 
 . . .
 
-- scaling:
+- **scaling**
 
 \begin{equation*}
-\mu_{1:T,P}=T\mu_{1,P}
+\mu_{1:T,P}=T\mu_{1,P}\\
 \sigma_{1:T,P}=\sqrt{T}\sigma_{1,P}
 \end{equation*}
 
-### Problem 1
+### Problem I
 
-- multi-period returns are **product** of single-period returns in the
-  **discrete return** case
+- aggregation over time requires **multiplication** of single period
+  returns in the **discrete return** case
 
-### Annualization
 
-"Correct" formula if willing to use certain assumptions
+\begin{equation*}
+(1+r_{1:T})=(1+r_{1})\cdot \ldots \cdot (1+r_{T})
+\end{equation*}
 
-But: multi-period moments require complete shape of distribution
 
-### Problem 2
+### Assumptions
 
-- asset moments are changing over time
+Possible solution, using assumptions
 
--> square-root-of-time formula not correct
+- **independence** over time
+- **normally** distributed log returns
 
-### Problem 3
+### 
+
+- **translate** single period discrete moments **to** moments of
+  **logarithmic returns**
+
+$$\begin{aligned}
+\sigma^{2}(r^{log}_{1})&=\log\left( 1+\frac{\sigma^{2}(R_{1})}{\mu^{2}(R_{1})} \right)\\
+\mu(r^{log}_{1})&=\log(\mu(R_{1}))-\frac{1}{2}\sigma^{2}(r^{log}_{1})
+\end{aligned}$$
+
+
+###
+
+- **scale** logarithmic moments
+
+$$\begin{aligned}
+\mu(r^{log}_{1:T})&=T\mu(r^{log}_{1})\\
+\sigma(r^{log}_{1:T})&=\sqrt{T}\sigma(r^{log}_{1})
+\end{aligned}$$
+
+
+###
+
+- **translate** logarithmic return moments back **to discrete** return
+  moments
+
+$$\begin{aligned}
+\mu(R_{1:T})&=\exp\left( \mu(r^{log}_{1:T}) + \frac{\sigma^{2}(r^{log}_{1:T})}{2}\right)\\
+\sigma^{2}(R_{1:T})&=\left( \exp\left( \sigma^{2}(r^{log}_{1:T}) \right)-1\right)
+\exp\left( 2\mu(r^{log}_{1:T})+\sigma^{2}(r^{log}_{1:T}) \right)
+\end{aligned}$$
+
+
+
+### Problem II
+
+Asset moments are **changing** over time
+
+. . .
+
+$\Rightarrow$ scaling up current high-volatility moments will pretend
+high-volatility persists over the complete long-term horizon
+
+
+###
+
+First guess:
+
+- multi-variate GARCH to simulate
+- holding weights fixed
+- get multi-period returns
+- get multi-period portfolio return
+
+Second guess:
+
+- univariate simulation of portfolio return
+
+### Problem III
 
 - weights changing over time due to prices
 
@@ -629,11 +777,9 @@ But: multi-period moments require complete shape of distribution
 - the new weights also can be calculated without the actual prices:
 
 $$
-\begin{aligned}
-w_{t+1,j}&=\frac{S_{t,j}P_{t+1,j}}{P_{t+1,P}}\\
-&=\frac{S_{t,j}P_{t,j}(1+R_{t,j})}{P_{t,P}(1+R_{t,P})}\\
-&=w_{t,j}\frac{(1+R_{t,j})}{1+R_{t,P}}
-\end{aligned}
+\begin{equation*}
+w_{t+1,j}=w_{t,j}\frac{(1+R_{t,j})}{1+R_{t,P}}
+\end{equation*}
 $$
 
 
@@ -669,7 +815,7 @@ In reality not possible:
 - example: high-volatility sigmas and square-root-of-time scaling will
   pretend that sigmas will stay high for the whole period
 
-
+<!--
 # Empirical application
 
 ### TODO: plain Markowitz real world example
@@ -814,12 +960,32 @@ to other assets are preferred
 - best estimator should make use of asset pricing theory
 	- factor model
 	- asset pricing model
+-->
+
+# Further challenges
+
+### 
+
+- integer
+- legal constraints
+- taxes: defer taxes into future
+- trading time lag: changing prices 
+	- limit orders
+	- feedback loops
+- data frequency? Weekly, monthly?
 
 
-# Further problems
+### Take away points
 
-- taxes
-
+- using discrete returns
+- do we really need VaR on single period level?
+	- alternative: translate yearly VaR in yearly volatility
+	- translate yearly volatility in weekly volatility
+	- do single period optimization with respect to weekly volatility
+- annualization formula
+- estimation: 
+	- factor model
+	- resampling
 
 
 # Alternative approach
