@@ -5,6 +5,26 @@
 <!--
 # Notes
 
+### Introduction
+
+- Asset management: 
+	- into focus through scalable capital
+- overview of some challenges that you face in reality
+- thereby I want to lay out problems that arise if you look at these
+  challenges with complete mathematical rigor
+- it is important to know about approximations and assumptions
+  involved
+- this then should set the stage for every any empirical application
+- where we need to make compromises
+- which however I decided to not treat today
+- both: 
+	- to keep talk at least somewhat short
+	- results are only preliminary
+- some slides: also for different audience (webpage developers)
+- apologies upfront, if some slides appear somewhat ridiculous for
+  your level of sophistication
+- 
+
 ### Topics Tech Lunch
 
 - Introduction (+ data pics: prices, returns)
