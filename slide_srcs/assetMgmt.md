@@ -14,7 +14,7 @@
   challenges with complete mathematical rigor
 - it is important to know about approximations and assumptions
   involved
-- this then should set the stage for every any empirical application
+- this then should set the stage for an empirical application
 - where we need to make compromises
 - which however I decided to not treat today
 - both: 
@@ -24,7 +24,13 @@
 - some might notice: choice of color
 - apologies upfront, if some slides appear somewhat ridiculous for
   your level of sophistication
-- 
+- but I think it is an important part to make research understandable
+  for a broader audience
+- especially in this context: still might need to think of how we
+  communicate the value added of our product 
+- so some slides also try to cope with that issue, and you are very
+  much invited to judge on the broader pedagogical value of these
+  slides and the presentation in general
 
 ### Topics Tech Lunch
 
@@ -103,10 +109,12 @@ alt="Number of observations" width="1000px"/>
 
 ### Setting
 
+- add picture of utility function and return distribution representing
+  most general case
 - return distribution in $T$
 - utility function:
-	- pain to define
-	- pain to evaluate
+	- hard to define
+	- hard to evaluate
 
 $\Rightarrow$ simpler rules (implied by concave utility)
 
@@ -179,11 +187,15 @@ alt="Number of observations" width="300px"/>
 
 - focusing on **downside risk**
 
-$\Rightarrow$ more appropriate for asymmetric discrete returns
+$\Rightarrow$ more appropriate for asymmetric return distributions
 
 . . .
 
-- more meaningful to private investors
+- more **meaningful**: defining risk aversion in terms of VaR more
+  intuitive to private investors (?)
+
+. . .
+
 - aligned with financial regulation
 
 
@@ -282,7 +294,16 @@ r_{P}=w_{1}r_{1}+...+w_{n}r_{n}
 
 
 </section>
+
 <section data-transition="slide-in none-out">
+<h2>Univariate</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model0.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none">
 <h2>Univariate</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model1.svg"
@@ -360,7 +381,7 @@ alt="Number of observations" width="1000px"/>
 </p>
 </section>
 
-<section data-transition="none-in slide-out">
+<section data-transition="none">
 <h2>Simplification</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/mu_sigma_model.svg"
@@ -459,8 +480,6 @@ How are $\mu$ and $\sigma$ derived? $\Rightarrow$ see estimation part
 **Symmetric measure $\sigma_{P}$** inadequate to evaluate risk of
 **asymmetric** portfolio return distribution:
 
-. . .
-
 - **$r_{P}$** sum of asymmetric discrete asset returns
 
 ### Alternative I: logarithmic returns
@@ -477,25 +496,29 @@ anymore
 . . .
 
 \begin{align*}
-\mu_{P}&=\mathbb{E}[r_{P}]\\
-&=\mathbb{E}\left[\ln\left(w_{1}\exp(r_{1}^{log})+ \ldots + w_{N}\exp(r_{N}^{log})\right)\right]\\
+r_{P}^{log}&=\ln\left(w_{1}\exp(r_{1}^{log})+ \ldots + w_{N}\exp(r_{N}^{log})\right)\\
+&\neq w_{1}r_{1}^{log}+ \ldots + w_{N}r_{N}^{log}
+\end{align*}
+
+. . .
+
+\begin{align*}
+\mu_{P}^{log}&=\mathbb{E}[r_{P}^{log}]\\
 &=?
 \end{align*}
 
 ### Problem II
 
-Due to **non-linear** relation
+Measuring risk in terms of $\sigma^{log}_{P}$ is distorting due to
+the **non-linear** relation to discrete returns:
 
 \begin{equation*}
 r_{P}=\exp(r_{P}^{log}) - 1
 \end{equation*}
 
-effect of **increasing risk** $\sigma^{log}_{P}$ on utility becomes
-**unambiguous**
-
 </section>
 <section data-transition="slide-in none-out">
-<h2>Univariate</h2>
+<h2>Non-linear transformation</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease1.svg"
 alt="Number of observations" width="1000px"/>
@@ -503,7 +526,7 @@ alt="Number of observations" width="1000px"/>
 </section>
 
 <section data-transition="none">
-<h2>Univariate</h2>
+<h2>distorts
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease2.svg"
 alt="Number of observations" width="1000px"/>
@@ -511,7 +534,7 @@ alt="Number of observations" width="1000px"/>
 </section>
 
 <section data-transition="none">
-<h2>Univariate</h2>
+<h2>expectations</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease3.svg"
 alt="Number of observations" width="1000px"/>
@@ -519,7 +542,7 @@ alt="Number of observations" width="1000px"/>
 </section>
 
 <section data-transition="none">
-<h2>Univariate</h2>
+<h2>Increasing $\bf{\sigma^{log}}$</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease5.svg"
 alt="Number of observations" width="1000px"/>
@@ -527,7 +550,7 @@ alt="Number of observations" width="1000px"/>
 </section>
 
 <section data-transition="none">
-<h2>Univariate</h2>
+<h2>also increases $\bf{\mu^{log}}$</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease6.svg"
 alt="Number of observations" width="1000px"/>
@@ -610,6 +633,11 @@ $\Rightarrow$ rebalancing twice might not be worthwhile
 
 Customer and asset manager **incentives** are not aligned with
 **all-in-fee**:
+
+. . .
+
+- only customers profit from rebalancing
+- only asset manager affected by trading costs
 
 . . .
 
@@ -771,33 +799,31 @@ Asset moments are **changing** over time
 . . .
 
 $\Rightarrow$ scaling up current high-volatility moments will pretend
-high-volatility persists over the complete long-term horizon
+high-volatility **persists** over the **complete long-term horizon**
 
 
 ###
 
-First guess:
+**First guess**:
 
-- multi-variate GARCH to simulate
-- holding weights fixed
-- get multi-period returns
-- get multi-period portfolio return
+- get **univariate portfolio return data** associated with given
+  weights
 
-Second guess:
+. . .
 
-- univariate simulation of portfolio return
+- **estimate model** on univariate portfolio return data (GARCH?)
+
+. . .
+
+- simulate and **aggregate** future single period portfolio returns
+  **to yearly portfolio returns**
 
 ### Problem III
 
-- weights changing over time due to prices
+- even without portfolio rebalancing portfolio **weights** are
+  **changing** over time **due to price changes**
 
--> univariate approach wrong
-
-### Changing weights
-
-- even if asset moments were static, weights would still automatically
-  change over time due to price changes
-- the new weights also can be calculated without the actual prices:
+. . .
 
 $$
 \begin{equation*}
@@ -805,32 +831,20 @@ w_{t+1,j}=w_{t,j}\frac{(1+R_{t,j})}{1+R_{t,P}}
 \end{equation*}
 $$
 
+. . .
 
-### Problem 4
+$\Rightarrow$ keeping **weights fixed** over time requires active
+portfolio **rebalancing**
 
-- dynamic strategy: weights are changing anyways
+### 
 
-### Univariate 
+**Alternative**:
 
-- univariate GARCH modeling for portfolio returns
+- estimate **multivariate** return **distribution**
+- simulate multi-period returns
+- calculate multi-period portfolio returns with changing weights 
 
-In reality not possible: 
-
-- due to price changes weights change over time: fixed weights
-  strategy not possible without rebalancing
-
-- TODO: how much do weights change
-- adapt for turnover?
-
-### Multivariate
-
-- correct simulation algorithm:
-	- multivariate modeling and simulation
-	- simulate weight changes
-
-- without changing distributions: can be done
-- with changing distributions: how do multivariate distributions
-  change? 
+<!--
 
 ### Problems current approach
 
@@ -838,7 +852,7 @@ In reality not possible:
 - example: high-volatility sigmas and square-root-of-time scaling will
   pretend that sigmas will stay high for the whole period
 
-<!--
+
 # Empirical application
 
 ### TODO: plain Markowitz real world example
@@ -985,43 +999,62 @@ to other assets are preferred
 	- asset pricing model
 -->
 
-# Further challenges
+# Conclusion / outlook
 
-### 
+### Additional challenges
 
-- integer
-- legal constraints
-- taxes: defer taxes into future
-- trading time lag: changing prices 
+- **integer** volumes
+
+. . .
+
+- **legal constraints**
+
+. . .
+
+- **tax** loss harvesting: defer taxes into future
+
+. . .
+
+- **no real-time trading**: price changes
 	- limit orders
 	- feedback loops
-- data frequency? Weekly, monthly?
 
+. . .
 
-### Take away points
+- data **frequency**:
+	- daily
+	- weekly
 
-- using discrete returns
-- do we really need VaR on single period level?
-	- alternative: translate yearly VaR in yearly volatility
+### Things to investigate
+
+- discrete returns
+
+. . .
+
+- is VaR really required as single period target?
+	- translate yearly VaR in yearly volatility
 	- translate yearly volatility in weekly volatility
-	- do single period optimization with respect to weekly volatility
-- annualization formula
+	- do single period optimization with weekly volatility
+
+
+### Things to investigate
+
+- brute force constrained optimization:
+	- maximize μ given σ
+
+. . .
+
+- adapt risk target to current environment
+
+. . .
+
 - estimation: 
 	- factor model
 	- resampling
 
+. . .
 
-# Alternative approach
+- reduce turnover
 
-###
-
-- translate long-term VaR in single period $\sigma$
-- estimate single period with factor model
-- find optimal $\mu$ given $\sigma$ with brute force optimization 
-- find optimal single period portfolio using bootstrapping
-- reduce turnover?!
-- is highly fluctuating path better for tax optimization?!
-- different optimization horizon? Daily?
-- correspondence to whitepaper
 
 
