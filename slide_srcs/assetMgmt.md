@@ -21,6 +21,7 @@
 	- to keep talk at least somewhat short
 	- results are only preliminary
 - some slides: also for different audience (webpage developers)
+- some might notice: choice of color
 - apologies upfront, if some slides appear somewhat ridiculous for
   your level of sophistication
 - 
@@ -69,8 +70,6 @@
 1. with given weights, **estimate** associated **portfolio return
    distribution**
 
-. . .
-
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
 alt="Number of observations" width="1000px"/>
@@ -82,8 +81,6 @@ alt="Number of observations" width="1000px"/>
 
 2. given different portfolio return distributions, **find optimal**
    return distribution
-
-. . .
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/compareDistributions.svg"
@@ -99,18 +96,24 @@ alt="Number of observations" width="1000px"/>
 
 # Risk aversion and utility
 
-### 
+### Risk aversion
 
 - coin game
+- empirical studies
 
-- concave utility implies:
-	- increasing $\mu$ increases utility
-	- increasing $\sigma$ decreases utility
+### Setting
+
+- return distribution in $T$
+- utility function:
+	- pain to define
+	- pain to evaluate
+
+$\Rightarrow$ simpler rules (implied by concave utility)
 
 
 </section>
 <section data-transition="slide-in none-out">
-<h2>Univariate</h2>
+<h2>Increasing $\bf{\mu}$</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/muIncrease.svg"
 alt="Number of observations" width="1000px"/>
@@ -118,7 +121,7 @@ alt="Number of observations" width="1000px"/>
 </section>
 
 <section data-transition="none-in slide-out">
-<h2>Univariate</h2>
+<h2>Increasing $\bf{\mu}$</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/muIncrease2.svg"
 alt="Number of observations" width="1000px"/>
@@ -127,7 +130,7 @@ alt="Number of observations" width="1000px"/>
 
 
 <section data-transition="slide-in none-out">
-<h2>Volatility increase</h2>
+<h2>Increasing $\bf{\sigma}$</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaIncrease.svg"
 alt="Number of observations" width="1000px"/>
@@ -135,7 +138,7 @@ alt="Number of observations" width="1000px"/>
 </section>
 
 <section data-transition="none-in slide-out">
-<h2>Volatility increase</h2>
+<h2>Increasing $\bf{\sigma}$ </h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaIncrease2.svg"
 alt="Number of observations" width="1000px"/>
