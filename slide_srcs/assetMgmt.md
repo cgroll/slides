@@ -11,7 +11,7 @@
 	- into focus through scalable capital
 - overview of some challenges that you face in reality
 - thereby I want to lay out problems that arise if you look at these
-  challenges with complete mathematical rigor
+  challenges with some mathematical rigor
 - it is important to know about approximations and assumptions
   involved
 - this then should set the stage for an empirical application
@@ -102,19 +102,25 @@ alt="Number of observations" width="1000px"/>
 
 # Risk aversion and utility
 
+<!--
 ### Risk aversion
 
 - coin game
 - empirical studies
 
+-->
+
 ### Setting
 
-- add picture of utility function and return distribution representing
-  most general case
-- return distribution in $T$
-- utility function:
-	- hard to define
-	- hard to evaluate
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/concave_utility.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+### Utility function
+
+- hard to **define**
+- hard to **evaluate**
 
 $\Rightarrow$ simpler rules (implied by concave utility)
 
@@ -238,6 +244,14 @@ But:
 
 ### Additional optimality criteria
 
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/concave_utility.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+### Additional optimality criteria
+
 Two **equal return** distributions are not always **valued equally**
 
 . . .
@@ -287,7 +301,7 @@ alt="Number of observations" width="1000px"/>
 - portfolio return calculation (with **discrete returns**):
 
 \begin{equation*}
-r_{P}=w_{1}r_{1}+...+w_{n}r_{n}
+r_{P}=w_{1}r_{1}+...+w_{N}r_{N}
 \end{equation*}
 
 - future **$r_{P}$ unknown** $\Rightarrow$ estimate distribution
