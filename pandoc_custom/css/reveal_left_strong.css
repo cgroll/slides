@@ -27,12 +27,12 @@ p { text-align: left; }
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
 
-body:after {
-content: url(../AssetMgmtAnalysis/unreplicatable_pics/jfinm_logo.png);
-position: fixed;
-bottom: -30.5em;
-left: 70.5em;
-transform: scale(.05);
-box-shadow: 5px 5px 10px #000; }
+/* body:after { */
+/* content: url(../AssetMgmtAnalysis/unreplicatable_pics/jfinm_logo.png); */
+/* position: fixed; */
+/* bottom: -30.5em; */
+/* left: 70.5em; */
+/* transform: scale(.05); */
+/* box-shadow: 5px 5px 10px #000; } */
 
 </style>
