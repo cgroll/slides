@@ -518,7 +518,8 @@ r_{P}^{log}&=\ln\left(w_{1}\exp(r_{1}^{log})+ \ldots + w_{N}\exp(r_{N}^{log})\ri
 
 \begin{align*}
 \mu_{P}^{log}&=\mathbb{E}[r_{P}^{log}]\\
-&=?
+&=?\\
+&\neq w_{1}\mu_{1}^{log}+\ldots + w_{N}\mu_{N}^{log}
 \end{align*}
 
 ### Problem II
@@ -564,7 +565,7 @@ alt="Number of observations" width="1000px"/>
 </section>
 
 <section data-transition="none">
-<h2>also increases $\bf{\mu^{log}}$</h2>
+<h2>also increases $\bf{\mu}$</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease6.svg"
 alt="Number of observations" width="1000px"/>
@@ -1038,6 +1039,10 @@ to other assets are preferred
 - data **frequency**:
 	- daily
 	- weekly
+
+. . .
+
+- incoming / outgoing **cash-flows**
 
 ### Things to investigate
 
