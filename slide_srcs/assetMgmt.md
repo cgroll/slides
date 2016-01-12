@@ -1,6 +1,5 @@
-% Asset management:
-% Markowitz and beyond
-% Christian Groll
+% Data driven 
+% asset management
 
 <!--
 # Notes
@@ -93,12 +92,12 @@ alt="Number of observations" width="1000px"/>
 alt="Number of observations" width="1000px"/>
 </p>
 
-
+<!--
 ### Third task
 
 3. also take **confidence** in estimated distributions into account
    (**estimation error**)
-
+-->
 
 # Risk aversion and utility
 
@@ -108,7 +107,7 @@ alt="Number of observations" width="1000px"/>
 - coin game
 - empirical studies
 
--->
+
 
 ### Setting
 
@@ -124,6 +123,7 @@ alt="Number of observations" width="1000px"/>
 
 $\Rightarrow$ simpler rules (implied by concave utility)
 
+-->
 
 </section>
 <section data-transition="slide-in none-out">
