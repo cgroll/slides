@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-        <meta name="author" content="Markowitz and beyond" />
-            <title>Asset management:</title>
+        <meta name="author" content="asset management" />
+            <title>Data driven</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -53,13 +53,13 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0);
     }
     
-    /* body:after { */
-    /* content: url(../AssetMgmtAnalysis/unreplicatable_pics/jfinm_logo.png); */
-    /* position: fixed; */
-    /* bottom: -30.5em; */
-    /* left: 70.5em; */
-    /* transform: scale(.05); */
-    /* box-shadow: 5px 5px 10px #000; } */
+    body:after {
+    content: url(../AssetMgmtAnalysis/unreplicatable_pics/scacap_logo.png);
+    position: fixed;
+    bottom: 8.5em;
+    left: 4.5em;
+    transform: scale(.35);
+    box-shadow: 5px 5px 10px #000; }
     
     </style>
         
@@ -82,18 +82,16 @@
       <div class="slides">
         
                 <section>
-          <h1 class="title">Asset management:</h1>
-                              <h2 class="author">Markowitz and beyond</h2>
-                    <h3 class="date">Christian Groll</h3>
+          <h1 class="title">Data driven</h1>
+                              <h2 class="author">asset management</h2>
+                    <h3 class="date"></h3>
         </section>
                         <section id="TOC">
           <ul>
           <li><a href="#/introduction">Introduction</a></li>
-          <li><a href="#/risk-aversion-and-utility">Risk aversion and utility</a></li>
-          <li><a href="#/single-period">Single period</a></li>
-          <li><a href="#/iterated-single-period">Iterated single period</a></li>
-          <li><a href="#/true-multi-period">True multi-period</a></li>
-          <li><a href="#/conclusion-outlook">Conclusion / outlook</a></li>
+          <li><a href="#/risk-aversion">Risk aversion</a></li>
+          <li><a href="#/challenges">Challenges</a></li>
+          <li><a href="#/backtesting">Backtesting</a></li>
           </ul>
         </section>
                 
@@ -163,7 +161,61 @@
         
         -->
         </section>
-        <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="two-tasks" class="slide level3">
+        <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="approach" class="slide level3">
+        <h1>Approach</h1>
+        <p>Use <strong>data</strong> to derive <strong>information</strong> about future asset evolutions and try to act <strong>optimally</strong> on it.</p>
+        <div class="fragment">
+        <p>Sounds like <strong>voodoo</strong>?!</p>
+        </div>
+        </section><section id="section" class="slide level3">
+        <h1></h1>
+        <p>Would we have <strong>guessed</strong> this <strong>performance</strong>?</p>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-2.svg"
+        alt="Number of observations" width="1000px" style="background: white"/>
+        </p>
+        </section><section class="slide level3">
+        <h1>Different levels of information</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/die.png"
+        alt="Number of observations" width="100px"/>
+        </p>
+        <div class="fragment">
+        <ul>
+        <li>know all <strong>possible outcomes</strong></li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <ul>
+        <li>know <strong>probabilities</strong> of individual outcomes</li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <ul>
+        <li>predicting <strong>exact outcome</strong></li>
+        </ul>
+        </div>
+        </section><section id="section-1" class="slide level3">
+        <h1></h1>
+        <p>Would Equity Asia have been a <strong>desirable investment</strong>?</p>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-2.svg"
+        alt="Number of observations" width="1000px" style="background: white"/>
+        </p>
+        </section><section id="performance-is-not-everything" class="slide level3">
+        <h1>Performance is not everything</h1>
+        <ul>
+        <li>investment <strong>horizon</strong> might have been <strong>stochastic</strong>: sudden need for <strong>liquidation</strong></li>
+        </ul>
+        <div class="fragment">
+        <ul>
+        <li><strong>customers</strong> would have been <strong>uncomfortable</strong> with evolution</li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> <strong>risk-return tradeoff</strong></p>
+        </div>
+        </section><section id="two-tasks" class="slide level3">
         <h1>Two tasks</h1>
         <div class="fragment">
         <ol type="1">
@@ -174,8 +226,32 @@
         alt="Number of observations" width="1000px"/>
         </p>
         </div>
-        </section><section id="section" class="slide level3">
+        </section><section id="section-2" class="slide level3">
         <h1></h1>
+        <ul>
+        <li><strong>statistical modeling</strong>: estimate return distribution</li>
+        </ul>
+        <div class="fragment">
+        <ul>
+        <li>distributions <strong>change</strong> over time</li>
+        </ul>
+        </div>
+        <div class="fragment">
+        <ul>
+        <li>is strategy <strong>worthwhile</strong>?
+        <ul>
+        <li>for customers</li>
+        <li>for us</li>
+        </ul></li>
+        </ul>
+        <!-- Comments:
+        - hard to explain in 30 minutes
+        - no one optimal solution
+        - advantages / disadvantages
+        -->
+        </div>
+        </section><section id="two-tasks-1" class="slide level3">
+        <h1>Two tasks</h1>
         <ol start="2" type="1">
         <li>given different portfolio return distributions, <strong>find optimal</strong> return distribution</li>
         </ol>
@@ -183,25 +259,19 @@
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/compareDistributions.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </section><section id="third-task" class="slide level3">
-        <h1>Third task</h1>
-        <ol start="3" type="1">
-        <li>also take <strong>confidence</strong> in estimated distributions into account (<strong>estimation error</strong>)</li>
-        </ol>
+        <!--
+        ### Third task
+        
+        3. also take **confidence** in estimated distributions into account
+           (**estimation error**)
+        -->
         </section></section>
-        <section><section id="risk-aversion-and-utility" class="titleslide slide level1"><h1>Risk aversion and utility</h1></section><section id="setting" class="slide level3">
-        <h1>Setting</h1>
-        <p align="center">
-        <img src="../AssetMgmtAnalysis/unreplicatable_pics/concave_utility.svg"
-        alt="Number of observations" width="1000px"/>
-        </p>
-        </section><section id="utility-function" class="slide level3">
-        <h1>Utility function</h1>
+        <section><section id="risk-aversion" class="titleslide slide level1"><h1>Risk aversion</h1></section><section id="section-3" class="slide level3">
+        <h1></h1>
+        <p>Which distributions should be desired?</p>
         <ul>
-        <li>hard to <strong>define</strong></li>
-        <li>hard to <strong>evaluate</strong></li>
+        <li><strong>utility</strong>: single number assigned to each distribution allows <strong>comparisons</strong></li>
         </ul>
-        <p><span class="math"> ⇒ </span> simpler rules (implied by concave utility)</p>
         </section>
         <section data-transition="slide-in none-out">
         <h2>
@@ -294,185 +364,197 @@
         <div class="fragment">
         <p><span class="math"> ⇒ </span> reduction to single value causes <strong>loss of information</strong></p>
         </div>
-        </section><section id="but" class="slide level3">
-        <h1>But</h1>
-        <p>Does single ranking of all possible return distributions exist?</p>
         <div class="fragment">
-        <p><span class="math"> ⇒ </span> <strong>indifference</strong></p>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> <strong>irrationality</strong></p>
-        </div>
-        <div class="fragment">
-        <blockquote>
-        <p><strong>A</strong> over <strong>B</strong>, <strong>B</strong> over <strong>C</strong></p>
-        </blockquote>
-        </div>
-        <div class="fragment">
-        <p>But:</p>
-        <blockquote>
-        <p><strong>C</strong> over <strong>A</strong></p>
-        </blockquote>
-        </div>
-        </section><section id="additional-optimality-criteria" class="slide level3">
-        <h1>Additional optimality criteria</h1>
+        <ul>
+        <li>VaR <strong>more difficult</strong> to evaluate</li>
+        </ul>
+        <!--
+        ### But
+        
+        Does single ranking of all possible return distributions exist?
+        
+        . . .
+        
+        $\Rightarrow$ **indifference**
+        
+        . . .
+        
+        $\Rightarrow$ **irrationality**
+        
+        . . .
+        
+        > **A** over **B**, **B** over **C**
+        
+        . . .
+        
+        But:
+        
+        > **C** over **A**
+        
+        
+        ### Additional optimality criteria
+        
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/concave_utility.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </section><section id="additional-optimality-criteria-1" class="slide level3">
-        <h1>Additional optimality criteria</h1>
-        <p>Two <strong>equal return</strong> distributions are not always <strong>valued equally</strong></p>
-        <div class="fragment">
-        <ul>
-        <li>portfolio is only one <strong>component of overall investment</strong>: <strong>diversification</strong> preferred</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>financial investments only one <strong>component of overall wealth</strong>: avoid <strong>home bias</strong></li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> asset pricing</p>
-        </div>
-        </section><section id="additional-optimality-criteria-2" class="slide level3">
-        <h1>Additional optimality criteria</h1>
-        <ul>
-        <li>focusing on distribution at single point in future insufficient: <strong>path dependence</strong></li>
-        </ul>
-        <div class="fragment">
+        
+        ### Additional optimality criteria
+        
+        Two **equal return** distributions are not always **valued equally**
+        
+        . . .
+        
+        - portfolio is only one **component of overall investment**:
+          **diversification** preferred
+        
+        . . .
+        
+        - financial investments only one **component of overall wealth**:
+          avoid **home bias**
+        
+        . . .
+        
+        $\Rightarrow$ asset pricing
+        
+        ### Additional optimality criteria
+        
+        - focusing on distribution at single point in future insufficient:
+          **path dependence**
+        
+        . . .
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </div>
-        </section><section id="section-1" class="slide level3">
-        <h1></h1>
-        <p><strong>Example</strong>: portfolio of MSCI World and EONIA</p>
-        <div class="fragment">
-        <ul>
-        <li>keeping <strong>weights fixed</strong>: portfolio subject to volatility risk</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>keeping <strong>volatility fixed</strong>: depending on estimated market volatility <strong>adapt weights</strong></li>
-        </ul>
-        </div>
-        </section></section>
-        <section><section id="single-period" class="titleslide slide level1"><h1>Single period</h1></section><section id="portfolio-return" class="slide level3">
-        <h1>Portfolio return</h1>
-        <ul>
-        <li>portfolio return calculation (with <strong>discrete returns</strong>):</li>
-        </ul>
-         <br /><span class="math">$$\begin{equation*}
+        
+        
+        ###
+        
+        **Example**: portfolio of MSCI World and EONIA
+        
+        . . .
+        
+        - keeping **weights fixed**: portfolio subject to volatility risk
+        
+        . . .
+        
+        - keeping **volatility fixed**: depending on estimated market
+          volatility **adapt weights**
+        
+        
+        # Single period
+        
+        ### Portfolio return
+        
+        - portfolio return calculation (with **discrete returns**):
+        
+        \begin{equation*}
         r_{P}=w_{1}r_{1}+...+w_{N}r_{N}
-        \end{equation*}$$</span><br />
-        <ul>
-        <li>future <strong><span class="math"><em>r</em><sub><em>P</em></sub></span> unknown</strong> <span class="math"> ⇒ </span> estimate distribution</li>
-        </ul>
+        \end{equation*}
+        
+        - future **$r_{P}$ unknown** $\Rightarrow$ estimate distribution
+        
+        
         </section>
+        
         <section data-transition="slide-in none-out">
-        <h2>
-        Univariate
-        </h2>
+        <h2>Univariate</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model0.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Univariate
-        </h2>
+        <h2>Univariate</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model1.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Univariate
-        </h2>
+        <h2>Univariate</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model2.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Univariate
-        </h2>
+        <h2>Univariate</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/univar_model.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="slide-in none-out">
-        <h2>
-        Multivariate
-        </h2>
+        <h2>Multivariate</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model1.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Multivariate
-        </h2>
+        <h2>Multivariate</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model2.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Multivariate
-        </h2>
+        <h2>Multivariate</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </section><section id="with-bfmu-sigma-optimality" class="slide level3">
-        <h1>With <span class="math">$\bf{\mu / \sigma}$</span> optimality</h1>
-        <ul>
-        <li>utility as <strong>function of</strong> portfolio return <strong>moments</strong></li>
-        </ul>
-         <br /><span class="math">$$\begin{align*}
-        \mathbb{U}(r_{P}) &amp;= g\left(\mathbb{E}[r_{P}], \mathbb{V}(r_{P})\right)\\
-        &amp;=g(\mu_{P},\sigma_{P}^{2})\\
-        &amp;=g(\bf{w}'\bf{\mu},\bf{w}'\Sigma\bf{w})
-        \end{align*}$$</span><br />
-        <p><span class="math"> ⇒ </span> <strong>vastly simplifies</strong> optimal portfolio selection</p>
+        
+        
+        ### With $\bf{\mu / \sigma}$ optimality
+        
+        - utility as **function of** portfolio return **moments**
+        
+        \begin{align*}
+        \mathbb{U}(r_{P}) &= g\left(\mathbb{E}[r_{P}], \mathbb{V}(r_{P})\right)\\
+        &=g(\mu_{P},\sigma_{P}^{2})\\
+        &=g(\bf{w}'\bf{\mu},\bf{w}'\Sigma\bf{w})
+        \end{align*}
+        
+        
+        $\Rightarrow$ **vastly simplifies** optimal portfolio selection
+        
         </section>
         <section data-transition="slide-in none-out">
-        <h2>
-        Simplification
-        </h2>
+        <h2>Simplification</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/multivar_model.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Simplification
-        </h2>
+        <h2>Simplification</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/mu_sigma_model1.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Simplification
-        </h2>
+        <h2>Simplification</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/mu_sigma_model.svg"
         alt="Number of observations" width="1000px"/>
         </p>
+        
+        
+        
         <!--
         ### Portfolio moments
         
@@ -556,325 +638,376 @@
         
         How are $\mu$ and $\sigma$ derived? $\Rightarrow$ see estimation part
         
-        -->
-        </section><section id="criticism" class="slide level3">
-        <h1>Criticism</h1>
-        <p><strong>Symmetric measure <span class="math"><em>σ</em><sub><em>P</em></sub></span></strong> inadequate to evaluate risk of <strong>asymmetric</strong> portfolio return distribution:</p>
-        <ul>
-        <li><strong><span class="math"><em>r</em><sub><em>P</em></sub></span></strong> sum of asymmetric discrete asset returns</li>
-        </ul>
-        </section><section id="alternative-i-logarithmic-returns" class="slide level3">
-        <h1>Alternative I: logarithmic returns</h1>
-        <div class="fragment">
-        <p><strong>Justification</strong>: logarithmic returns are almost symmetric</p>
-        </div>
-        </section><section id="problem-i" class="slide level3">
-        <h1>Problem I</h1>
-        <p>Portfolio return is <strong>not</strong> a <strong>linear</strong> function of asset returns anymore</p>
-        <div class="fragment">
-         <br /><span class="math">$$\begin{align*}
-        r_{P}^{log}&amp;=\ln\left(w_{1}\exp(r_{1}^{log})+ \ldots + w_{N}\exp(r_{N}^{log})\right)\\
-        &amp;\neq w_{1}r_{1}^{log}+ \ldots + w_{N}r_{N}^{log}
-        \end{align*}$$</span><br />
-        </div>
-        <div class="fragment">
-         <br /><span class="math">$$\begin{align*}
-        \mu_{P}^{log}&amp;=\mathbb{E}[r_{P}^{log}]\\
-        &amp;=?
-        \end{align*}$$</span><br />
-        </div>
-        </section><section id="problem-ii" class="slide level3">
-        <h1>Problem II</h1>
-        <p>Measuring risk in terms of <span class="math"><em>σ</em><sub><em>P</em></sub><sup><em>l</em><em>o</em><em>g</em></sup></span> is distorting due to the <strong>non-linear</strong> relation to discrete returns:</p>
-         <br /><span class="math">$$\begin{equation*}
+        ### Criticism
+        
+        **Symmetric measure $\sigma_{P}$** inadequate to evaluate risk of
+        **asymmetric** portfolio return distribution:
+        
+        - **$r_{P}$** sum of asymmetric discrete asset returns
+        
+        ### Alternative I: logarithmic returns
+        
+        . . .
+        
+        **Justification**: logarithmic returns are almost symmetric
+        
+        ### Problem I
+        
+        Portfolio return is **not** a **linear** function of asset returns
+        anymore 
+        
+        . . .
+        
+        \begin{align*}
+        r_{P}^{log}&=\ln\left(w_{1}\exp(r_{1}^{log})+ \ldots + w_{N}\exp(r_{N}^{log})\right)\\
+        &\neq w_{1}r_{1}^{log}+ \ldots + w_{N}r_{N}^{log}
+        \end{align*}
+        
+        . . .
+        
+        \begin{align*}
+        \mu_{P}^{log}&=\mathbb{E}[r_{P}^{log}]\\
+        &=?\\
+        &\neq w_{1}\mu_{1}^{log}+\ldots + w_{N}\mu_{N}^{log}
+        \end{align*}
+        
+        ### Problem II
+        
+        Measuring risk in terms of $\sigma^{log}_{P}$ is distorting due to
+        the **non-linear** relation to discrete returns:
+        
+        \begin{equation*}
         r_{P}=\exp(r_{P}^{log}) - 1
-        \end{equation*}$$</span><br />
+        \end{equation*}
+        
         </section>
         <section data-transition="slide-in none-out">
-        <h2>
-        Non-linear transformation
-        </h2>
+        <h2>Non-linear transformation</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease1.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        distorts
+        <h2>distorts
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease2.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        expectations
-        </h2>
+        <h2>expectations</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease3.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        Increasing <span class="math">$\bf{\sigma^{log}}$</span>
-        </h2>
+        <h2>Increasing $\bf{\sigma^{log}}$</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease5.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        also increases <span class="math">$\bf{\mu^{log}}$</span>
-        </h2>
+        <h2>also increases $\bf{\mu}$</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/logSigmaIncrease6.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </section><section id="section-2" class="slide level3">
-        <h1></h1>
-        <p><strong>Example</strong></p>
-        <p>With normally distributed log returns</p>
-         <br /><span class="math">$$\begin{equation*}
+        
+        ###
+        
+        **Example** 
+        
+        With normally distributed log returns
+        
+        \begin{equation*}
         r_{P}^{log}\sim\mathcal{N}(0, \sigma^{2})
-        \end{equation*}$$</span><br />
-        <div class="fragment">
-        <p>we get</p>
-        <p><br /><span class="math">$$\begin{aligned}
-        \mu(r)&amp;=\exp\left( \mu(r^{log}) + \frac{\sigma^{2}(r^{log})}{2}\right)-1\\
-        \sigma^{2}(r)&amp;=\left( \exp\left( \sigma^{2}(r^{log}) \right)-1\right)
+        \end{equation*}
+        
+        . . .
+        
+        we get
+        
+        $$\begin{aligned}
+        \mu(r)&=\exp\left( \mu(r^{log}) + \frac{\sigma^{2}(r^{log})}{2}\right)-1\\
+        \sigma^{2}(r)&=\left( \exp\left( \sigma^{2}(r^{log}) \right)-1\right)
         \exp\left( 2\mu(r^{log})+\sigma^{2}(r^{log}) \right)
-        \end{aligned}$$</span><br /></p>
-        </div>
-        </section><section id="alternative-ii-var" class="slide level3">
-        <h1>Alternative II: VaR</h1>
-        <ul>
-        <li><strong>distribution</strong> of portfolio return <span class="math"><em>r</em><sub><em>P</em></sub></span> <strong>required</strong></li>
-        </ul>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> evaluation <strong>costly</strong> for given weights</p>
-        </div>
-        </section></section>
-        <section><section id="iterated-single-period" class="titleslide slide level1"><h1>Iterated single period</h1></section><section id="section-3" class="slide level3">
-        <h1></h1>
-        <p>Assumption: <strong>optimality</strong> criterion given <strong>in each period</strong></p>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> <strong>sequence</strong> of single period optimizations</p>
-        </div>
-        </section><section id="additional-challenge" class="slide level3">
-        <h1>Additional challenge</h1>
-        <ul>
-        <li><span class="math">$\bf{\mu}$</span> and <span class="math">$\bf{\Sigma}$</span> change over time</li>
-        </ul>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> optimal portfolio changes over time: <strong>rebalancing</strong></p>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> <strong>trading costs</strong> occur</p>
-        </div>
-        </section><section id="tradeoff" class="slide level3">
-        <h1>Tradeoff</h1>
-        <p>Rebalancing <strong>costs vs benefits</strong>:</p>
-        <div class="fragment">
-        <ul>
-        <li><strong>costs</strong> can easily be calculated as trading costs</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li><strong>benefits</strong> depend on all <strong>future periods</strong></li>
-        </ul>
-        </div>
-        </section><section id="example" class="slide level3">
-        <h1>Example</h1>
-        <p>Changing distribution in <strong>single period</strong> only</p>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> rebalancing twice might not be worthwhile</p>
-        </div>
-        </section><section id="all-in-fee" class="slide level3">
-        <h1>All-in-fee</h1>
-        <p>Customer and asset manager <strong>incentives</strong> are not aligned with <strong>all-in-fee</strong>:</p>
-        <div class="fragment">
-        <ul>
-        <li>only customers profit from rebalancing</li>
-        <li>only asset manager affected by trading costs</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> customers prefer optimal portfolio at each time</p>
-        </div>
-        </section></section>
-        <section><section id="true-multi-period" class="titleslide slide level1"><h1>True multi-period</h1></section><section class="slide level3">
-        <h1>Deviating horizons</h1>
-        <ul>
-        <li><strong>long horizon</strong> more meaningful when determining <strong>optimality</strong></li>
-        </ul>
-        <div class="fragment">
-        <ul>
-        <li><strong>short horizon</strong> simplifies <strong>estimation</strong> of return distributions</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> how does <strong>yearly</strong> target <strong>translate</strong> into a <strong>weekly</strong> target?</p>
-        </div>
-        </section><section id="top-down-approach" class="slide level3">
-        <h1>Top-down approach</h1>
-        <p>Non-unique short-term targets</p>
+        \end{aligned}$$
+        
+        
+        ### Alternative II: VaR
+        
+        - **distribution** of portfolio return $r_{P}$ **required**
+        
+        . . .
+        
+        $\Rightarrow$ evaluation **costly** for given weights 
+        
+        
+        # Iterated single period
+        
+        ###
+        
+        Assumption: **optimality** criterion given **in each period**
+        
+        . . .
+        
+        $\Rightarrow$ **sequence** of single period optimizations
+        
+        ### Additional challenge
+        
+        - $\bf{\mu}$ and $\bf{\Sigma}$ change over time
+        
+        . . .
+        
+        $\Rightarrow$ optimal portfolio changes over time: **rebalancing**
+        
+        . . .
+        
+        $\Rightarrow$ **trading costs** occur 
+        
+        ### Tradeoff
+        
+        Rebalancing **costs vs benefits**:
+        
+        . . .
+        
+        - **costs** can easily be calculated as trading costs
+        
+        . . .
+        
+        - **benefits** depend on all **future periods**
+        
+        
+        ### Example
+        
+        Changing distribution in **single period** only
+        
+        . . .
+        
+        $\Rightarrow$ rebalancing twice might not be worthwhile
+        
+        ### All-in-fee
+        
+        Customer and asset manager **incentives** are not aligned with
+        **all-in-fee**:
+        
+        . . .
+        
+        - only customers profit from rebalancing
+        - only asset manager affected by trading costs
+        
+        . . .
+        
+        $\Rightarrow$ customers prefer optimal portfolio at each time
+        
+        
+        # True multi-period
+        
+        ## Deviating horizons
+        
+        - **long horizon** more meaningful when determining **optimality**
+        
+        . . .
+        
+        - **short horizon** simplifies **estimation** of return distributions
+        
+        . . .
+        
+        
+        $\Rightarrow$ how does **yearly** target **translate** into a
+        **weekly** target? 
+        
+        
+        ### Top-down approach
+        
+        Non-unique short-term targets
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </section><section id="preferences" class="slide level3">
-        <h1>Preferences</h1>
-        <div class="fragment">
-        <p><strong>Customer</strong></p>
-        <ul>
-        <li>risk aversion</li>
-        <li>tax harvesting</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <p><strong>Company</strong></p>
-        <ul>
-        <li>trading costs</li>
-        </ul>
-        </div>
-        </section><section id="bottom-up-approach" class="slide level3">
-        <h1>Bottom-up approach</h1>
-        <p>Does given short-term portfolio <strong>align</strong> with desired <strong>long-term target</strong>?</p>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> derive <strong>long-term properties</strong></p>
-        </div>
-        </section><section id="simplest-case" class="slide level3">
-        <h1>Simplest case</h1>
-        <p><strong>Long-term target</strong> defined in terms of <strong>moments only</strong></p>
-         <br /><span class="math">$$\begin{align*}
+        
+        ### Preferences
+        
+        . . .
+        
+        **Customer**
+        
+        - risk aversion
+        - tax harvesting
+        
+        . . .
+        
+        **Company**
+        
+        -  trading costs
+        
+        ### Bottom-up approach
+        
+        Does given short-term portfolio **align** with desired **long-term
+        target**?
+        
+        . . .
+        
+        $\Rightarrow$ derive **long-term properties**
+        
+        ### Simplest case
+        
+        **Long-term target** defined in terms of **moments only**
+        
+        \begin{align*}
         \min \quad\sigma_{1:T,P}^{2}\\
-        \text{ subject to } \quad\mu_{1:T,P}&amp;=\mu^{*}
-        \end{align*}$$</span><br />
-        </section><section id="annualization" class="slide level3">
-        <h1>Annualization</h1>
-        <p>Finding <strong>long-term</strong> portfolio <strong>moments</strong></p>
-         <br /><span class="math">$$\begin{equation*}
+        \text{ subject to } \quad\mu_{1:T,P}&=\mu^{*}
+        \end{align*}
+        
+        ### Annualization
+        
+        Finding **long-term** portfolio **moments**
+        
+        \begin{equation*}
         (\mu_{1:T,P},\sigma_{1:T,P})
-        \end{equation*}$$</span><br />
-        <p><strong>associated with</strong> given</p>
-        <ul>
-        <li>current weights <span class="math">$\bf{w}$</span></li>
-        <li>current short-term asset moments</li>
-        </ul>
-         <br /><span class="math">$$\begin{equation*}
+        \end{equation*}
+        **associated with** given
+        
+        - current weights $\bf{w}$
+        - current short-term asset moments 
+        
+        \begin{equation*}
         (\mu_{1,i},\sigma_{1,i})
-        \end{equation*}$$</span><br />
-        </section><section id="square-root-of-time" class="slide level3">
-        <h1>Square-root-of-time</h1>
-        <p><strong>First guess</strong>:</p>
-        <ul>
-        <li>get single period portfolio moments</li>
-        </ul>
-         <br /><span class="math">$$\begin{align*}
-        \mu_{1,P}&amp;=\bf{w}'\bf{\mu_{1}}\\
-        \sigma_{1,P}&amp;=\sqrt{\bf{w}'\Sigma_{1}\bf{w}}
-        \end{align*}$$</span><br />
-        <div class="fragment">
-        <ul>
-        <li><strong>scaling</strong></li>
-        </ul>
-         <br /><span class="math">$$\begin{equation*}
+        \end{equation*}
+        
+        
+        ### Square-root-of-time
+        
+        **First guess**:
+        
+        - get single period portfolio moments
+        
+        \begin{align*}
+        \mu_{1,P}&=\bf{w}'\bf{\mu_{1}}\\
+        \sigma_{1,P}&=\sqrt{\bf{w}'\Sigma_{1}\bf{w}}
+        \end{align*}
+        
+        . . .
+        
+        - **scaling**
+        
+        \begin{equation*}
         \mu_{1:T,P}=T\mu_{1,P}\\
         \sigma_{1:T,P}=\sqrt{T}\sigma_{1,P}
-        \end{equation*}$$</span><br />
-        </div>
-        </section><section id="problem-i-1" class="slide level3">
-        <h1>Problem I</h1>
-        <ul>
-        <li>aggregation over time requires <strong>multiplication</strong> of single period returns in the <strong>discrete return</strong> case</li>
-        </ul>
-         <br /><span class="math">$$\begin{equation*}
+        \end{equation*}
+        
+        ### Problem I
+        
+        - aggregation over time requires **multiplication** of single period
+          returns in the **discrete return** case
+        
+        
+        \begin{equation*}
         (1+r_{1:T})=(1+r_{1})\cdot \ldots \cdot (1+r_{T})
-        \end{equation*}$$</span><br />
-        </section><section id="assumptions" class="slide level3">
-        <h1>Assumptions</h1>
-        <p>Possible solution, using assumptions</p>
-        <ul>
-        <li><strong>independence</strong> over time</li>
-        <li><strong>normally</strong> distributed log returns</li>
-        </ul>
-        </section><section id="section-4" class="slide level3">
-        <h1></h1>
-        <ul>
-        <li><strong>translate</strong> single period discrete moments <strong>to</strong> moments of <strong>logarithmic returns</strong></li>
-        </ul>
-        <p><br /><span class="math">$$\begin{aligned}
-        \sigma^{2}(r^{log}_{1})&amp;=\log\left( 1+\frac{\sigma^{2}(R_{1})}{\mu^{2}(R_{1})} \right)\\
-        \mu(r^{log}_{1})&amp;=\log(\mu(R_{1}))-\frac{1}{2}\sigma^{2}(r^{log}_{1})
-        \end{aligned}$$</span><br /></p>
-        </section><section id="section-5" class="slide level3">
-        <h1></h1>
-        <ul>
-        <li><strong>scale</strong> logarithmic moments</li>
-        </ul>
-        <p><br /><span class="math">$$\begin{aligned}
-        \mu(r^{log}_{1:T})&amp;=T\mu(r^{log}_{1})\\
-        \sigma(r^{log}_{1:T})&amp;=\sqrt{T}\sigma(r^{log}_{1})
-        \end{aligned}$$</span><br /></p>
-        </section><section id="section-6" class="slide level3">
-        <h1></h1>
-        <ul>
-        <li><strong>translate</strong> logarithmic return moments back <strong>to discrete</strong> return moments</li>
-        </ul>
-        <p><br /><span class="math">$$\begin{aligned}
-        \mu(R_{1:T})&amp;=\exp\left( \mu(r^{log}_{1:T}) + \frac{\sigma^{2}(r^{log}_{1:T})}{2}\right)\\
-        \sigma^{2}(R_{1:T})&amp;=\left( \exp\left( \sigma^{2}(r^{log}_{1:T}) \right)-1\right)
+        \end{equation*}
+        
+        
+        ### Assumptions
+        
+        Possible solution, using assumptions
+        
+        - **independence** over time
+        - **normally** distributed log returns
+        
+        ### 
+        
+        - **translate** single period discrete moments **to** moments of
+          **logarithmic returns**
+        
+        $$\begin{aligned}
+        \sigma^{2}(r^{log}_{1})&=\log\left( 1+\frac{\sigma^{2}(R_{1})}{\mu^{2}(R_{1})} \right)\\
+        \mu(r^{log}_{1})&=\log(\mu(R_{1}))-\frac{1}{2}\sigma^{2}(r^{log}_{1})
+        \end{aligned}$$
+        
+        
+        ###
+        
+        - **scale** logarithmic moments
+        
+        $$\begin{aligned}
+        \mu(r^{log}_{1:T})&=T\mu(r^{log}_{1})\\
+        \sigma(r^{log}_{1:T})&=\sqrt{T}\sigma(r^{log}_{1})
+        \end{aligned}$$
+        
+        
+        ###
+        
+        - **translate** logarithmic return moments back **to discrete** return
+          moments
+        
+        $$\begin{aligned}
+        \mu(R_{1:T})&=\exp\left( \mu(r^{log}_{1:T}) + \frac{\sigma^{2}(r^{log}_{1:T})}{2}\right)\\
+        \sigma^{2}(R_{1:T})&=\left( \exp\left( \sigma^{2}(r^{log}_{1:T}) \right)-1\right)
         \exp\left( 2\mu(r^{log}_{1:T})+\sigma^{2}(r^{log}_{1:T}) \right)
-        \end{aligned}$$</span><br /></p>
-        </section><section id="problem-ii-1" class="slide level3">
-        <h1>Problem II</h1>
-        <p>Asset moments are <strong>changing</strong> over time</p>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> scaling up current high-volatility moments will pretend high-volatility <strong>persists</strong> over the <strong>complete long-term horizon</strong></p>
-        </div>
-        </section><section id="section-7" class="slide level3">
-        <h1></h1>
-        <p><strong>First guess</strong>:</p>
-        <ul>
-        <li>get <strong>univariate portfolio return data</strong> associated with given weights</li>
-        </ul>
-        <div class="fragment">
-        <ul>
-        <li><strong>estimate model</strong> on univariate portfolio return data (GARCH?)</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>simulate and <strong>aggregate</strong> future single period portfolio returns <strong>to yearly portfolio returns</strong></li>
-        </ul>
-        </div>
-        </section><section id="problem-iii" class="slide level3">
-        <h1>Problem III</h1>
-        <ul>
-        <li>even without portfolio rebalancing portfolio <strong>weights</strong> are <strong>changing</strong> over time <strong>due to price changes</strong></li>
-        </ul>
-        <div class="fragment">
-        <p><br /><span class="math">$$
+        \end{aligned}$$
+        
+        
+        
+        ### Problem II
+        
+        Asset moments are **changing** over time
+        
+        . . .
+        
+        $\Rightarrow$ scaling up current high-volatility moments will pretend
+        high-volatility **persists** over the **complete long-term horizon**
+        
+        
+        ###
+        
+        **First guess**:
+        
+        - get **univariate portfolio return data** associated with given
+          weights
+        
+        . . .
+        
+        - **estimate model** on univariate portfolio return data (GARCH?)
+        
+        . . .
+        
+        - simulate and **aggregate** future single period portfolio returns
+          **to yearly portfolio returns**
+        
+        ### Problem III
+        
+        - even without portfolio rebalancing portfolio **weights** are
+          **changing** over time **due to price changes**
+        
+        . . .
+        
+        $$
         \begin{equation*}
         w_{t+1,j}=w_{t,j}\frac{(1+R_{t,j})}{1+R_{t,P}}
         \end{equation*}
-        $$</span><br /></p>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> keeping <strong>weights fixed</strong> over time requires active portfolio <strong>rebalancing</strong></p>
-        </div>
-        </section><section id="section-8" class="slide level3">
-        <h1></h1>
-        <p><strong>Alternative</strong>:</p>
-        <ul>
-        <li>estimate <strong>multivariate</strong> return <strong>distribution</strong></li>
-        <li>simulate multi-period returns</li>
-        <li>calculate multi-period portfolio returns with changing weights</li>
-        </ul>
+        $$
+        
+        . . .
+        
+        $\Rightarrow$ keeping **weights fixed** over time requires active
+        portfolio **rebalancing**
+        
+        ### 
+        
+        **Alternative**:
+        
+        - estimate **multivariate** return **distribution**
+        - simulate multi-period returns
+        - calculate multi-period portfolio returns with changing weights 
+        
         <!--
         
         ### Problems current approach
@@ -1028,85 +1161,248 @@
         - best estimator should make use of asset pricing theory
             - factor model
             - asset pricing model
+        
+        # Conclusion / outlook
+        
+        ### Additional challenges
+        
+        - **integer** volumes
+        
+        . . .
+        
+        - **legal constraints**
+        
+        . . .
+        
+        - **tax** loss harvesting: defer taxes into future
+        
+        . . .
+        
+        - **no real-time trading**: price changes
+            - limit orders
+            - feedback loops
+        
+        . . .
+        
+        - data **frequency**:
+            - daily
+            - weekly
+        
+        . . .
+        
+        - incoming / outgoing **cash-flows**
+        
+        ### Things to investigate
+        
+        - discrete returns
+        
+        . . .
+        
+        - is VaR really required as single period target?
+            - translate yearly VaR in yearly volatility
+            - translate yearly volatility in weekly volatility
+            - do single period optimization with weekly volatility
+        
+        
+        ### Things to investigate
+        
+        - brute force constrained optimization:
+            - maximize μ given σ
+        
+        . . .
+        
+        - adapt risk target to current environment
+        
+        . . .
+        
+        - estimation: 
+            - factor model
+            - resampling
+        
+        . . .
+        
+        - reduce turnover
+        
         -->
+        </div>
         </section></section>
-        <section><section id="conclusion-outlook" class="titleslide slide level1"><h1>Conclusion / outlook</h1></section><section id="additional-challenges" class="slide level3">
-        <h1>Additional challenges</h1>
+        <section><section id="challenges" class="titleslide slide level1"><h1>Challenges</h1></section><section id="deviating-horizons" class="slide level3">
+        <h1>Deviating horizons</h1>
         <ul>
-        <li><strong>integer</strong> volumes</li>
+        <li><strong>long horizon</strong> more meaningful when determining <strong>optimality</strong></li>
         </ul>
         <div class="fragment">
         <ul>
-        <li><strong>legal constraints</strong></li>
+        <li><strong>short horizon</strong> simplifies <strong>estimation</strong> of return distributions</li>
         </ul>
         </div>
         <div class="fragment">
-        <ul>
-        <li><strong>tax</strong> loss harvesting: defer taxes into future</li>
-        </ul>
+        <p><span class="math"> ⇒ </span> how does <strong>yearly</strong> target <strong>translate</strong> into a <strong>weekly</strong> target?</p>
         </div>
-        <div class="fragment">
+        </section><section id="challenge-i-scaling" class="slide level3">
+        <h1>Challenge I: scaling</h1>
+        <p>Simple <strong>scaling</strong> for asset returns is incorrect: returns are <strong>not independent</strong> over time</p>
+        </section><section id="challenge-ii-short-term-target" class="slide level3">
+        <h1>Challenge II: short-term target?</h1>
+        <p><strong>Example</strong>: portfolio of EU covered bonds and US Equity</p>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-8.svg"
+        alt="Number of observations" width="1000px" style="background-color:white" />
+        </p>
+        </section><section id="section-4" class="slide level3">
+        <h1></h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-17.svg"
+        alt="Number of observations" width="1000px" style="background-color:white" />
+        </p>
+        </section><section id="section-5" class="slide level3">
+        <h1></h1>
         <ul>
-        <li><strong>no real-time trading</strong>: price changes
-        <ul>
-        <li>limit orders</li>
-        <li>feedback loops</li>
-        </ul></li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>data <strong>frequency</strong>:
-        <ul>
-        <li>daily</li>
-        <li>weekly</li>
-        </ul></li>
-        </ul>
-        </div>
-        </section><section id="things-to-investigate" class="slide level3">
-        <h1>Things to investigate</h1>
-        <ul>
-        <li>discrete returns</li>
+        <li>keeping <strong>weights fixed</strong>: portfolio subject to volatility risk</li>
         </ul>
         <div class="fragment">
         <ul>
-        <li>is VaR really required as single period target?
-        <ul>
-        <li>translate yearly VaR in yearly volatility</li>
-        <li>translate yearly volatility in weekly volatility</li>
-        <li>do single period optimization with weekly volatility</li>
-        </ul></li>
+        <li>keeping <strong>volatility fixed</strong>: depending on estimated market volatility <strong>adapt weights</strong></li>
         </ul>
         </div>
-        </section><section id="things-to-investigate-1" class="slide level3">
-        <h1>Things to investigate</h1>
-        <ul>
-        <li>brute force constrained optimization:
-        <ul>
-        <li>maximize μ given σ</li>
-        </ul></li>
-        </ul>
+        </section><section id="section-6" class="slide level3">
+        <h1></h1>
+        <p>Intuitively speaking:</p>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section><section id="challenge-iii-turnover" class="slide level3">
+        <h1>Challenge III: turnover</h1>
+        </section><section id="changing-distributions-over-time" class="slide level3">
+        <h1>Changing distributions over time</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/expWeighted-1.svg"
+        alt="Number of observations" width="1000px" style="background-color:white" />
+        </p>
+        </section><section id="section-7" class="slide level3">
+        <h1></h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/expWeighted-2.svg"
+        alt="Number of observations" width="1000px" style="background-color:white" />
+        </p>
+        </section><section id="section-8" class="slide level3">
+        <h1></h1>
+        <p><span class="math"> ⇒ </span> optimal portfolio changes over time: <strong>rebalancing</strong></p>
         <div class="fragment">
-        <ul>
-        <li>adapt risk target to current environment</li>
-        </ul>
+        <p><span class="math"> ⇒ </span> <strong>trading costs</strong> occur</p>
         </div>
         <div class="fragment">
-        <ul>
-        <li>estimation:
-        <ul>
-        <li>factor model</li>
-        <li>resampling</li>
-        </ul></li>
-        </ul>
+        <p><span class="math"> ⇒ </span> tradeoff between <strong>costs and benefits</strong></p>
         </div>
+        </section><section id="all-in-fee" class="slide level3">
+        <h1>All-in-fee</h1>
+        <p>Customer and asset manager <strong>incentives</strong> are not aligned with <strong>all-in-fee</strong>:</p>
         <div class="fragment">
         <ul>
-        <li>reduce turnover</li>
+        <li>customers profit more from rebalancing</li>
+        <li>asset manager affected more by trading costs</li>
         </ul>
+        </div>
+        </section></section>
+        <section><section id="backtesting" class="titleslide slide level1"><h1>Backtesting</h1></section><section id="section-9" class="slide level3">
+        <h1></h1>
+        <ul>
+        <li>what performances would strategies have brought in the past?</li>
+        </ul>
+        </section>
+        <section data-transition="none-in none-out">
+        <h2>
+        Risk-return profiles
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/performances.svg"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none-in none-out">
+        <h2>
+        VaR 3
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure4_3.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 13
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure4_13.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 25
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure4_25.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 3
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure5_3.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 13
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure5_13.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 25
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure5_25.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 3
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure7_3.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 13
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure7_13.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none">
+        <h2>
+        VaR 25
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/Figure7_25.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
         <div class="references">
         
-        </div>
         </div>
         </section></section>
       </div>

@@ -68,6 +68,66 @@
 
 # Introduction
 
+### Approach
+
+Use **data** to derive **information** about future asset evolutions
+and try to act **optimally** on it.
+
+. . .
+
+Sounds like **voodoo**?!
+
+### 
+
+Would we have **guessed** this **performance**?
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-2.svg"
+alt="Number of observations" width="1000px" style="background: white"/>
+</p>
+
+## Different levels of information
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/die.png"
+alt="Number of observations" width="100px"/>
+</p>
+
+. . .
+
+- know all **possible outcomes**
+
+. . .
+
+- know **probabilities** of individual outcomes
+
+. . .
+
+- predicting **exact outcome**
+
+
+### 
+
+Would Equity Asia have been a **desirable investment**?
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-2.svg"
+alt="Number of observations" width="1000px" style="background: white"/>
+</p>
+
+### Performance is not everything
+
+- investment **horizon** might have been **stochastic**: sudden need
+  for **liquidation**
+
+. . .
+
+- **customers** would have been **uncomfortable** with evolution
+
+. . .
+
+$\Rightarrow$ **risk-return tradeoff**
+
 ### Two tasks
 
 . . .
@@ -80,8 +140,27 @@
 alt="Number of observations" width="1000px"/>
 </p>
 
-
 ###
+
+- **statistical modeling**: estimate return distribution
+
+. . .
+
+- distributions **change** over time
+
+. . .
+
+- is strategy **worthwhile**?
+	- for customers
+	- for us
+
+<!-- Comments:
+- hard to explain in 30 minutes
+- no one optimal solution
+- advantages / disadvantages
+-->
+
+### Two tasks
 
 
 2. given different portfolio return distributions, **find optimal**
@@ -99,7 +178,7 @@ alt="Number of observations" width="1000px"/>
    (**estimation error**)
 -->
 
-# Risk aversion and utility
+# Risk aversion
 
 <!--
 ### Risk aversion
@@ -124,6 +203,13 @@ alt="Number of observations" width="1000px"/>
 $\Rightarrow$ simpler rules (implied by concave utility)
 
 -->
+
+###
+
+Which distributions should be desired?
+
+- **utility**: single number assigned to each distribution allows
+  **comparisons**
 
 </section>
 <section data-transition="slide-in none-out">
@@ -219,6 +305,11 @@ alt="Number of observations" width="1000px"/>
 
 $\Rightarrow$ reduction to single value causes **loss of information**
 
+. . .
+
+- VaR **more difficult** to evaluate
+
+<!--
 ### But
 
 Does single ranking of all possible return distributions exist?
@@ -293,6 +384,7 @@ alt="Number of observations" width="1000px"/>
 
 - keeping **volatility fixed**: depending on estimated market
   volatility **adapt weights**
+
 
 # Single period
 
@@ -486,8 +578,6 @@ With constraints, we have to rely on numerical optimization:
 ### Unclear yet
 
 How are $\mu$ and $\sigma$ derived? $\Rightarrow$ see estimation part
-
--->
 
 ### Criticism
 
@@ -1012,7 +1102,6 @@ to other assets are preferred
 - best estimator should make use of asset pricing theory
 	- factor model
 	- asset pricing model
--->
 
 # Conclusion / outlook
 
@@ -1075,5 +1164,193 @@ to other assets are preferred
 
 - reduce turnover
 
+-->
 
+# Challenges
+
+### Deviating horizons
+
+- **long horizon** more meaningful when determining **optimality**
+
+. . .
+
+- **short horizon** simplifies **estimation** of return distributions
+
+. . .
+
+
+$\Rightarrow$ how does **yearly** target **translate** into a
+**weekly** target? 
+
+
+### Challenge I: scaling
+
+Simple **scaling** for asset returns is incorrect: returns are **not
+independent** over time
+
+### Challenge II: short-term target?
+
+**Example**: portfolio of EU covered bonds and US Equity
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-8.svg"
+alt="Number of observations" width="1000px" style="background-color:white" />
+</p>
+
+###
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-17.svg"
+alt="Number of observations" width="1000px" style="background-color:white" />
+</p>
+
+
+
+###
+
+- keeping **weights fixed**: portfolio subject to volatility risk
+
+. . .
+
+- keeping **volatility fixed**: depending on estimated market
+  volatility **adapt weights**
+
+### 
+
+Intuitively speaking:
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+
+### Challenge III: turnover
+
+### Changing distributions over time
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/expWeighted-1.svg"
+alt="Number of observations" width="1000px" style="background-color:white" />
+</p>
+
+
+###
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/expWeighted-2.svg"
+alt="Number of observations" width="1000px" style="background-color:white" />
+</p>
+
+###
+
+$\Rightarrow$ optimal portfolio changes over time: **rebalancing**
+
+. . .
+
+$\Rightarrow$ **trading costs** occur 
+
+. . .
+
+$\Rightarrow$ tradeoff between **costs and benefits**
+
+### All-in-fee
+
+Customer and asset manager **incentives** are not aligned with
+**all-in-fee**:
+
+. . .
+
+- customers profit more from rebalancing
+- asset manager affected more by trading costs
+
+# Backtesting
+
+### 
+
+- what performances would strategies have achieved in the past?
+
+</section>
+
+<section data-transition="none-in none-out">
+<h2>Risk-return profiles</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/performances.svg"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none-in none-out">
+<h2>VaR 3</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure4_3.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none">
+<h2>VaR 13</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure4_13.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none">
+<h2>VaR 25</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure4_25.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none">
+<h2>VaR 3</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure5_3.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none">
+<h2>VaR 13</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure5_13.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none">
+<h2>VaR 25</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure5_25.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+
+
+<section data-transition="none">
+<h2>VaR 3</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure7_3.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none">
+<h2>VaR 13</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure7_13.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none">
+<h2>VaR 25</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/Figure7_25.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
 
