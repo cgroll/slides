@@ -73,10 +73,6 @@
 Use **data** to derive **information** about future asset evolutions
 and try to act **optimally** on it.
 
-. . .
-
-Sounds like **voodoo**?!
-
 ### 
 
 Would we have **guessed** this **performance**?
@@ -143,10 +139,6 @@ alt="Number of observations" width="1000px"/>
 ###
 
 - **statistical modeling**: estimate return distribution
-
-. . .
-
-- distributions **change** over time
 
 . . .
 
@@ -303,13 +295,16 @@ alt="Number of observations" width="1000px"/>
 
 . . .
 
+- VaR **more difficult** to evaluate
+
+
+<!--
+
 $\Rightarrow$ reduction to single value causes **loss of information**
 
 . . .
 
-- VaR **more difficult** to evaluate
 
-<!--
 ### But
 
 Does single ranking of all possible return distributions exist?
@@ -1183,12 +1178,7 @@ $\Rightarrow$ how does **yearly** target **translate** into a
 **weekly** target? 
 
 
-### Challenge I: scaling
-
-Simple **scaling** for asset returns is incorrect: returns are **not
-independent** over time
-
-### Challenge II: short-term target?
+### Challenge I: short-term target?
 
 **Example**: portfolio of EU covered bonds and US Equity
 
@@ -1224,10 +1214,16 @@ Intuitively speaking:
 alt="Number of observations" width="1000px"/>
 </p>
 
+### Challenge II: scaling and turnover
 
-### Challenge III: turnover
+Simple **scaling** for asset returns is incorrect: 
 
-### Changing distributions over time
+. . .
+
+- return moments change over time
+
+
+### 
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/expWeighted-1.svg"

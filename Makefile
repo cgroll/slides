@@ -27,7 +27,7 @@ debug: $(CURRENT_TARGET).tex
 
 $(OUTDIR)/assetMgmt.slides.html: slide_srcs/assetMgmt.md Makefile refs.bib
 	pandoc --template=$(TMPL) \
-	--slide-level=3 --toc --toc-depth=1 \
+	--slide-level=3 \
 	--filter pandoc_custom/filters/adaptHeaders.hs \
 	--filter pandoc_custom/filters/amsmath.hs \
 	--variable theme="black" \
