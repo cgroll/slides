@@ -1,5 +1,4 @@
-% Data driven 
-% asset management
+% Client monitoring
 
 <!--
 # Notes
@@ -68,10 +67,13 @@
 
 # Introduction
 
+<!--
 ### Approach
 
 Use **data** to derive **information** about future asset evolutions
 and try to act **optimally** on it.
+
+-->
 
 ### 
 
@@ -101,7 +103,7 @@ alt="Number of observations" width="100px"/>
 
 - predicting **exact outcome**
 
-
+<!--
 ### 
 
 Would Equity Asia have been a **desirable investment**?
@@ -124,6 +126,8 @@ alt="Number of observations" width="1000px" style="background: white"/>
 
 $\Rightarrow$ **risk-return tradeoff**
 
+--> 
+
 ### Two tasks
 
 . . .
@@ -136,6 +140,8 @@ $\Rightarrow$ **risk-return tradeoff**
 alt="Number of observations" width="1000px"/>
 </p>
 
+<!--
+
 ###
 
 - **statistical modeling**: estimate return distribution
@@ -145,7 +151,7 @@ alt="Number of observations" width="1000px"/>
 - is strategy **worthwhile**?
 	- for customers
 	- for us
-
+-->
 <!-- Comments:
 - hard to explain in 30 minutes
 - no one optimal solution
@@ -163,6 +169,10 @@ alt="Number of observations" width="1000px"/>
 alt="Number of observations" width="1000px"/>
 </p>
 
+. . .
+
+- different shapes of distributions hard to compare
+
 <!--
 ### Third task
 
@@ -170,15 +180,15 @@ alt="Number of observations" width="1000px"/>
    (**estimation error**)
 -->
 
+<!--
 # Risk aversion
 
+-->
 <!--
 ### Risk aversion
 
 - coin game
 - empirical studies
-
-
 
 ### Setting
 
@@ -194,14 +204,23 @@ alt="Number of observations" width="1000px"/>
 
 $\Rightarrow$ simpler rules (implied by concave utility)
 
--->
-
 ###
 
 Which distributions should be desired?
 
 - **utility**: single number assigned to each distribution allows
   **comparisons**
+
+-->
+
+# Simplification: Return characteristics
+
+### Idea
+
+- **compress information** contained in complete distribution into
+  **handful** of quantitative **characteristics**
+
+- characteristics should come with some notion of what is preferred
 
 </section>
 <section data-transition="slide-in none-out">
@@ -236,7 +255,7 @@ alt="Number of observations" width="1000px"/>
 alt="Number of observations" width="1000px"/>
 </p>
 
-
+<!--
 
 ### $\bf{\mu / \sigma}$ dogma
 
@@ -257,6 +276,7 @@ $\sigma$ **inadequate** to capture all kinds of risk:
 alt="Number of observations" width="1000px"/>
 </p>
 
+-->
 
 ### Alternative measure: VaR
 
@@ -266,7 +286,228 @@ alt="Number of observations" width="1000px"/>
 alt="Number of observations" width="300px"/>
 </p>
 
+### TODO
 
+- graphically show which VaR should be preferred
+
+### Simplified tasks
+
+. . .
+
+1. with given weights, **estimate** associated **portfolio return
+   characteristics**
+
+TODO: show characteristics in graphics
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+
+### Simplified tasks
+
+
+2. given different portfolio return characteristics, **find target**
+   portfolio according to client's individual risk appetite
+
+. . .
+
+$\Rightarrow$ **Goldwoman** portfolios
+
+[mu, sigma, VaR] vs [mu2, sigma2, VaR2]
+
+
+### Procedure
+
+- **estimate asset return characteristics ($\mu$, $VaR$)**
+
+### Procedure
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Procedure
+
+- estimate asset return characteristics ($\mu$, $VaR$)
+
+- **for given client portfolios (weights), derive associated portfolio
+  return characteristics**
+
+### Procedure
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Procedure
+
+- estimate asset return characteristics ($\mu$, $VaR$)
+
+- for given client portfolios (weights), derive associated portfolio
+  return characteristics
+
+- **determine current target portfolios (Goldwoman portfolios)**
+
+### Procedure
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients_targets.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Deviations
+
+Why are client portfolios **not matching target** portfolio?
+
+. . .
+
+- asset return **characteristics vary** over time
+
+###
+
+- variation during last 90 trading days:
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_05.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+###
+
+- asset return **characteristics vary** over time
+
+$\Rightarrow$ portfolio target (**Goldwoman**) changes over time:
+**rebalancing**
+
+. . .
+
+$\Rightarrow$ **trading costs** occur (**all-in-fee**)
+
+. . .
+
+$\Rightarrow$ deviations between client portfolios and target
+portfolios exist and are **not offset immediately**
+
+
+### 
+
+Average client weights vs target weights
+
+</section>
+<section data-transition="slide-in none-out">
+<h2>Average client weights</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_06.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none-in none-out">
+<h2>Target weights</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_07.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="slide-in none-out">
+<h2>Average asset class weights</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_08.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none-in none-out">
+<h2>Target asset class weights</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_09.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+# Trading
+
+### 
+
+**Who** gets traded, **when** and **how**?
+
+</section>
+<section data-transition="slide-in none-out">
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_16.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+</section>
+
+<section data-transition="none-in none-out">
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_17.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+###
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_14.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+###
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_56.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+# Diversification
+
+### Don't lay all eggs in one basket
+
+- marketing reasons
+- diversification pictures: overall, per client
+
+###
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_10.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+# Business development
+
+### New / overall clients
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_57.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Clients per risk category
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_58.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Client portfolio size
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_59.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+
+
+
+
+
+<!--
 ### Benefits
 
 - focusing on **downside risk**
@@ -297,7 +538,7 @@ alt="Number of observations" width="1000px"/>
 
 - VaR **more difficult** to evaluate
 
-
+-->
 <!--
 
 $\Rightarrow$ reduction to single value causes **loss of information**
@@ -1161,6 +1402,7 @@ to other assets are preferred
 
 -->
 
+<!--
 # Challenges
 
 ### Deviating horizons
@@ -1214,11 +1456,10 @@ Intuitively speaking:
 alt="Number of observations" width="1000px"/>
 </p>
 
-### Challenge II: scaling and turnover
+-->
 
-Simple **scaling** for asset returns is incorrect: 
-
-. . .
+<!--
+### Challenge
 
 - return moments change over time
 
@@ -1238,6 +1479,7 @@ alt="Number of observations" width="1000px" style="background-color:white" />
 alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
+
 ###
 
 $\Rightarrow$ optimal portfolio changes over time: **rebalancing**
@@ -1249,6 +1491,7 @@ $\Rightarrow$ **trading costs** occur
 . . .
 
 $\Rightarrow$ tradeoff between **costs and benefits**
+
 
 ### All-in-fee
 
@@ -1350,3 +1593,4 @@ alt="Number of observations" width="700px" style="background-color:white" />
 </p>
 </section>
 
+-->

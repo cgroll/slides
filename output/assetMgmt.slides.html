@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-        <meta name="author" content="asset management" />
-            <title>Data driven</title>
+            <title>Client monitoring</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -82,19 +81,10 @@
       <div class="slides">
         
                 <section>
-          <h1 class="title">Data driven</h1>
-                              <h2 class="author">asset management</h2>
-                    <h3 class="date"></h3>
+          <h1 class="title">Client monitoring</h1>
+                              <h3 class="date"></h3>
         </section>
-                        <section id="TOC">
-          <ul>
-          <li><a href="#/introduction">Introduction</a></li>
-          <li><a href="#/risk-aversion">Risk aversion</a></li>
-          <li><a href="#/challenges">Challenges</a></li>
-          <li><a href="#/backtesting">Backtesting</a></li>
-          </ul>
-        </section>
-                
+                        
         <section class="slide level3">
         
         <!--
@@ -161,13 +151,7 @@
         
         -->
         </section>
-        <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="approach" class="slide level3">
-        <h1>Approach</h1>
-        <p>Use <strong>data</strong> to derive <strong>information</strong> about future asset evolutions and try to act <strong>optimally</strong> on it.</p>
-        <div class="fragment">
-        <p>Sounds like <strong>voodoo</strong>?!</p>
-        </div>
-        </section><section id="section" class="slide level3">
+        <section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="section" class="slide level3">
         <h1></h1>
         <p>Would we have <strong>guessed</strong> this <strong>performance</strong>?</p>
         <p align="center">
@@ -194,26 +178,30 @@
         <ul>
         <li>predicting <strong>exact outcome</strong></li>
         </ul>
-        </div>
-        </section><section id="section-1" class="slide level3">
-        <h1></h1>
-        <p>Would Equity Asia have been a <strong>desirable investment</strong>?</p>
+        <!--
+        ### 
+        
+        Would Equity Asia have been a **desirable investment**?
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-2.svg"
         alt="Number of observations" width="1000px" style="background: white"/>
         </p>
-        </section><section id="performance-is-not-everything" class="slide level3">
-        <h1>Performance is not everything</h1>
-        <ul>
-        <li>investment <strong>horizon</strong> might have been <strong>stochastic</strong>: sudden need for <strong>liquidation</strong></li>
-        </ul>
-        <div class="fragment">
-        <ul>
-        <li><strong>customers</strong> would have been <strong>uncomfortable</strong> with evolution</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> <strong>risk-return tradeoff</strong></p>
+        
+        ### Performance is not everything
+        
+        - investment **horizon** might have been **stochastic**: sudden need
+          for **liquidation**
+        
+        . . .
+        
+        - **customers** would have been **uncomfortable** with evolution
+        
+        . . .
+        
+        $\Rightarrow$ **risk-return tradeoff**
+        
+        -->
         </div>
         </section><section id="two-tasks" class="slide level3">
         <h1>Two tasks</h1>
@@ -225,25 +213,18 @@
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </div>
-        </section><section id="section-2" class="slide level3">
-        <h1></h1>
-        <ul>
-        <li><strong>statistical modeling</strong>: estimate return distribution</li>
-        </ul>
-        <div class="fragment">
-        <ul>
-        <li>distributions <strong>change</strong> over time</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>is strategy <strong>worthwhile</strong>?
-        <ul>
-        <li>for customers</li>
-        <li>for us</li>
-        </ul></li>
-        </ul>
+        <!--
+        
+        ###
+        
+        - **statistical modeling**: estimate return distribution
+        
+        . . .
+        
+        - is strategy **worthwhile**?
+            - for customers
+            - for us
+        -->
         <!-- Comments:
         - hard to explain in 30 minutes
         - no one optimal solution
@@ -259,18 +240,55 @@
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/compareDistributions.svg"
         alt="Number of observations" width="1000px"/>
         </p>
+        <div class="fragment">
+        <ul>
+        <li>different shapes of distributions hard to compare</li>
+        </ul>
         <!--
         ### Third task
         
         3. also take **confidence** in estimated distributions into account
            (**estimation error**)
         -->
+        <!--
+        # Risk aversion
+        
+        -->
+        <!--
+        ### Risk aversion
+        
+        - coin game
+        - empirical studies
+        
+        ### Setting
+        
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/concave_utility.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        
+        ### Utility function
+        
+        - hard to **define**
+        - hard to **evaluate**
+        
+        $\Rightarrow$ simpler rules (implied by concave utility)
+        
+        ###
+        
+        Which distributions should be desired?
+        
+        - **utility**: single number assigned to each distribution allows
+          **comparisons**
+        
+        -->
+        </div>
         </section></section>
-        <section><section id="risk-aversion" class="titleslide slide level1"><h1>Risk aversion</h1></section><section id="section-3" class="slide level3">
-        <h1></h1>
-        <p>Which distributions should be desired?</p>
+        <section><section id="simplification-return-characteristics" class="titleslide slide level1"><h1>Simplification: Return characteristics</h1></section><section id="idea" class="slide level3">
+        <h1>Idea</h1>
         <ul>
-        <li><strong>utility</strong>: single number assigned to each distribution allows <strong>comparisons</strong></li>
+        <li><p><strong>compress information</strong> contained in complete distribution into <strong>handful</strong> of quantitative <strong>characteristics</strong></p></li>
+        <li><p>characteristics should come with some notion of what is preferred</p></li>
         </ul>
         </section>
         <section data-transition="slide-in none-out">
@@ -308,23 +326,28 @@
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaIncrease2.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </section><section id="bfmu-sigma-dogma" class="slide level3">
-        <h1><span class="math">$\bf{\mu / \sigma}$</span> dogma</h1>
-        <blockquote>
-        <p>First two <strong>moments</strong> are <strong>sufficient</strong> to derive the <strong>utility</strong> of any given return distribution.</p>
-        </blockquote>
-        </section><section id="bfmu-sigma-deficiencies" class="slide level3">
-        <h1><span class="math">$\bf{\mu / \sigma}$</span> deficiencies</h1>
-        <p><span class="math"><em>σ</em></span> <strong>inadequate</strong> to capture all kinds of risk:</p>
-        <div class="fragment">
-        <ul>
-        <li>as <strong>symmetric measure</strong> unaffected by reflection at mean value</li>
-        </ul>
+        <!--
+        
+        ### $\bf{\mu / \sigma}$ dogma
+        
+        > First two **moments** are **sufficient** to derive the **utility**
+        of any given return distribution.
+        
+        
+        ### $\bf{\mu / \sigma}$ deficiencies
+        
+        $\sigma$ **inadequate** to capture all kinds of risk:
+        
+        . . .
+        
+        - as **symmetric measure** unaffected by reflection at mean value
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/sigmaDeficiency.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </div>
+        
+        -->
         </section><section id="alternative-measure-var" class="slide level3">
         <h1>Alternative measure: VaR</h1>
         <ul>
@@ -334,41 +357,235 @@
         alt="Number of observations" width="300px"/>
         </p></li>
         </ul>
-        </section><section id="benefits" class="slide level3">
-        <h1>Benefits</h1>
+        </section><section id="todo" class="slide level3">
+        <h1>TODO</h1>
         <ul>
-        <li>focusing on <strong>downside risk</strong></li>
+        <li>graphically show which VaR should be preferred</li>
         </ul>
-        <p><span class="math"> ⇒ </span> more appropriate for asymmetric return distributions</p>
+        </section><section id="simplified-tasks" class="slide level3">
+        <h1>Simplified tasks</h1>
+        <div class="fragment">
+        <ol type="1">
+        <li>with given weights, <strong>estimate</strong> associated <strong>portfolio return characteristics</strong></li>
+        </ol>
+        <p>TODO: show characteristics in graphics</p>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </div>
+        </section><section id="simplified-tasks-1" class="slide level3">
+        <h1>Simplified tasks</h1>
+        <ol start="2" type="1">
+        <li>given different portfolio return characteristics, <strong>find target</strong> portfolio according to client's individual risk appetite</li>
+        </ol>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> <strong>Goldwoman</strong> portfolios</p>
+        <p>[mu, sigma, VaR] vs [mu2, sigma2, VaR2]</p>
+        </div>
+        </section><section id="procedure" class="slide level3">
+        <h1>Procedure</h1>
+        <ul>
+        <li><strong>estimate asset return characteristics (<span class="math"><em>μ</em></span>, <span class="math"><em>V</em><em>a</em><em>R</em></span>)</strong></li>
+        </ul>
+        </section><section id="procedure-1" class="slide level3">
+        <h1>Procedure</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="procedure-2" class="slide level3">
+        <h1>Procedure</h1>
+        <ul>
+        <li><p>estimate asset return characteristics (<span class="math"><em>μ</em></span>, <span class="math"><em>V</em><em>a</em><em>R</em></span>)</p></li>
+        <li><p><strong>for given client portfolios (weights), derive associated portfolio return characteristics</strong></p></li>
+        </ul>
+        </section><section id="procedure-3" class="slide level3">
+        <h1>Procedure</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="procedure-4" class="slide level3">
+        <h1>Procedure</h1>
+        <ul>
+        <li><p>estimate asset return characteristics (<span class="math"><em>μ</em></span>, <span class="math"><em>V</em><em>a</em><em>R</em></span>)</p></li>
+        <li><p>for given client portfolios (weights), derive associated portfolio return characteristics</p></li>
+        <li><p><strong>determine current target portfolios (Goldwoman portfolios)</strong></p></li>
+        </ul>
+        </section><section id="procedure-5" class="slide level3">
+        <h1>Procedure</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients_targets.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="deviations" class="slide level3">
+        <h1>Deviations</h1>
+        <p>Why are client portfolios <strong>not matching target</strong> portfolio?</p>
         <div class="fragment">
         <ul>
-        <li>more <strong>meaningful</strong>: defining risk aversion in terms of VaR more intuitive to private investors (?)</li>
+        <li>asset return <strong>characteristics vary</strong> over time</li>
         </ul>
         </div>
-        <div class="fragment">
+        </section><section id="section-1" class="slide level3">
+        <h1></h1>
         <ul>
-        <li>aligned with financial regulation</li>
+        <li>variation during last 90 trading days:</li>
         </ul>
-        </div>
-        </section><section id="nobodys-perfect" class="slide level3">
-        <h1>Nobody's perfect</h1>
-        <div class="fragment">
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_05.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="section-2" class="slide level3">
+        <h1></h1>
         <ul>
-        <li>values beyond VaR are not taken into account
+        <li>asset return <strong>characteristics vary</strong> over time</li>
+        </ul>
+        <p><span class="math"> ⇒ </span> portfolio target (<strong>Goldwoman</strong>) changes over time: <strong>rebalancing</strong></p>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> <strong>trading costs</strong> occur (<strong>all-in-fee</strong>)</p>
+        </div>
+        <div class="fragment">
+        <p><span class="math"> ⇒ </span> deviations between client portfolios and target portfolios exist and are <strong>not offset immediately</strong></p>
+        </div>
+        </section><section id="section-3" class="slide level3">
+        <h1></h1>
+        <p>Average client weights vs target weights</p>
+        </section>
+        <section data-transition="slide-in none-out">
+        <h2>
+        Average client weights
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_06.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none-in none-out">
+        <h2>
+        Target weights
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_07.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="slide-in none-out">
+        <h2>
+        Average asset class weights
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_08.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none-in none-out">
+        <h2>
+        Target asset class weights
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_09.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section></section>
+        <section><section id="trading" class="titleslide slide level1"><h1>Trading</h1></section><section id="section-4" class="slide level3">
+        <h1></h1>
+        <p><strong>Who</strong> gets traded, <strong>when</strong> and <strong>how</strong>?</p>
+        </section>
+        <section data-transition="slide-in none-out">
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_16.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section>
+        <section data-transition="none-in none-out">
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_17.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="section-5" class="slide level3">
+        <h1></h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_14.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="section-6" class="slide level3">
+        <h1></h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_56.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section></section>
+        <section><section id="diversification" class="titleslide slide level1"><h1>Diversification</h1></section><section id="dont-lay-all-eggs-in-one-basket" class="slide level3">
+        <h1>Don't lay all eggs in one basket</h1>
+        <ul>
+        <li>marketing reasons</li>
+        <li>diversification pictures: overall, per client</li>
+        </ul>
+        </section><section id="section-7" class="slide level3">
+        <h1></h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_10.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section></section>
+        <section><section id="business-development" class="titleslide slide level1"><h1>Business development</h1></section><section id="new-overall-clients" class="slide level3">
+        <h1>New / overall clients</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_57.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="clients-per-risk-category" class="slide level3">
+        <h1>Clients per risk category</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_58.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        </section><section id="client-portfolio-size" class="slide level3">
+        <h1>Client portfolio size</h1>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_59.png"
+        alt="Number of observations" width="700px" style="background-color:white" />
+        </p>
+        <!--
+        ### Benefits
+        
+        - focusing on **downside risk**
+        
+        $\Rightarrow$ more appropriate for asymmetric return distributions
+        
+        . . .
+        
+        - more **meaningful**: defining risk aversion in terms of VaR more
+          intuitive to private investors (?)
+        
+        . . .
+        
+        - aligned with financial regulation
+        
+        
+        ### Nobody's perfect
+        
+        . . .
+        
+        - values beyond VaR are not taken into account
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/varDeficiency.svg"
         alt="Number of observations" width="1000px"/>
-        </p></li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> reduction to single value causes <strong>loss of information</strong></p>
-        </div>
-        <div class="fragment">
-        <ul>
-        <li>VaR <strong>more difficult</strong> to evaluate</li>
-        </ul>
+        </p>
+        
+        . . .
+        
+        - VaR **more difficult** to evaluate
+        
+        -->
         <!--
+        
+        $\Rightarrow$ reduction to single value causes **loss of information**
+        
+        . . .
+        
+        
         ### But
         
         Does single ranking of all possible return distributions exist?
@@ -1224,183 +1441,197 @@
         - reduce turnover
         
         -->
-        </div>
-        </section></section>
-        <section><section id="challenges" class="titleslide slide level1"><h1>Challenges</h1></section><section id="deviating-horizons" class="slide level3">
-        <h1>Deviating horizons</h1>
-        <ul>
-        <li><strong>long horizon</strong> more meaningful when determining <strong>optimality</strong></li>
-        </ul>
-        <div class="fragment">
-        <ul>
-        <li><strong>short horizon</strong> simplifies <strong>estimation</strong> of return distributions</li>
-        </ul>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> how does <strong>yearly</strong> target <strong>translate</strong> into a <strong>weekly</strong> target?</p>
-        </div>
-        </section><section id="challenge-i-scaling" class="slide level3">
-        <h1>Challenge I: scaling</h1>
-        <p>Simple <strong>scaling</strong> for asset returns is incorrect: returns are <strong>not independent</strong> over time</p>
-        </section><section id="challenge-ii-short-term-target" class="slide level3">
-        <h1>Challenge II: short-term target?</h1>
-        <p><strong>Example</strong>: portfolio of EU covered bonds and US Equity</p>
+        <!--
+        # Challenges
+        
+        ### Deviating horizons
+        
+        - **long horizon** more meaningful when determining **optimality**
+        
+        . . .
+        
+        - **short horizon** simplifies **estimation** of return distributions
+        
+        . . .
+        
+        
+        $\Rightarrow$ how does **yearly** target **translate** into a
+        **weekly** target? 
+        
+        
+        ### Challenge I: short-term target?
+        
+        **Example**: portfolio of EU covered bonds and US Equity
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-8.svg"
         alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
-        </section><section id="section-4" class="slide level3">
-        <h1></h1>
+        
+        ###
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/data_report-17.svg"
         alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
-        </section><section id="section-5" class="slide level3">
-        <h1></h1>
-        <ul>
-        <li>keeping <strong>weights fixed</strong>: portfolio subject to volatility risk</li>
-        </ul>
-        <div class="fragment">
-        <ul>
-        <li>keeping <strong>volatility fixed</strong>: depending on estimated market volatility <strong>adapt weights</strong></li>
-        </ul>
-        </div>
-        </section><section id="section-6" class="slide level3">
-        <h1></h1>
-        <p>Intuitively speaking:</p>
+        
+        
+        
+        ###
+        
+        - keeping **weights fixed**: portfolio subject to volatility risk
+        
+        . . .
+        
+        - keeping **volatility fixed**: depending on estimated market
+          volatility **adapt weights**
+        
+        ### 
+        
+        Intuitively speaking:
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/unreplicatable_pics/noPathDependence.svg"
         alt="Number of observations" width="1000px"/>
         </p>
-        </section><section id="challenge-iii-turnover" class="slide level3">
-        <h1>Challenge III: turnover</h1>
-        </section><section id="changing-distributions-over-time" class="slide level3">
-        <h1>Changing distributions over time</h1>
+        
+        -->
+        <!--
+        ### Challenge
+        
+        - return moments change over time
+        
+        
+        ### 
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/expWeighted-1.svg"
         alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
-        </section><section id="section-7" class="slide level3">
-        <h1></h1>
+        
+        
+        ###
+        
         <p align="center">
         <img src="../AssetMgmtAnalysis/backtesting/scacap_E6_2015_12_01/pics/expWeighted-2.svg"
         alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
-        </section><section id="section-8" class="slide level3">
-        <h1></h1>
-        <p><span class="math"> ⇒ </span> optimal portfolio changes over time: <strong>rebalancing</strong></p>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> <strong>trading costs</strong> occur</p>
-        </div>
-        <div class="fragment">
-        <p><span class="math"> ⇒ </span> tradeoff between <strong>costs and benefits</strong></p>
-        </div>
-        </section><section id="all-in-fee" class="slide level3">
-        <h1>All-in-fee</h1>
-        <p>Customer and asset manager <strong>incentives</strong> are not aligned with <strong>all-in-fee</strong>:</p>
-        <div class="fragment">
-        <ul>
-        <li>customers profit more from rebalancing</li>
-        <li>asset manager affected more by trading costs</li>
-        </ul>
-        </div>
-        </section></section>
-        <section><section id="backtesting" class="titleslide slide level1"><h1>Backtesting</h1></section><section id="section-9" class="slide level3">
-        <h1></h1>
-        <ul>
-        <li>what performances would strategies have brought in the past?</li>
-        </ul>
+        
+        
+        ###
+        
+        $\Rightarrow$ optimal portfolio changes over time: **rebalancing**
+        
+        . . .
+        
+        $\Rightarrow$ **trading costs** occur 
+        
+        . . .
+        
+        $\Rightarrow$ tradeoff between **costs and benefits**
+        
+        
+        ### All-in-fee
+        
+        Customer and asset manager **incentives** are not aligned with
+        **all-in-fee**:
+        
+        . . .
+        
+        - customers profit more from rebalancing
+        - asset manager affected more by trading costs
+        
+        # Backtesting
+        
+        ### 
+        
+        - what performances would strategies have achieved in the past?
+        
         </section>
+        
         <section data-transition="none-in none-out">
-        <h2>
-        Risk-return profiles
-        </h2>
+        <h2>Risk-return profiles</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/performances.svg"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none-in none-out">
-        <h2>
-        VaR 3
-        </h2>
+        <h2>VaR 3</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure4_3.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        VaR 13
-        </h2>
+        <h2>VaR 13</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure4_13.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        VaR 25
-        </h2>
+        <h2>VaR 25</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure4_25.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        VaR 3
-        </h2>
+        <h2>VaR 3</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure5_3.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        VaR 13
-        </h2>
+        <h2>VaR 13</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure5_13.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        VaR 25
-        </h2>
+        <h2>VaR 25</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure5_25.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
+        
+        
         <section data-transition="none">
-        <h2>
-        VaR 3
-        </h2>
+        <h2>VaR 3</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure7_3.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        VaR 13
-        </h2>
+        <h2>VaR 13</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure7_13.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
         <section data-transition="none">
-        <h2>
-        VaR 25
-        </h2>
+        <h2>VaR 25</h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/Figure7_25.png"
         alt="Number of observations" width="700px" style="background-color:white" />
         </p>
         </section>
+        
+        -->
         <div class="references">
         
         </div>
