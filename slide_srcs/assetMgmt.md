@@ -349,7 +349,7 @@ $\Rightarrow$ **Goldwoman** portfolios
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment.png"
-alt="Number of observations" width="1000px" style="background-color:white" />
+alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
 ### Procedure
@@ -363,7 +363,7 @@ alt="Number of observations" width="1000px" style="background-color:white" />
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients.png"
-alt="Number of observations" width="1000px" style="background-color:white" />
+alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
 ### Procedure
@@ -379,7 +379,7 @@ alt="Number of observations" width="1000px" style="background-color:white" />
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients_targets.png"
-alt="Number of observations" width="1000px" style="background-color:white" />
+alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
 ### Deviations
@@ -476,7 +476,7 @@ alt="Number of observations" width="1000px" style="background-color:white" />
 ###
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_14.png"
-alt="Number of observations" width="1000px" style="background-color:white" />
+alt="Number of observations" width="700px" style="background-color:white" />
 </p>
 
 ###
