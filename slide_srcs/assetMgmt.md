@@ -1,4 +1,15 @@
-% Client monitoring
+% Out-of-sample:
+% Robo meets reality
+
+<!--
+Possible titles:
+- Out-of-sample: robo meets reality
+- Robo leaving sandbox
+- A small step for ...
+- Trade monitoring
+- Robo's first steps on earth
+- From sandbox to reality
+-->
 
 <!--
 # Notes
@@ -472,6 +483,28 @@ alt="Number of observations" width="1000px" style="background-color:white" />
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_17.png"
 alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
+
+### 
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_30.png"
+alt="Number of observations" width="1000px" style="background-color:white" />
+</p>
+
+### 
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_39.png"
+alt="Number of observations" width="1000px" style="background-color:white" />
+</p>
+
+### 
+
+<p align="center">
+<img src="../AssetMgmtAnalysis/pics_private/unreported_var_change_client.png"
+alt="Number of observations" width="1000px" style="background-color:white" />
+</p>
+
 
 ###
 <p align="center">
