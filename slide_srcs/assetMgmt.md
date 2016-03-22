@@ -220,7 +220,7 @@ Which distributions should be desired?
 - **compress information** contained in complete distribution into
   **handful** of quantitative **characteristics**
 
-- characteristics should come with some notion of what is preferred
+- characteristics should have **clear effect** on client's preferences
 
 </section>
 <section data-transition="slide-in none-out">
@@ -286,9 +286,22 @@ alt="Number of observations" width="1000px"/>
 alt="Number of observations" width="300px"/>
 </p>
 
-### TODO
 
-- graphically show which VaR should be preferred
+</section>
+<section data-transition="slide-in none-out">
+<h2>Increasing VaR</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/varIncrease.svg"
+alt="Number of observations" width="1000px"/>
+</p>
+</section>
+
+<section data-transition="none-in slide-out">
+<h2>Increasing VaR</h2>
+<p align="center">
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/varIncrease2.svg"
+alt="Number of observations" width="1000px"/>
+</p>
 
 ### Simplified tasks
 
@@ -297,10 +310,8 @@ alt="Number of observations" width="300px"/>
 1. with given weights, **estimate** associated **portfolio return
    characteristics**
 
-TODO: show characteristics in graphics
-
 <p align="center">
-<img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
+<img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2characteristics.svg"
 alt="Number of observations" width="1000px"/>
 </p>
 
@@ -312,9 +323,22 @@ alt="Number of observations" width="1000px"/>
 
 . . .
 
-$\Rightarrow$ **Goldwoman** portfolios
+\begin{equation*}
+\begin{bmatrix}
+\mu_{1}\\
+\sigma_{1}\\
+\text{VaR}_{1}
+\end{bmatrix}\text{vs.}
+\begin{bmatrix}
+\mu_{2}\\
+\sigma_{2}\\
+\text{VaR}_{2}
+\end{bmatrix}
+\end{equation*}
 
-[mu, sigma, VaR] vs [mu2, sigma2, VaR2]
+. . .
+
+$\Rightarrow$ **Goldwoman** portfolios
 
 
 ### Procedure
@@ -325,7 +349,7 @@ $\Rightarrow$ **Goldwoman** portfolios
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 ### Procedure
@@ -339,7 +363,7 @@ alt="Number of observations" width="700px" style="background-color:white" />
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 ### Procedure
@@ -355,7 +379,7 @@ alt="Number of observations" width="700px" style="background-color:white" />
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients_targets.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 ### Deviations
@@ -372,7 +396,7 @@ Why are client portfolios **not matching target** portfolio?
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_05.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 
@@ -395,14 +419,14 @@ portfolios exist and are **not offset immediately**
 
 ### 
 
-Average client weights vs target weights
+Comparing **client** weights and **target** weights
 
 </section>
 <section data-transition="slide-in none-out">
 <h2>Average client weights</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_06.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 </section>
 
@@ -410,7 +434,7 @@ alt="Number of observations" width="700px" style="background-color:white" />
 <h2>Target weights</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_07.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 </section>
 
@@ -418,7 +442,7 @@ alt="Number of observations" width="700px" style="background-color:white" />
 <h2>Average asset class weights</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_08.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 </section>
 
@@ -426,7 +450,7 @@ alt="Number of observations" width="700px" style="background-color:white" />
 <h2>Target asset class weights</h2>
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_09.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 # Trading
@@ -439,42 +463,39 @@ alt="Number of observations" width="700px" style="background-color:white" />
 <section data-transition="slide-in none-out">
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_16.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 </section>
 
 <section data-transition="none-in none-out">
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_17.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 ###
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_14.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 ###
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_56.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 
-# Diversification
+### Diversification
 
-### Don't lay all eggs in one basket
-
-- marketing reasons
-- diversification pictures: overall, per client
+> Don't put all eggs in one basket!
 
 ###
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_10.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 
@@ -484,21 +505,21 @@ alt="Number of observations" width="700px" style="background-color:white" />
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_57.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 ### Clients per risk category
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_58.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 ### Client portfolio size
 
 <p align="center">
 <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_59.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="1000px" style="background-color:white" />
 </p>
 
 

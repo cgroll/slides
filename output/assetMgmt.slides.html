@@ -288,7 +288,7 @@
         <h1>Idea</h1>
         <ul>
         <li><p><strong>compress information</strong> contained in complete distribution into <strong>handful</strong> of quantitative <strong>characteristics</strong></p></li>
-        <li><p>characteristics should come with some notion of what is preferred</p></li>
+        <li><p>characteristics should have <strong>clear effect</strong> on client's preferences</p></li>
         </ul>
         </section>
         <section data-transition="slide-in none-out">
@@ -357,20 +357,32 @@
         alt="Number of observations" width="300px"/>
         </p></li>
         </ul>
-        </section><section id="todo" class="slide level3">
-        <h1>TODO</h1>
-        <ul>
-        <li>graphically show which VaR should be preferred</li>
-        </ul>
+        </section>
+        <section data-transition="slide-in none-out">
+        <h2>
+        Increasing VaR
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/varIncrease.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
+        </section>
+        <section data-transition="none-in slide-out">
+        <h2>
+        Increasing VaR
+        </h2>
+        <p align="center">
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/varIncrease2.svg"
+        alt="Number of observations" width="1000px"/>
+        </p>
         </section><section id="simplified-tasks" class="slide level3">
         <h1>Simplified tasks</h1>
         <div class="fragment">
         <ol type="1">
         <li>with given weights, <strong>estimate</strong> associated <strong>portfolio return characteristics</strong></li>
         </ol>
-        <p>TODO: show characteristics in graphics</p>
         <p align="center">
-        <img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2distribution.svg"
+        <img src="../AssetMgmtAnalysis/unreplicatable_pics/weights2characteristics.svg"
         alt="Number of observations" width="1000px"/>
         </p>
         </div>
@@ -380,8 +392,21 @@
         <li>given different portfolio return characteristics, <strong>find target</strong> portfolio according to client's individual risk appetite</li>
         </ol>
         <div class="fragment">
+         <br /><span class="math">$$\begin{equation*}
+        \begin{bmatrix}
+        \mu_{1}\\
+        \sigma_{1}\\
+        \text{VaR}_{1}
+        \end{bmatrix}\text{vs.}
+        \begin{bmatrix}
+        \mu_{2}\\
+        \sigma_{2}\\
+        \text{VaR}_{2}
+        \end{bmatrix}
+        \end{equation*}$$</span><br />
+        </div>
+        <div class="fragment">
         <p><span class="math"> ⇒ </span> <strong>Goldwoman</strong> portfolios</p>
-        <p>[mu, sigma, VaR] vs [mu2, sigma2, VaR2]</p>
         </div>
         </section><section id="procedure" class="slide level3">
         <h1>Procedure</h1>
@@ -392,7 +417,7 @@
         <h1>Procedure</h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="procedure-2" class="slide level3">
         <h1>Procedure</h1>
@@ -404,7 +429,7 @@
         <h1>Procedure</h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="procedure-4" class="slide level3">
         <h1>Procedure</h1>
@@ -417,7 +442,7 @@
         <h1>Procedure</h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/currentMarketEnvironment_clients_targets.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="deviations" class="slide level3">
         <h1>Deviations</h1>
@@ -434,7 +459,7 @@
         </ul>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_05.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="section-2" class="slide level3">
         <h1></h1>
@@ -450,7 +475,7 @@
         </div>
         </section><section id="section-3" class="slide level3">
         <h1></h1>
-        <p>Average client weights vs target weights</p>
+        <p>Comparing <strong>client</strong> weights and <strong>target</strong> weights</p>
         </section>
         <section data-transition="slide-in none-out">
         <h2>
@@ -458,7 +483,7 @@
         </h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_06.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section>
         <section data-transition="none-in none-out">
@@ -467,7 +492,7 @@
         </h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_07.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section>
         <section data-transition="slide-in none-out">
@@ -476,7 +501,7 @@
         </h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_08.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section>
         <section data-transition="none-in none-out">
@@ -485,7 +510,7 @@
         </h2>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_09.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section></section>
         <section><section id="trading" class="titleslide slide level1"><h1>Trading</h1></section><section id="section-4" class="slide level3">
@@ -495,57 +520,55 @@
         <section data-transition="slide-in none-out">
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_16.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section>
         <section data-transition="none-in none-out">
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_17.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="section-5" class="slide level3">
         <h1></h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_14.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="section-6" class="slide level3">
         <h1></h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_56.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
-        </section></section>
-        <section><section id="diversification" class="titleslide slide level1"><h1>Diversification</h1></section><section id="dont-lay-all-eggs-in-one-basket" class="slide level3">
-        <h1>Don't lay all eggs in one basket</h1>
-        <ul>
-        <li>marketing reasons</li>
-        <li>diversification pictures: overall, per client</li>
-        </ul>
+        </section><section id="diversification" class="slide level3">
+        <h1>Diversification</h1>
+        <blockquote>
+        <p>Don't put all eggs in one basket!</p>
+        </blockquote>
         </section><section id="section-7" class="slide level3">
         <h1></h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_10.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section></section>
         <section><section id="business-development" class="titleslide slide level1"><h1>Business development</h1></section><section id="new-overall-clients" class="slide level3">
         <h1>New / overall clients</h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_57.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="clients-per-risk-category" class="slide level3">
         <h1>Clients per risk category</h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_58.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         </section><section id="client-portfolio-size" class="slide level3">
         <h1>Client portfolio size</h1>
         <p align="center">
         <img src="../AssetMgmtAnalysis/pics_private/clientMonitoring_59.png"
-        alt="Number of observations" width="700px" style="background-color:white" />
+        alt="Number of observations" width="1000px" style="background-color:white" />
         </p>
         <!--
         ### Benefits
