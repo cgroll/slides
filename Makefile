@@ -2,11 +2,11 @@ TMPL = pandoc_custom/templates/revealjs.template
 CSL = pandoc_custom/csl/elsevier-harvard.csl
 
 # output files, file stem
-FILES = assetMgmt.slides.html assetMgmt.pdf
+FILES = assetMgmt.slides.html assetMgmt.pdf dynAssetAlloc.slides.html dynAssetAlloc.pdf
 OUTDIR = output
 
 # speficy default target
-CURRENT_TARGET = $(OUTDIR)/assetMgmt
+CURRENT_TARGET = $(OUTDIR)/dynAssetAlloc
 current: $(CURRENT_TARGET).slides.html
 
 reveal: $(CURRENT_TARGET).slides.html
@@ -20,6 +20,47 @@ OUT := $(addprefix $(OUTDIR)/,$(FILES))
 everything: $(OUT)
 
 debug: $(CURRENT_TARGET).tex
+
+#########################################
+## dynamic asset allocation strategies ##
+#########################################
+
+$(OUTDIR)/dynAssetAlloc.slides.html: slide_srcs/dynAssetAlloc.md Makefile refs.bib
+	pandoc --template=$(TMPL) \
+	--slide-level=3 \
+	--variable theme="black" \
+	-V slideNumber=true \
+	--include-in-header=pandoc_custom/css/reveal_left_strong.css \
+	-s -V revealjs-url=../reveal.js -t revealjs -f markdown \
+	--filter pandoc-citeproc --csl=$(CSL) \
+	--bibliography=refs.bib \
+	-o $@ $<
+
+#	-V transition=none \
+# 	--filter pandoc_custom/filters/adaptHeaders.hs \
+# 	--filter pandoc_custom/filters/amsmath.hs \
+
+$(OUTDIR)/dynAssetAlloc.pdf: slide_srcs/dynAssetAlloc.md Makefile refs.bib
+	pandoc -s -t beamer -f markdown \
+	--slide-level=3 \
+	-V theme=CambridgeUS -V colortheme=dolphin \
+	--mathjax \
+	--filter pandoc_custom/filters/skip_pause.hs \
+	--filter pandoc-citeproc --csl=pandoc_custom/csl/elsevier-harvard.csl \
+	--bibliography=refs.bib \
+	-o $@ $<
+
+# -V theme=Frankfurt -V colortheme=default \
+
+$(OUTDIR)/dynAssetAlloc.tex: slide_srcs/dynAssetAlloc.md Makefile refs.bib
+	pandoc -s -t beamer -f markdown \
+	-V theme=CambridgeUS -V colortheme=dolphin \
+	--mathjax \
+	--filter pandoc_custom/filters/skip_pause.hs \
+	--filter pandoc-citeproc --csl=pandoc_custom/csl/elsevier-harvard.csl \
+	--bibliography=refs.bib \
+	-o $@ $<
+
 
 ###############
 ## assetMgmt ##
