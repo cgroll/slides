@@ -28,6 +28,7 @@ debug: $(CURRENT_TARGET).tex
 $(OUTDIR)/dynAssetAlloc.slides.html: slide_srcs/dynAssetAlloc.md Makefile refs.bib
 	pandoc --template=$(TMPL) \
 	--slide-level=3 \
+	--mathjax \
 	--variable theme="black" \
 	-V slideNumber=true \
 	--include-in-header=pandoc_custom/css/reveal_left_strong.css \
