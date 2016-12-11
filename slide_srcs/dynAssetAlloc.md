@@ -92,19 +92,13 @@ Portfolio comprises the following **asset classes**:
 | RNGL Index       | real estate | glob   | EUR | **globReal** |
 
 
-### Data quality
-
-<p align="center">
-<img src="../dissDataAndPics/assetAllocation/pics/missingValuesPerAsset.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-
 ### Price trajectories
 
 <p align="center">
 <iframe frameborder="0" seamless="seamless" width="100%" height="650" src="../dissDataAndPics/assetAllocation/plotlyFigs/normalizedAssetTrajectories.html"></iframe>
 </p>
+
+<!--
 
 ### Unconditional sample moments
 
@@ -113,6 +107,8 @@ alt="Number of observations" width="800px" style="background-color:white" />
 src="../dissDataAndPics/assetAllocation/plotlyFigs/uncondAssetMoments.html"></iframe>
 </p>
 
+-->
+
 ### Unconditional sample moments
 
 <p align="center">
@@ -120,6 +116,206 @@ src="../dissDataAndPics/assetAllocation/plotlyFigs/uncondAssetMoments.html"></if
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
+. . .
+
+- why do some equity markets have such small mean returns?
+
+### Long-term model
+
+Is this 16 year sample representative for:
+
+. . .
+
+- current market situation?
+
+. . .
+
+- true unconditional 16 year distribution?
+
+. . .
+
+- true unconditional long-term distribution?
+
+### Missing data
+
+\begin{equation*}
+
+
+\text{prices} = 
+\begin{bmatrix}
+110\\
+120\\
+\text{NA}\\
+\text{NA}\\
+150\\
+160
+\end{bmatrix} \quad\Rightarrow\quad
+\Delta=\begin{bmatrix}
+\text{NA}\\
+10\\
+\text{NA}\\
+\text{NA}\\
+\text{NA}\\
+10
+\end{bmatrix}
+
+\end{equation*}
+
+. . .
+
+\
+
+\begin{equation*}
+\Delta=50 \quad vs\quad \sum=20
+\end{equation*}
+
+### LOCF
+
+\begin{equation*}
+
+
+\text{prices} = 
+\begin{bmatrix}
+110\\
+120\\
+\textbf{120}\\
+\textbf{120}\\
+150\\
+160
+\end{bmatrix} \quad\Rightarrow\quad
+\Delta=\begin{bmatrix}
+\text{NA}\\
+10\\
+0\\
+0\\
+30\\
+10
+\end{bmatrix}
+
+\end{equation*}
+
+. . .
+
+\
+
+\begin{equation*}
+\Delta=50 \quad vs\quad \sum=50
+\end{equation*}
+
+. . .
+
+- zero return inflation
+- de facto use of multi-period return
+
+
+### What I do
+
+Filling small gaps:
+
+\begin{equation*}
+
+
+\text{prices} = 
+\begin{bmatrix}
+110\\
+120\\
+\text{NA}\\
+130\\
+140\\
+150
+\end{bmatrix} \quad\Rightarrow\quad
+\Delta=\begin{bmatrix}
+\text{NA}\\
+10\\
+\text{NA}\\
+\textbf{10}\\
+10\\
+10
+\end{bmatrix}
+
+\end{equation*}
+
+. . .
+
+- no zero return inflation
+- differences sum up to overall difference
+
+###
+
+Keeping large gaps:
+
+\begin{equation*}
+
+
+\text{prices} = 
+\begin{bmatrix}
+110\\
+120\\
+\text{NA}\\
+\text{NA}\\
+150\\
+160
+\end{bmatrix} \quad\Rightarrow\quad
+\Delta=\begin{bmatrix}
+\text{NA}\\
+10\\
+\text{NA}\\
+\text{NA}\\
+\text{NA}\\
+10
+\end{bmatrix}
+
+\end{equation*}
+
+. . .
+
+\ 
+
+- no zero return inflation
+- no multi-period returns
+- but: individual differences to not aggregate to full difference
+
+
+### Missing observations
+
+<p align="center">
+<img src="../dissDataAndPics/assetAllocation/pics/missingValuesPerAsset.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Unconditional mean
+
+<p align="center">
+<img src="../dissDataAndPics/assetAllocation/pics/musWithMissingValues.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+. . .
+
+- still: additional explanation required
+- changes in valuation? CAPE ratio
+
+<!--
+
+### Unconditional mean
+
+<p align="center">
+<iframe frameborder="0" seamless="seamless" width="100%" height="650" 
+src="../dissDataAndPics/assetAllocation/plotlyFigs/musWithMissingValues.html"></iframe>
+</p>
+
+-->
+
+### Unconditional sample moments
+
+<p align="center">
+<img src="../dissDataAndPics/assetAllocation/pics/euroAssetMoments.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+. . .
+
+- why are US bonds so risky?
 
 ### Fx rates
 
@@ -163,11 +359,8 @@ alt="Number of observations" width="800px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
+- TODO: make axes squared
 
-###
-
-- Scalable data
-- currencies
 
 # Stochastic model
 
@@ -175,7 +368,43 @@ alt="Number of observations" width="800px" style="background-color:white" />
 
 - directly capture portfolio components
 - derive portfolio component properties from low-level risk factors
-- why? -> bond properties have deterministic components
+- why? -> bond properties have deterministic components (non-stationarity)
+
+</section>
+<section data-transition="slide-in none-out">
+
+<p align="center">
+<img src="../dissDataAndPics/assetAllocation/unreplicatablePics/stochModel.svg"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+</section>
+<section data-transition="none-in none-out">
+
+<p align="center">
+<img src="../dissDataAndPics/assetAllocation/unreplicatablePics/stochModel1.svg"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+</section>
+<section data-transition="none-in none-out">
+
+
+<p align="center">
+<img src="../dissDataAndPics/assetAllocation/unreplicatablePics/stochModel2.svg"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+</section>
+<section data-transition="none-in none-out">
+
+
+<p align="center">
+<img src="../dissDataAndPics/assetAllocation/unreplicatablePics/stochModel4.svg"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+</section>
 
 # Stock market properties
 
