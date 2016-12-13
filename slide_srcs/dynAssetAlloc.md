@@ -44,6 +44,46 @@ Possible titles:
 
 # Introduction
 
+### Target
+
+Analyze **risk and return** profiles of **dynamic** asset management
+**strategies**. 
+
+### Possible approaches
+
+- **backtest**: apply strategy to single observable path of historic asset
+  trajectories
+
+. . .
+
+- **simulation**: simulate asset trajectories in order to evaluate risk
+  profile of strategy
+
+### Dynamic vs static
+
+Static portfolios are unrealistic, as they do not allow portfolio
+adaptions to changing market environment.
+
+. . .
+
+- simulation: involves multi-dimensional asset model
+- static case: a daily re-balanced portfolio to given weights could be
+  reduced to univariate time series
+
+<!--  
+- dynamic vs static: what's risk of missing a turn and skidding off
+  road? Static framework would not allow for adaptions to changing
+  environment
+--> 
+
+
+
+### Modeling requirements
+
+- identify current market situation (conditional distribution,
+  short-term) 
+- identify and replicate long-term market patterns for simulation
+
 ### Portfolio components
 
 Portfolio comprises the following **asset classes**:
@@ -345,6 +385,10 @@ alt="Number of observations" width="800px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
+. . .
+
+- justified home-bias in low-risk assets
+
 ### Asset moments
 
 <p align="center">
@@ -363,6 +407,14 @@ alt="Number of observations" width="800px" style="background-color:white" />
 
 
 # Stochastic model
+
+### Stochastics at which layer?
+
+- **mathematical tractability**: model discrete or logarithmic returns?
+- **estimation error**: make use of known structures (covariance matrix)
+- **frequency**: lower bound given by trading strategy
+- **stationarity**: bond portfolio returns
+- fractionally integrated: multiples*earnings
 
 ### How to make model?
 
@@ -442,3 +494,14 @@ alt="Number of observations" width="800px" style="background-color:white" />
 \end{bmatrix}
 \end{equation*}
 
+# Thoughts
+
+### Frequency problem
+
+- one year VaR with over-lapping one year data: 
+	- spuriousity
+- one year VaR required at higher frequencies
+	- saw-tooth patterns
+- adjusting frequency to required frequency:
+	- one year VaR from daily data
+	- one year VaR from non-overlapping yearly data with adjustments
