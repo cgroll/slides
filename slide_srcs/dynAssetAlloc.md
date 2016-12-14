@@ -430,6 +430,18 @@ alt="Number of observations" width="800px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
+### Annual risk
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/VaR95.png"
+alt="Number of observations" width="500px" style="background-color:white" />
+</p>
+
+- empirical quantile: -0.1995
+- t-location-scale: -0.2074
+- parameters, log-returns: $(\mu,\sigma,\nu)=(0.09, 0.15, 9.36)$
+
+
 ### Investment periods
 
 <p align="center">
@@ -455,9 +467,7 @@ alt="Number of observations" width="800px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-</section>
-
-<section data-transition="slide-in slide-out">
+### Model
 
 $$\begin{aligned}
 X_{t}&=\sigma_{t}\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 1)\\
@@ -470,8 +480,12 @@ Y_{t}=\mu + X_{t}
 \end{equation*}
 
 
+### Investment periods
 
-</section>
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_TR_InvestmentPeriods_simulated.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
 
 
 # CAPE ratio
