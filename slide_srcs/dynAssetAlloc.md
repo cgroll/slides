@@ -49,6 +49,11 @@ Possible titles:
 Analyze **risk and return** profiles of **dynamic** asset management
 **strategies**. 
 
+### Dynamic vs static
+
+Static portfolios are unrealistic, as they do not allow portfolio
+adaptions to **react to changing market environment**.
+
 ### Possible approaches
 
 - **backtest**: apply strategy to single observable path of historic asset
@@ -59,16 +64,42 @@ Analyze **risk and return** profiles of **dynamic** asset management
 - **simulation**: simulate asset trajectories in order to evaluate risk
   profile of strategy
 
-### Dynamic vs static
 
-Static portfolios are unrealistic, as they do not allow portfolio
-adaptions to changing market environment.
+
+### Model requirements: backtest
+
+- **no model** at all for some strategies (**fixed weights**)
 
 . . .
 
-- simulation: involves multi-dimensional asset model
-- static case: a daily re-balanced portfolio to given weights could be
-  reduced to univariate time series
+- **short-term model** for strategies that need to **identify**
+  current **market situation** at each point in time 
+
+. . .
+
+⇒ **conditional distribution**
+
+### Model requirements: simulation
+
+- **static**: uni-variate model as **proxy** to
+  buy-and-hold 
+
+<!--
+daily re-balanced portfolio in reality) 
+-->
+
+. . .
+
+- **dynamic**: multi-dimensional asset model
+
+. . .
+
+- identify and **replicate** long-term market patterns for simulation
+
+. . .
+
+⇒ conditional distributions together with **dynamics** of how they
+evolve over time
 
 <!--  
 - dynamic vs static: what's risk of missing a turn and skidding off
@@ -77,12 +108,7 @@ adaptions to changing market environment.
 --> 
 
 
-
-### Modeling requirements
-
-- identify current market situation (conditional distribution,
-  short-term) 
-- identify and replicate long-term market patterns for simulation
+# Universe
 
 ### Portfolio components
 
@@ -167,10 +193,6 @@ Is this 16 year sample representative for:
 . . .
 
 - current market situation?
-
-. . .
-
-- true unconditional 16 year distribution?
 
 . . .
 
@@ -313,7 +335,7 @@ Keeping large gaps:
 
 - no zero return inflation
 - no multi-period returns
-- but: individual differences to not aggregate to full difference
+- but: individual differences do not aggregate to full difference
 
 
 ### Missing observations
@@ -329,11 +351,6 @@ alt="Number of observations" width="800px" style="background-color:white" />
 <img src="../dissDataAndPics/assetAllocation/pics/musWithMissingValues.png"
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
-
-. . .
-
-- still: additional explanation required
-- changes in valuation? CAPE ratio
 
 <!--
 
@@ -387,7 +404,7 @@ alt="Number of observations" width="800px" style="background-color:white" />
 
 . . .
 
-- justified home-bias in low-risk assets
+- home-bias justified?
 
 ### Asset moments
 
@@ -403,12 +420,144 @@ alt="Number of observations" width="800px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-- TODO: make axes squared
+
+# Long-term asset returns
+
+### Price vs performance index
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/sp500PricesVsPerf.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Investment periods
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_TR_InvestmentPeriods.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+</section>
+<section data-transition="slide-in none-out">
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_perf_scaling.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+
+</section>
+<section data-transition="none-in none-out">
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_perf_scaling_simulated.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+</section>
+
+<section data-transition="slide-in slide-out">
+
+$$\begin{aligned}
+X_{t}&=\sigma_{t}\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 1)\\
+\sigma_{t}^{2}&=0.01 + 0.94\sigma_{t-1}^{2}+0.05X_{t-1}^{2}\\
+\end{aligned}$$
+
+
+\begin{equation*}
+Y_{t}=\mu + X_{t}
+\end{equation*}
+
+
+
+</section>
+
+
+# CAPE ratio
+
+### SP500 in real prices
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/realSP500.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Smoothed earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/cycAdjEarn.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Historic CAPE
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/CAPEoverTime.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### TR returns, real prices
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_TR_Real.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Annual returns
+
+Average annual returns (discrete) for the full sample:
+
+|         | Price Index | Total Return |
+|---------+-------------+--------------|
+| Nominal |         4.2 | 8.7          |
+| Real    |         2.1 | **6.5**      |
+
+
+### CAPE - predictive power
+
+own analysis based on SP500
+
+### CAPE - predictive power
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/historic_CAPE_return_relation.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### CAPE - current values
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_Ratios_World.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### CAPE - country forecast
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_country_forecasts.png"
+alt="Number of observations" width="500px" style="background-color:white" />
+</p>
+
+### CAPE - DE potential
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_DE.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### CAPE - US potential
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_US.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
 
 
 # Stochastic model
 
-### Stochastics at which layer?
+### Risk factors to be modelled
 
 - **mathematical tractability**: model discrete or logarithmic returns?
 - **estimation error**: make use of known structures (covariance matrix)
@@ -458,41 +607,6 @@ alt="Number of observations" width="800px" style="background-color:white" />
 
 </section>
 
-# Stock market properties
-
-
-### ACWI data analysis
-
-- common properties of stocks (mu / sigma)
-
-### ACWI data filtering
-
-- which filters where applied
-
-### ACWI risk / return results
-
-- unconditionally
-
-### Time-varying risk / return
-
-- how do conditional mus relate to conditional sigmas?
-
-### General co-movements
-
-- co-movements between different assets
-
-\begin{equation*}
-\begin{bmatrix}
-\mu_{1}\\
-\sigma_{1}\\
-\text{VaR}_{1}
-\end{bmatrix}\text{vs.}
-\begin{bmatrix}
-\mu_{2}\\
-\sigma_{2}\\
-\text{VaR}_{2}
-\end{bmatrix}
-\end{equation*}
 
 # Thoughts
 
