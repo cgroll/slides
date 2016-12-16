@@ -549,7 +549,6 @@ alt="Number of observations" width="700px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-
 ### Predictive power: internationally
 
 <p align="center">
@@ -627,11 +626,18 @@ alt="Number of observations" width="800px" style="background-color:white" />
 ### Cross-correlations
 
 <p align="center">
-<img src="../dissDataAndPics/value/pics/crossCorrs.png"
+<img src="../dissDataAndPics/value/pics/crossCorrsEarnings.png"
 alt="Number of observations" width="700px" style="background-color:white" />
 </p>
 
-### Model
+### Cross-correlations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/crossCorrsCyclAdjEarnings.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### CAPE model
 
 \begin{equation*}
 X_{t}=c + aX_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, \sigma^{2})
@@ -646,18 +652,61 @@ X_{t}=0.3 + 0.89X_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 0.03
 ### Simulation
 
 <p align="center">
-<img src="../dissDataAndPics/value/pics/crossCorrs.png"
+<img src="../dissDataAndPics/value/pics/simUnivCape.png"
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-### Model
+### Cycl. adj. earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/linearTrendCycAdjEarn.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Cycl. adj. earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/autoCorrTrendDeviations.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+### Cycl. adj. earnings model
 
 
 $$\begin{aligned}
 Y_{t}&= c_{1} + a_{1} t + X_{t}\\
-X_{t}&= c_{2} + a_{2} X_{t-1} + \epsilon_{t}
+X_{t}&= c_{2} + a_{2} X_{t-1} + \varepsilon_{t}, \quad \varepsilon_{t}\sim \mathcal{N}(0, \sigma^{2})
 \end{aligned}$$
 
+### Cycl. adj. earnings model
+
+
+$$\begin{aligned}
+Y_{t}&= -25.37 + 0.015 t + X_{t}\\
+X_{t}&= 0.001 + 0.985 X_{t-1} + \varepsilon_{t}, \quad \varepsilon_{t}\sim \mathcal{N}(0, 0.00127)
+\end{aligned}$$
+
+### Cross-dependence: innovations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/crossDepEarnInnovCAPE.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Innovations model
+
+\begin{equation*}
+\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}
+\end{equation*}
+
+
+### Simulated CAPE return relation
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simCAPE_ReturnRelation.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
 
 
 
