@@ -530,42 +530,134 @@ Average annual returns (discrete) for the full sample:
 
 ### CAPE - predictive power
 
-own analysis based on SP500
+<p align="center">
+<img src="../dissDataAndPics/value/pics/capeFutureReturns.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
 
 ### CAPE - predictive power
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/capeReturnCorrelations.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### CAPE - predictive power
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/capeFutureTrajectories.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+
+### Predictive power: internationally
 
 <p align="center">
 <img src="../dissDataAndPics/value/copiedElsewhere/historic_CAPE_return_relation.png"
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-### CAPE - current values
+### 
+
+- when mean returns are **constant** over time, you can **not gain from
+  forecasting** values other than the mean
+
+. . .
+
+- the fact that there do exist **forecasting possibilities** does
+  **rule out constant means**
+
+. . .
+
+⇒ **mean returns are changing** over time
+
+### Current CAPE ratios
 
 <p align="center">
 <img src="../dissDataAndPics/value/copiedElsewhere/CAPE_Ratios_World.png"
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-### CAPE - country forecast
+### Current country forecast
 
 <p align="center">
 <img src="../dissDataAndPics/value/copiedElsewhere/CAPE_country_forecasts.png"
 alt="Number of observations" width="500px" style="background-color:white" />
 </p>
 
-### CAPE - DE potential
+### Germany potential
 
 <p align="center">
 <img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_DE.png"
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-### CAPE - US potential
+### US potential
 
 <p align="center">
 <img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_US.png"
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
+
+
+# Modeling CAPE
+
+
+### CAPE
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/logCAPE.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Prices and earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/logPricesEarnings.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Autocorrelations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/autocorrs.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Cross-correlations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/crossCorrs.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Model
+
+\begin{equation*}
+X_{t}=c + aX_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, \sigma^{2})
+\end{equation*}
+
+. . .
+
+\begin{equation*}
+X_{t}=0.3 + 0.89X_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 0.031)
+\end{equation*}
+
+### Simulation
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/crossCorrs.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Model
+
+
+$$\begin{aligned}
+Y_{t}&= c_{1} + a_{1} t + X_{t}\\
+X_{t}&= c_{2} + a_{2} X_{t-1} + \epsilon_{t}
+\end{aligned}$$
+
 
 
 
