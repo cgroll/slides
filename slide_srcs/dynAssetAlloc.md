@@ -1,4 +1,5 @@
-% CAPE ratios and what they teach us about long-term stock market dynamics
+% CAPE ratios
+% and what they teach us about long-term stock market dynamics
 
 <!--
 Possible titles:
@@ -201,6 +202,8 @@ Is this 16 year sample representative for:
 
 - true unconditional long-term distribution?
 
+<!--
+
 ### Missing data
 
 \begin{equation*}
@@ -355,7 +358,6 @@ alt="Number of observations" width="800px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-<!--
 
 ### Unconditional mean
 
@@ -747,6 +749,34 @@ alt="Number of observations" width="800px" style="background-color:white" />
 
 <p align="center">
 <img src="../dissDataAndPics/value/pics/simCAPE_returnForecast.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Annual predictions
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/annualPredictions.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Price vs equilibrium price
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/equilibriumPrice.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Expected annual returns
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simExpReturnsVsReturns.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Simulated annual returns
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simAnnualReturns.png"
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
