@@ -1,9 +1,12 @@
-% Dynamic asset allocation strategies:
-% risk analysis
+% CAPE ratios and what they teach us about long-term stock market dynamics
 
 <!--
 Possible titles:
 - Dynamic multi-asset class investment strategies
+- CAPE Ratio and what we can learn about long-term asset dynamics
+- CAPE ratios and what they tell us about long-term asset dynamics
+- CAPE ratios and what they teach us about stock market returns
+- Dynamic asset allocation strategies: risk analysis
 -->
 
 
@@ -490,6 +493,18 @@ alt="Number of observations" width="800px" style="background-color:white" />
 
 # CAPE ratio
 
+### Definition
+
+- cyclically adjusted earnings
+\begin{equation*}
+\bar{E}_{t}^{\langle 10 \rangle}:=\frac{1}{10}\left( \sum_{i=1}^{10}\bar{E}_{t-i} \right)
+\end{equation*}
+
+- CAPE ratio
+\begin{equation*}
+\text{CAPE}_{t}=\frac{\bar{P}_{t}}{\bar{E}_{t}^{\langle 10 \rangle}}
+\end{equation*}
+
 ### SP500 in real prices
 
 <p align="center">
@@ -697,15 +712,42 @@ alt="Number of observations" width="700px" style="background-color:white" />
 ### Innovations model
 
 \begin{equation*}
-\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}
+\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}_{\rho}
 \end{equation*}
+
+. . .
+
+\begin{equation*}
+\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}_{\rho=0.18}
+\end{equation*}
+
+### Simulated values
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simCAPEModel.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Simulated price index
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simAnnualRetsPriceIndex.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
 
 
 ### Simulated CAPE return relation
 
 <p align="center">
 <img src="../dissDataAndPics/value/pics/simCAPE_ReturnRelation.png"
-alt="Number of observations" width="700px" style="background-color:white" />
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Simulated price index
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simCAPE_returnForecast.png"
+alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
 
