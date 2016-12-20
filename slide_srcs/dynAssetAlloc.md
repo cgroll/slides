@@ -482,7 +482,56 @@ alt="Number of observations" width="800px" style="background-color:white" />
 alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
-#
+# Conclusion
+
+###
+
+- mean returns do **change over time**
+
+. . .
+
+- testing $\mu$-$\sigma$ strategies against data that is simulated
+  with **constant mean** is **useless**
+
+. . .
+
+- CAPE-based models might be a way to **simulate time-varying
+  $(\mu_{t})_{t}$**
+
+. . .
+
+- CAPE ratio might be a way to **retrieve conditional distributions**
+  (although more appropriate for medium-term time horizons)
+
+###
+
+Many ways of coming up with time-varying $(\mu_{t})_{t}$:
+
+. . .
+
+AR-type models
+
+\begin{equation*}
+X_{t}=c + aX_{t-1}+\epsilon_{t}
+\end{equation*}
+
+. . .
+
+Stochastic mean models
+
+$$\begin{aligned}
+X_{t} &= \mu_{t} + \epsilon_{t}\\
+\mu_{t}&=c+a\mu_{t-1}+ \varepsilon_{t}
+\end{aligned}$$
+
+. . .
+
+Combination of both
+
+- $X_{t}$ driven by time-varying $\mu_{t}$
+- realization of $X_{t}$ has influence on future $\mu_{t+1}$ (mean-reversion)
+
+
 
 ### 
 
