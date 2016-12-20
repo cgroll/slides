@@ -46,7 +46,7 @@ Possible titles:
 
 -->
 
-# Introduction
+# Motivation
 
 ### Target
 
@@ -112,7 +112,384 @@ evolve over time
 --> 
 
 
-# Universe
+
+# Long-term asset returns
+
+### Price vs performance index
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/sp500PricesVsPerf.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Annual returns
+
+Average annual returns (discrete) for the full sample:
+
+|         | Price Index | Total Return |
+|---------+-------------+--------------|
+| Nominal |         4.2 | 8.7          |
+
+
+### Annual risk
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/VaR95.png"
+alt="Number of observations" width="500px" style="background-color:white" />
+</p>
+
+- empirical quantile: -0.1995
+- t-location-scale: -0.2074
+- parameters, log-returns: $(\mu,\sigma,\nu)=(0.09, 0.15, 9.36)$
+
+
+### Investment periods
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_TR_InvestmentPeriods.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Model
+
+$$\begin{aligned}
+X_{t}&=\sigma_{t}\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 1)\\
+\sigma_{t}^{2}&=0.01 + 0.94\sigma_{t-1}^{2}+0.05X_{t-1}^{2}\\
+\end{aligned}$$
+
+
+\begin{equation*}
+Y_{t}=\mu + X_{t}
+\end{equation*}
+
+</section>
+<section data-transition="slide-in none-out">
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_perf_scaling.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+
+</section>
+<section data-transition="none-in none-out">
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_perf_scaling_simulated.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+
+### Investment periods
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_TR_InvestmentPeriods_simulated.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+
+# CAPE ratio
+
+### Definition
+
+- cyclically adjusted earnings
+\begin{equation*}
+\bar{E}_{t}^{\langle 10 \rangle}:=\frac{1}{10}\left( \sum_{i=1}^{10}\bar{E}_{t-i} \right)
+\end{equation*}
+
+- CAPE ratio
+\begin{equation*}
+\text{CAPE}_{t}=\frac{\bar{P}_{t}}{\bar{E}_{t}^{\langle 10 \rangle}}
+\end{equation*}
+
+### SP500 in real prices
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/realSP500.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Smoothed earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/cycAdjEarn.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Historic CAPE
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/CAPEoverTime.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### TR returns, real prices
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/SP500_TR_Real.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Annual returns
+
+Average annual returns (discrete) for the full sample:
+
+|         | Price Index | Total Return |
+|---------+-------------+--------------|
+| Nominal |         4.2 | 8.7          |
+| Real    |         2.1 | **6.5**      |
+
+
+### CAPE - predictive power
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/capeFutureReturns.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### CAPE - predictive power
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/capeReturnCorrelations.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### CAPE - predictive power
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/capeFutureTrajectories.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Predictive power: internationally
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/historic_CAPE_return_relation.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### CAPE: internationally
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/historic_CAPE_over_time.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### 
+
+- when mean returns are **constant** over time, you can **not gain from
+  forecasting** values other than the mean
+
+. . .
+
+- the fact that there do exist **forecasting possibilities** does
+  **rule out constant means**
+
+. . .
+
+⇒ **mean returns are changing** over time
+
+### Current CAPE ratios
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_Ratios_World.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Current country forecast
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_country_forecasts.png"
+alt="Number of observations" width="500px" style="background-color:white" />
+</p>
+
+### Germany potential
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_DE.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### US potential
+
+<p align="center">
+<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_US.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+
+# Modeling CAPE
+
+
+### CAPE
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/logCAPE.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Prices and earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/logPricesEarnings.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Autocorrelations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/autocorrs.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Cross-correlations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/crossCorrsEarnings.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Cross-correlations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/crossCorrsCyclAdjEarnings.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### CAPE model
+
+\begin{equation*}
+X_{t}=c + aX_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, \sigma^{2})
+\end{equation*}
+
+. . .
+
+\begin{equation*}
+X_{t}=0.3 + 0.89X_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 0.031)
+\end{equation*}
+
+### Simulation
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simUnivCape.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Cycl. adj. earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/linearTrendCycAdjEarn.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Cycl. adj. earnings
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/autoCorrTrendDeviations.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+### Cycl. adj. earnings model
+
+
+$$\begin{aligned}
+Y_{t}&= c_{1} + a_{1} t + X_{t}\\
+X_{t}&= c_{2} + a_{2} X_{t-1} + \varepsilon_{t}, \quad \varepsilon_{t}\sim \mathcal{N}(0, \sigma^{2})
+\end{aligned}$$
+
+### Cycl. adj. earnings model
+
+
+$$\begin{aligned}
+Y_{t}&= -25.37 + 0.015 t + X_{t}\\
+X_{t}&= 0.001 + 0.985 X_{t-1} + \varepsilon_{t}, \quad \varepsilon_{t}\sim \mathcal{N}(0, 0.00127)
+\end{aligned}$$
+
+### Cross-dependence: innovations
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/crossDepEarnInnovCAPE.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+### Innovations model
+
+\begin{equation*}
+\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}_{\rho}
+\end{equation*}
+
+. . .
+
+\begin{equation*}
+\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}_{\rho=0.18}
+\end{equation*}
+
+### Simulated values
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simCAPEModel.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Simulated price index
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simAnnualRetsPriceIndex.png"
+alt="Number of observations" width="700px" style="background-color:white" />
+</p>
+
+
+### Simulated CAPE return relation
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simCAPE_ReturnRelation.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Simulated price index
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simCAPE_returnForecast.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Annual predictions
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/annualPredictions.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Price vs equilibrium price
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/equilibriumPrice.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Expected annual returns
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simExpReturnsVsReturns.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+### Simulated annual returns
+
+<p align="center">
+<img src="../dissDataAndPics/value/pics/simAnnualReturns.png"
+alt="Number of observations" width="800px" style="background-color:white" />
+</p>
+
+#
+
+### 
+
+Thanks for your attention!
+
+# Appendix: Universe
+
 
 ### Portfolio components
 
@@ -426,361 +803,7 @@ alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
 
-# Long-term asset returns
-
-### Price vs performance index
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/sp500PricesVsPerf.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Annual risk
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/VaR95.png"
-alt="Number of observations" width="500px" style="background-color:white" />
-</p>
-
-- empirical quantile: -0.1995
-- t-location-scale: -0.2074
-- parameters, log-returns: $(\mu,\sigma,\nu)=(0.09, 0.15, 9.36)$
-
-
-### Investment periods
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/SP500_TR_InvestmentPeriods.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-
-</section>
-<section data-transition="slide-in none-out">
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/SP500_perf_scaling.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-
-</section>
-<section data-transition="none-in none-out">
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/SP500_perf_scaling_simulated.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Model
-
-$$\begin{aligned}
-X_{t}&=\sigma_{t}\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 1)\\
-\sigma_{t}^{2}&=0.01 + 0.94\sigma_{t-1}^{2}+0.05X_{t-1}^{2}\\
-\end{aligned}$$
-
-
-\begin{equation*}
-Y_{t}=\mu + X_{t}
-\end{equation*}
-
-
-### Investment periods
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/SP500_TR_InvestmentPeriods_simulated.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-
-# CAPE ratio
-
-### Definition
-
-- cyclically adjusted earnings
-\begin{equation*}
-\bar{E}_{t}^{\langle 10 \rangle}:=\frac{1}{10}\left( \sum_{i=1}^{10}\bar{E}_{t-i} \right)
-\end{equation*}
-
-- CAPE ratio
-\begin{equation*}
-\text{CAPE}_{t}=\frac{\bar{P}_{t}}{\bar{E}_{t}^{\langle 10 \rangle}}
-\end{equation*}
-
-### SP500 in real prices
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/realSP500.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Smoothed earnings
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/cycAdjEarn.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-### Historic CAPE
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/CAPEoverTime.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-### TR returns, real prices
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/SP500_TR_Real.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-### Annual returns
-
-Average annual returns (discrete) for the full sample:
-
-|         | Price Index | Total Return |
-|---------+-------------+--------------|
-| Nominal |         4.2 | 8.7          |
-| Real    |         2.1 | **6.5**      |
-
-
-### CAPE - predictive power
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/capeFutureReturns.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### CAPE - predictive power
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/capeReturnCorrelations.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-### CAPE - predictive power
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/capeFutureTrajectories.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Predictive power: internationally
-
-<p align="center">
-<img src="../dissDataAndPics/value/copiedElsewhere/historic_CAPE_return_relation.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### 
-
-- when mean returns are **constant** over time, you can **not gain from
-  forecasting** values other than the mean
-
-. . .
-
-- the fact that there do exist **forecasting possibilities** does
-  **rule out constant means**
-
-. . .
-
-⇒ **mean returns are changing** over time
-
-### Current CAPE ratios
-
-<p align="center">
-<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_Ratios_World.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Current country forecast
-
-<p align="center">
-<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_country_forecasts.png"
-alt="Number of observations" width="500px" style="background-color:white" />
-</p>
-
-### Germany potential
-
-<p align="center">
-<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_DE.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### US potential
-
-<p align="center">
-<img src="../dissDataAndPics/value/copiedElsewhere/CAPE_potential_US.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-
-# Modeling CAPE
-
-
-### CAPE
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/logCAPE.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Prices and earnings
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/logPricesEarnings.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Autocorrelations
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/autocorrs.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Cross-correlations
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/crossCorrsEarnings.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-### Cross-correlations
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/crossCorrsCyclAdjEarnings.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-### CAPE model
-
-\begin{equation*}
-X_{t}=c + aX_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, \sigma^{2})
-\end{equation*}
-
-. . .
-
-\begin{equation*}
-X_{t}=0.3 + 0.89X_{t-1}+\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 0.031)
-\end{equation*}
-
-### Simulation
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/simUnivCape.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Cycl. adj. earnings
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/linearTrendCycAdjEarn.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Cycl. adj. earnings
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/autoCorrTrendDeviations.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-
-### Cycl. adj. earnings model
-
-
-$$\begin{aligned}
-Y_{t}&= c_{1} + a_{1} t + X_{t}\\
-X_{t}&= c_{2} + a_{2} X_{t-1} + \varepsilon_{t}, \quad \varepsilon_{t}\sim \mathcal{N}(0, \sigma^{2})
-\end{aligned}$$
-
-### Cycl. adj. earnings model
-
-
-$$\begin{aligned}
-Y_{t}&= -25.37 + 0.015 t + X_{t}\\
-X_{t}&= 0.001 + 0.985 X_{t-1} + \varepsilon_{t}, \quad \varepsilon_{t}\sim \mathcal{N}(0, 0.00127)
-\end{aligned}$$
-
-### Cross-dependence: innovations
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/crossDepEarnInnovCAPE.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-### Innovations model
-
-\begin{equation*}
-\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}_{\rho}
-\end{equation*}
-
-. . .
-
-\begin{equation*}
-\left( \epsilon_{t}, \varepsilon_{t} \right) \sim C^{Ga}_{\rho=0.18}
-\end{equation*}
-
-### Simulated values
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/simCAPEModel.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Simulated price index
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/simAnnualRetsPriceIndex.png"
-alt="Number of observations" width="700px" style="background-color:white" />
-</p>
-
-
-### Simulated CAPE return relation
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/simCAPE_ReturnRelation.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Simulated price index
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/simCAPE_returnForecast.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Annual predictions
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/annualPredictions.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Price vs equilibrium price
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/equilibriumPrice.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Expected annual returns
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/simExpReturnsVsReturns.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-### Simulated annual returns
-
-<p align="center">
-<img src="../dissDataAndPics/value/pics/simAnnualReturns.png"
-alt="Number of observations" width="800px" style="background-color:white" />
-</p>
-
-
+<!--
 
 # Stochastic model
 
@@ -833,8 +856,8 @@ alt="Number of observations" width="800px" style="background-color:white" />
 </p>
 
 </section>
-
-
+-->
+<!--
 # Thoughts
 
 ### Frequency problem
@@ -846,3 +869,4 @@ alt="Number of observations" width="800px" style="background-color:white" />
 - adjusting frequency to required frequency:
 	- one year VaR from daily data
 	- one year VaR from non-overlapping yearly data with adjustments
+-->
