@@ -8,6 +8,9 @@ Possible titles:
 - CAPE ratios and what they tell us about long-term asset dynamics
 - CAPE ratios and what they teach us about stock market returns
 - Dynamic asset allocation strategies: risk analysis
+- Quantitative Multi-Asset Class Portfolio Management
+- Dynamic Multi-Asset Class Portfolio Management
+- The econometrics of multi-asset class portfolio management
 -->
 
 
@@ -158,9 +161,9 @@ X_{t}&=\sigma_{t}\epsilon_{t}, \quad \epsilon_{t}\sim \mathcal{N}(0, 1)\\
 \end{aligned}$$
 
 
-\begin{equation*}
+$$\begin{equation*}
 Y_{t}=\mu + X_{t}
-\end{equation*}
+\end{equation*}$$
 
 </section>
 <section data-transition="slide-in none-out">
@@ -193,11 +196,13 @@ alt="Number of observations" width="800px" style="background-color:white" />
 ### Definition
 
 - cyclically adjusted earnings
+
 \begin{equation*}
 \bar{E}_{t}^{\langle 10 \rangle}:=\frac{1}{10}\left( \sum_{i=1}^{10}\bar{E}_{t-i} \right)
 \end{equation*}
 
 - CAPE ratio
+
 \begin{equation*}
 \text{CAPE}_{t}=\frac{\bar{P}_{t}}{\bar{E}_{t}^{\langle 10 \rangle}}
 \end{equation*}
